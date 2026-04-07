@@ -5,14 +5,18 @@ flask-cors
 # HTTP requests
 requests
 
-# Data manipulation
-pandas
-
-# AI/ML frameworks
-langchain
-langchain-openai
-langchain-experimental
+# AI/ML
 openai
+
+# Vector database (for RAG)
+chromadb
+
+# Text splitting
+langchain
+langchain-community
+
+# PDF reading (for ingesting literature)
+pypdf
 
 # Environment variables
 python-dotenv
@@ -21,9 +25,5 @@ python-dotenv
 pymongo>=4.0
 dnspython>=2.0
 
+# Production server
 gunicorn==21.2.0
-
-
-
-# Built-in modules (no installation needed)
-# base64, getpass, os, json, time, datetime, urllib.parse, secrets, hashlib
