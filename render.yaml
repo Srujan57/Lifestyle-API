@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: lifestyle-api-backend
+    runtime: docker
+    dockerfilePath: ./back-end/Dockerfile
+    dockerContext: ./back-end
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      # Copy these in from whatever you currently have set on Railway.
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: MONGODB_URI
+        sync: false
+      - key: FRONTEND_URL
+        sync: false
+      - key: REDIRECT_URI
+        sync: false
+      # New: point at the private repo holding the pre-built chroma_db/,
+      # so cold starts don't re-embed every PDF via the OpenAI API.
+      - key: CHROMA_ASSETS_REPO
+        sync: false
+      - key: GH_ASSET_TOKEN
+        sync: false
