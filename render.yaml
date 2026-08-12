@@ -7,13 +7,23 @@ services:
     plan: free
     healthCheckPath: /health
     envVars:
-      # Copy these in from whatever you currently have set on Railway.
+      # app.py hard-requires this in production (FLASK_DEBUG != "1") and
+      # refuses to boot without it. Generate with:
+      #   python -c "import secrets; print(secrets.token_hex(32))"
+      - key: FLASK_SECRET_KEY
+        sync: false
       - key: OPENAI_API_KEY
         sync: false
-      - key: MONGODB_URI
+      # NOTE: app.py reads this as MONGO_URI, not MONGODB_URI - keep the
+      # key name exactly as below or the app connects to nothing.
+      - key: MONGO_URI
         sync: false
       - key: FRONTEND_URL
         sync: false
+      # Optional - defaults to http://localhost:5000/callback if unset.
+      # Only needed once you're testing real (non-mock) Fitbit OAuth;
+      # set to https://<your-render-url>/callback and register the same
+      # URL in the Fitbit developer app settings.
       - key: REDIRECT_URI
         sync: false
       # New: point at the private repo holding the pre-built chroma_db/,
