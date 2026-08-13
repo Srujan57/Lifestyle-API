@@ -154,6 +154,15 @@ SOURCE_DIVERSITY_THRESHOLD = 0.85
 # Prevents overwhelming the user when a broad question matches many videos.
 MAX_ANIMATIONS_PER_RESPONSE = 2
 
+# Caption shown under every animation card title. Deliberately ONE fixed
+# string for every card rather than per-video text: it explains why the card
+# is there — which is the thing users were missing — without asserting
+# anything about that specific video's contents, so it can never be wrong
+# about one. Applied at response-build time; nothing about it is stored in
+# ChromaDB, derived from chunk text, or generated per request.
+# Exercise-video cards are unaffected — this is the animation path only.
+ANIMATION_CARD_CAPTION = "Related video based on what you're discussing"
+
 rate_limit_store: dict = {}
 RATE_LIMIT_WINDOW = 60
 RATE_LIMIT_MAX = 20
@@ -2553,7 +2562,8 @@ def retrieve_context(
             and distance <= ANIMATION_SURFACE_THRESHOLD
             and len(animations) < MAX_ANIMATIONS_PER_RESPONSE
         ):
-            animations.append({"title": section_title, "url": anim_url_safe})
+            animations.append({"title": section_title, "url": anim_url_safe,
+                               "description": ANIMATION_CARD_CAPTION})
             seen_anim_urls.add(anim_url_safe)
 
         if not use_chunk:

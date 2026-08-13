@@ -44,9 +44,14 @@ function AnimationCards({ animations }) {
           <p className="text-[10px] font-semibold uppercase tracking-wider text-blue-400 mb-1">
             📹 Recommended Video
           </p>
-          <p className="text-sm font-semibold text-blue-900 leading-snug mb-2">
+          <p className="text-sm font-semibold text-blue-900 leading-snug mb-1">
             {anim.title}
           </p>
+          {anim.description && (
+            <p className="text-xs text-blue-700 leading-snug mb-2">
+              {anim.description}
+            </p>
+          )}
           <a
             href={anim.url}
             target="_blank"
