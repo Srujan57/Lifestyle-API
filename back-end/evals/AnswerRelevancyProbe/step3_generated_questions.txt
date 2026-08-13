@@ -1,0 +1,962 @@
+====================================================================================================
+GENERATED QUESTIONS FOR EVERY BASELINE ZERO-SCORING ROW
+====================================================================================================
+
+For each row: the user's real question, then the 3 questions the judge
+generated from the response on each pass, with that pass's flags and the
+cosine similarity of each generated question to the real one.
+
+The test: are these on-topic questions about the subject matter, or
+meta-questions about consulting a clinician?
+
+====================================================================================================
+ROW 0   baseline=0.0000  deepeval=1.000  P(zero) over 3 passes = 1.00  mean_cosine=0.9297
+  USER QUESTION: My cancer has spread to my bones. Is it safe for me to exercise?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9297): Is it safe to exercise with bone metastases?
+      Q2 (cos 0.9297): Is it safe to exercise with bone metastases?
+      Q3 (cos 0.9297): Is it safe to exercise with bone metastases?
+  pass 2   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9297): Is it safe to exercise with bone metastases?
+      Q2 (cos 0.9297): Is it safe to exercise with bone metastases?
+      Q3 (cos 0.9297): Is it safe to exercise with bone metastases?
+  pass 3   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9297): Is it safe to exercise with bone metastases?
+      Q2 (cos 0.9297): Is it safe to exercise with bone metastases?
+      Q3 (cos 0.9297): Is it safe to exercise with bone metastases?
+
+====================================================================================================
+ROW 3   baseline=0.0000  deepeval=1.000  P(zero) over 3 passes = 1.00  mean_cosine=0.9005
+  USER QUESTION: I do cardio regularly. Do I still need to add weight training, or does running give me the same cancer prevention benefits?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.8994): What are the benefits of incorporating weight training into a cardio routine for cancer prevention?
+      Q2 (cos 0.9087): What are the benefits of adding weight training to a cardio routine for cancer prevention?
+      Q3 (cos 0.8905): What are the benefits of combining cardio and strength training for cancer prevention?
+  pass 2   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.8994): What are the benefits of incorporating weight training into a cardio routine for cancer prevention?
+      Q2 (cos 0.8994): What are the benefits of incorporating weight training into a cardio routine for cancer prevention?
+      Q3 (cos 0.8994): What are the benefits of incorporating weight training into a cardio routine for cancer prevention?
+  pass 3   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.8994): What are the benefits of incorporating weight training into a cardio routine for cancer prevention?
+      Q2 (cos 0.9087): What are the benefits of adding weight training to a cardio routine for cancer prevention?
+      Q3 (cos 0.8994): What are the benefits of incorporating weight training into a cardio routine for cancer prevention?
+
+====================================================================================================
+ROW 4   baseline=0.0000  deepeval=1.000  P(zero) over 3 passes = 1.00  mean_cosine=0.9180
+  USER QUESTION: If I already do some weight training, do I need to do more to get cancer prevention benefits?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9192): What are the benefits of weight training for cancer prevention?
+      Q2 (cos 0.9141): What are the benefits of incorporating weight training into a routine for cancer prevention?
+      Q3 (cos 0.9192): What are the benefits of weight training for cancer prevention?
+  pass 2   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9191): What are the benefits of weight training for cancer prevention?
+      Q2 (cos 0.9191): What are the benefits of weight training for cancer prevention?
+      Q3 (cos 0.9140): What are the benefits of incorporating weight training into a routine for cancer prevention?
+  pass 3   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9192): What are the benefits of weight training for cancer prevention?
+      Q2 (cos 0.9192): What are the benefits of weight training for cancer prevention?
+      Q3 (cos 0.9192): What are the benefits of weight training for cancer prevention?
+
+====================================================================================================
+ROW 5   baseline=0.0000  deepeval=1.000  P(zero) over 3 passes = 1.00  mean_cosine=0.7876
+  USER QUESTION: Why do you ask me so many questions before giving me a goal? Can't you just tell me what to do?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.7901): How can I set a goal that is suitable for my situation as a cancer survivor?
+      Q2 (cos 0.7948): How can I tailor a goal that fits my situation as a cancer survivor?
+      Q3 (cos 0.7858): How can I set a personalized goal for my health as a cancer survivor?
+  pass 2   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.7950): How can I tailor a goal that fits my needs as a cancer survivor?
+      Q2 (cos 0.7936): How can I tailor a goal that fits my unique situation as a cancer survivor?
+      Q3 (cos 0.7901): How can I set a goal that is suitable for my situation as a cancer survivor?
+  pass 3   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.7913): How can I set a goal that is right for me as a cancer survivor?
+      Q2 (cos 0.7936): How can I tailor a goal that fits my unique situation as a cancer survivor?
+      Q3 (cos 0.7543): What specific area would you like to improve, such as physical activity, sleep, or nutrition?
+
+====================================================================================================
+ROW 11   baseline=0.0000  deepeval=1.000  P(zero) over 3 passes = 0.33  mean_cosine=0.9732
+  USER QUESTION: What are some easy ways I can stay active and manage stress while dealing with my cancer treatment?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9732): What are some strategies for staying active and managing stress during cancer treatment?
+      Q2 (cos 0.9732): What are some strategies for staying active and managing stress during cancer treatment?
+      Q3 (cos 0.9732): What are some strategies for staying active and managing stress during cancer treatment?
+  pass 2   flags=[0,0,1]   all_nc=False   score=0.9731
+      Q1 (cos 0.9731): What are some strategies for staying active and managing stress during cancer treatment?
+      Q2 (cos 0.9731): What are some strategies for staying active and managing stress during cancer treatment?
+      Q3 (cos 0.9731): What are some strategies for staying active and managing stress during cancer treatment?
+  pass 3   flags=[0,1,1]   all_nc=False   score=0.9733
+      Q1 (cos 0.9731): What are some strategies for staying active and managing stress during cancer treatment?
+      Q2 (cos 0.9731): What are some strategies for staying active and managing stress during cancer treatment?
+      Q3 (cos 0.9735): What are some strategies to stay active and manage stress during cancer treatment?
+
+====================================================================================================
+ROW 14   baseline=0.0000  deepeval=1.000  P(zero) over 3 passes = 1.00  mean_cosine=0.9220
+  USER QUESTION: I have not exercised in years and just finished cancer treatment. Where do I even start?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9294): What should I do to start exercising after cancer treatment?
+      Q2 (cos 0.9294): What should I do to start exercising after cancer treatment?
+      Q3 (cos 0.9103): What are some suggestions for starting exercise after cancer treatment?
+  pass 2   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9294): What should I do to start exercising after cancer treatment?
+      Q2 (cos 0.9294): What should I do to start exercising after cancer treatment?
+      Q3 (cos 0.9294): What should I do to start exercising after cancer treatment?
+  pass 3   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9011): What should someone consider when starting exercise after cancer treatment?
+      Q2 (cos 0.9294): What should I do to start exercising after cancer treatment?
+      Q3 (cos 0.9104): What are some suggestions for starting exercise after cancer treatment?
+
+====================================================================================================
+ROW 16   baseline=0.0000  deepeval=1.000  P(zero) over 3 passes = 1.00  mean_cosine=0.9001
+  USER QUESTION: I just read that increasing my physical activity could significantly lower my cancer mortality risk. How can I safely incorporate more exercise into my routine?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.8774): What advice can you give to someone looking to increase their physical activity?
+      Q2 (cos 0.9086): What can I do to increase my physical activity safely?
+      Q3 (cos 0.9023): What should I do to increase my physical activity safely?
+  pass 2   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9086): What can I do to increase my physical activity safely?
+      Q2 (cos 0.8855): What is your current activity level and how can you safely increase your physical activity?
+      Q3 (cos 0.8983): What are some ways to safely incorporate more exercise into my routine?
+  pass 3   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9086): What can I do to increase my physical activity safely?
+      Q2 (cos 0.9086): What can I do to increase my physical activity safely?
+      Q3 (cos 0.9031): What steps can I take to increase my physical activity safely?
+
+====================================================================================================
+ROW 17   baseline=0.0000  deepeval=1.000  P(zero) over 3 passes = 0.00  mean_cosine=0.9231
+  USER QUESTION: What are some simple ways I can start moving more each day without feeling overwhelmed?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[0,0,0]   all_nc=False   score=0.9238
+      Q1 (cos 0.9238): What are some ways to incorporate movement into my daily routine?
+      Q2 (cos 0.9238): What are some ways to incorporate movement into my daily routine?
+      Q3 (cos 0.9238): What are some ways to incorporate movement into my daily routine?
+  pass 2   flags=[1,0,0]   all_nc=False   score=0.9216
+      Q1 (cos 0.9238): What are some ways to incorporate movement into my daily routine?
+      Q2 (cos 0.9181): What are some ways to incorporate movement into a daily routine?
+      Q3 (cos 0.9228): What are some ways to incorporate more movement into your daily routine?
+  pass 3   flags=[1,0,1]   all_nc=False   score=0.9238
+      Q1 (cos 0.9238): What are some ways to incorporate movement into my daily routine?
+      Q2 (cos 0.9238): What are some ways to incorporate movement into my daily routine?
+      Q3 (cos 0.9238): What are some ways to incorporate movement into my daily routine?
+
+====================================================================================================
+ROW 18   baseline=0.0000  deepeval=1.000  P(zero) over 3 passes = 1.00  mean_cosine=0.8258
+  USER QUESTION: My doctor has never talked to me about diet or exercise. Is that normal?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.8258): What should I discuss with my healthcare provider regarding lifestyle factors in cancer care?
+      Q2 (cos 0.8258): What should I discuss with my healthcare provider regarding lifestyle factors in cancer care?
+      Q3 (cos 0.8258): What should I discuss with my healthcare provider regarding lifestyle factors in cancer care?
+  pass 2   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.8257): What should I discuss with my healthcare provider regarding lifestyle factors in cancer care?
+      Q2 (cos 0.8257): What should I discuss with my healthcare provider regarding lifestyle factors in cancer care?
+      Q3 (cos 0.8257): What should I discuss with my healthcare provider regarding lifestyle factors in cancer care?
+  pass 3   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.8257): What should I discuss with my healthcare provider regarding lifestyle factors in cancer care?
+      Q2 (cos 0.8257): What should I discuss with my healthcare provider regarding lifestyle factors in cancer care?
+      Q3 (cos 0.8257): What should I discuss with my healthcare provider regarding lifestyle factors in cancer care?
+
+====================================================================================================
+ROW 19   baseline=0.0000  deepeval=1.000  P(zero) over 3 passes = 1.00  mean_cosine=0.8561
+  USER QUESTION: I am at a healthy weight. Is weight management still something I need to think about?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.8561): What should cancer survivors consider regarding weight management?
+      Q2 (cos 0.8561): What should cancer survivors consider regarding weight management?
+      Q3 (cos 0.8561): What should cancer survivors consider regarding weight management?
+  pass 2   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.8561): What should cancer survivors consider regarding weight management?
+      Q2 (cos 0.8561): What should cancer survivors consider regarding weight management?
+      Q3 (cos 0.8561): What should cancer survivors consider regarding weight management?
+  pass 3   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.8561): What should cancer survivors consider regarding weight management?
+      Q2 (cos 0.8561): What should cancer survivors consider regarding weight management?
+      Q3 (cos 0.8561): What should cancer survivors consider regarding weight management?
+
+====================================================================================================
+ROW 22   baseline=0.0000  deepeval=1.000  P(zero) over 3 passes = 1.00  mean_cosine=0.9217
+  USER QUESTION: Should I join a gym with a trainer or can I exercise at home on my own?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9046): Which is better for a cancer survivor, joining a gym with a trainer or exercising at home?
+      Q2 (cos 0.9510): Which option is better for exercising: joining a gym with a trainer or working out at home?
+      Q3 (cos 0.9066): Which option is better for exercising as a cancer survivor, joining a gym with a trainer or working out at home?
+  pass 2   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9510): Which option is better for exercising: joining a gym with a trainer or working out at home?
+      Q2 (cos 0.9084): Which option is better for exercising after cancer treatment, joining a gym with a trainer or working out at home?
+      Q3 (cos 0.9051): Which is better for a cancer survivor: joining a gym with a trainer or exercising at home?
+  pass 3   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9510): Which option is better for exercising: joining a gym with a trainer or working out at home?
+      Q2 (cos 0.9084): Which option is better for exercising after cancer treatment, joining a gym with a trainer or working out at home?
+      Q3 (cos 0.9091): Which option is better for exercising after cancer treatment: joining a gym with a trainer or working out at home?
+
+====================================================================================================
+ROW 23   baseline=0.0000  deepeval=1.000  P(zero) over 3 passes = 1.00  mean_cosine=0.9359
+  USER QUESTION: I've heard about bone scans for cancer, but can you explain what they are and if they relate to my heart health or exercise routine?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9302): What are bone scans and how do they relate to exercise?
+      Q2 (cos 0.9302): What are bone scans and how do they relate to exercise?
+      Q3 (cos 0.9302): What are bone scans and how do they relate to exercise?
+  pass 2   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9559): What are bone scans and how do they relate to exercise and heart health?
+      Q2 (cos 0.9302): What are bone scans and how do they relate to exercise?
+      Q3 (cos 0.9302): What are bone scans and how do they relate to exercise?
+  pass 3   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9302): What are bone scans and how do they relate to exercise?
+      Q2 (cos 0.9559): What are bone scans and how do they relate to exercise and heart health?
+      Q3 (cos 0.9302): What are bone scans and how do they relate to exercise?
+
+====================================================================================================
+ROW 27   baseline=0.0000  deepeval=1.000  P(zero) over 3 passes = 1.00  mean_cosine=0.9020
+  USER QUESTION: My prostate cancer has spread to my bones. Is it safe for me to lift weights?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.8962): Is exercise safe for cancer survivors with metastatic prostate cancer?
+      Q2 (cos 0.9152): Is it safe for cancer survivors with metastatic prostate cancer to engage in strength training?
+      Q3 (cos 0.8962): Is exercise safe for cancer survivors with metastatic prostate cancer?
+  pass 2   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.8961): Is exercise safe for cancer survivors with metastatic prostate cancer?
+      Q2 (cos 0.9188): Is it safe for cancer survivors with metastatic prostate cancer to start a weightlifting program?
+      Q3 (cos 0.9153): Is it safe for cancer survivors with metastatic prostate cancer to engage in strength training?
+  pass 3   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.8879): Is it safe for cancer survivors to engage in strength training?
+      Q2 (cos 0.8962): Is exercise safe for cancer survivors with metastatic prostate cancer?
+      Q3 (cos 0.8962): Is exercise safe for cancer survivors with metastatic prostate cancer?
+
+====================================================================================================
+ROW 28   baseline=0.0000  deepeval=1.000  P(zero) over 3 passes = 1.00  mean_cosine=0.8503
+  USER QUESTION: I had breast cancer. Is it safe to lift weights or will it cause lymphedema in my arm?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.8503): What should breast cancer survivors consider when starting an exercise program?
+      Q2 (cos 0.8503): What should breast cancer survivors consider when starting an exercise program?
+      Q3 (cos 0.8503): What should breast cancer survivors consider when starting an exercise program?
+  pass 2   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.8503): What should breast cancer survivors consider when starting an exercise program?
+      Q2 (cos 0.8503): What should breast cancer survivors consider when starting an exercise program?
+      Q3 (cos 0.8503): What should breast cancer survivors consider when starting an exercise program?
+  pass 3   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.8503): What should breast cancer survivors consider when starting an exercise program?
+      Q2 (cos 0.8503): What should breast cancer survivors consider when starting an exercise program?
+      Q3 (cos 0.8503): What should breast cancer survivors consider when starting an exercise program?
+
+====================================================================================================
+ROW 33   baseline=0.0000  deepeval=1.000  P(zero) over 3 passes = 1.00  mean_cosine=0.8719
+  USER QUESTION: I get so tired after treatment. Will exercising make my fatigue worse or better?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.8700): What can help reduce cancer-related fatigue after treatment?
+      Q2 (cos 0.8700): What can help reduce cancer-related fatigue after treatment?
+      Q3 (cos 0.8700): What can help reduce cancer-related fatigue after treatment?
+  pass 2   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.8700): What can help reduce cancer-related fatigue after treatment?
+      Q2 (cos 0.8700): What can help reduce cancer-related fatigue after treatment?
+      Q3 (cos 0.8700): What can help reduce cancer-related fatigue after treatment?
+  pass 3   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.8700): What can help reduce cancer-related fatigue after treatment?
+      Q2 (cos 0.8700): What can help reduce cancer-related fatigue after treatment?
+      Q3 (cos 0.8869): What can cancer survivors do to manage fatigue after treatment?
+
+====================================================================================================
+ROW 34   baseline=0.0000  deepeval=1.000  P(zero) over 3 passes = 1.00  mean_cosine=0.9269
+  USER QUESTION: I am worried that exercising will hurt my cancer treatment. Could working out interfere with my therapy?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9269): Is it safe to exercise during cancer treatment?
+      Q2 (cos 0.9269): Is it safe to exercise during cancer treatment?
+      Q3 (cos 0.9269): Is it safe to exercise during cancer treatment?
+  pass 2   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9270): Is it safe to exercise during cancer treatment?
+      Q2 (cos 0.9270): Is it safe to exercise during cancer treatment?
+      Q3 (cos 0.9270): Is it safe to exercise during cancer treatment?
+  pass 3   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9269): Is it safe to exercise during cancer treatment?
+      Q2 (cos 0.9269): Is it safe to exercise during cancer treatment?
+      Q3 (cos 0.9269): Is it safe to exercise during cancer treatment?
+
+====================================================================================================
+ROW 37   baseline=0.0000  deepeval=1.000  P(zero) over 3 passes = 1.00  mean_cosine=0.9044
+  USER QUESTION: I was just diagnosed with early-stage prostate cancer. Does that mean I need treatment right away?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9087): What should I consider regarding treatment options for early-stage prostate cancer?
+      Q2 (cos 0.8950): What are the treatment options for early-stage prostate cancer?
+      Q3 (cos 0.9087): What should I consider regarding treatment options for early-stage prostate cancer?
+  pass 2   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9382): What should I do about my early-stage prostate cancer diagnosis?
+      Q2 (cos 0.8950): What are the treatment options for early-stage prostate cancer?
+      Q3 (cos 0.8950): What are the treatment options for early-stage prostate cancer?
+  pass 3   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.8950): What are the treatment options for early-stage prostate cancer?
+      Q2 (cos 0.8950): What are the treatment options for early-stage prostate cancer?
+      Q3 (cos 0.9087): What should I consider regarding treatment options for early-stage prostate cancer?
+
+====================================================================================================
+ROW 38   baseline=0.0000  deepeval=1.000  P(zero) over 3 passes = 1.00  mean_cosine=0.9410
+  USER QUESTION: Should I drink alcohol at all as a cancer survivor?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9368): What should cancer survivors consider regarding alcohol consumption?
+      Q2 (cos 0.9425): What should a cancer survivor consider regarding alcohol consumption?
+      Q3 (cos 0.9368): What should cancer survivors consider regarding alcohol consumption?
+  pass 2   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9514): What should I consider regarding alcohol consumption as a cancer survivor?
+      Q2 (cos 0.9544): What should I consider about alcohol consumption as a cancer survivor?
+      Q3 (cos 0.9368): What should cancer survivors consider regarding alcohol consumption?
+  pass 3   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9368): What should cancer survivors consider regarding alcohol consumption?
+      Q2 (cos 0.9368): What should cancer survivors consider regarding alcohol consumption?
+      Q3 (cos 0.9368): What should cancer survivors consider regarding alcohol consumption?
+
+====================================================================================================
+ROW 39   baseline=0.0000  deepeval=1.000  P(zero) over 3 passes = 1.00  mean_cosine=0.9726
+  USER QUESTION: What types of physical activities should I focus on to improve my heart health after finishing cancer treatment?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9752): What types of physical activities can someone consider for improving heart health after cancer treatment?
+      Q2 (cos 0.9842): What types of physical activities can someone focus on to improve heart health after cancer treatment?
+      Q3 (cos 0.9477): What types of physical activities should someone consider after cancer treatment?
+  pass 2   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9842): What types of physical activities can someone focus on to improve heart health after cancer treatment?
+      Q2 (cos 0.9752): What types of physical activities can someone consider for improving heart health after cancer treatment?
+      Q3 (cos 0.9843): What types of physical activities can someone focus on to improve their heart health after cancer treatment?
+  pass 3   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9760): What types of physical activities can someone consider to improve heart health after cancer treatment?
+      Q2 (cos 0.9477): What types of physical activities should someone consider after cancer treatment?
+      Q3 (cos 0.9793): What types of physical activities can help improve heart health after cancer treatment?
+
+====================================================================================================
+ROW 41   baseline=0.0000  deepeval=1.000  P(zero) over 3 passes = 1.00  mean_cosine=0.9450
+  USER QUESTION: I have numbness and tingling in my feet from chemo. Are there exercises I should avoid?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9437): What types of exercises should be avoided if experiencing numbness and tingling in the feet after chemotherapy?
+      Q2 (cos 0.9466): What types of exercises should someone with numbness and tingling in their feet avoid after chemotherapy?
+      Q3 (cos 0.9466): What types of exercises should someone with numbness and tingling in their feet avoid after chemotherapy?
+  pass 2   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9466): What types of exercises should someone with numbness and tingling in their feet avoid after chemotherapy?
+      Q2 (cos 0.9437): What types of exercises should be avoided if experiencing numbness and tingling in the feet after chemotherapy?
+      Q3 (cos 0.9467): What types of exercises should someone with numbness and tingling in their feet avoid after chemotherapy?
+  pass 3   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9423): What types of exercises should be avoided after chemotherapy if experiencing numbness and tingling in the feet?
+      Q2 (cos 0.9442): What types of exercises should someone avoid if they have numbness and tingling in their feet after chemotherapy?
+      Q3 (cos 0.9442): What types of exercises should someone avoid if they have numbness and tingling in their feet after chemotherapy?
+
+====================================================================================================
+ROW 42   baseline=0.0000  deepeval=1.000  P(zero) over 3 passes = 0.00  mean_cosine=0.9414
+  USER QUESTION: I'm really concerned about how my prostate cancer treatments might affect my heart health. What can I do to stay healthy while managing my condition?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,0]   all_nc=False   score=0.9414
+      Q1 (cos 0.9414): What steps can I take to support my heart health while managing prostate cancer treatments?
+      Q2 (cos 0.9414): What steps can I take to support my heart health while managing prostate cancer treatments?
+      Q3 (cos 0.9414): What steps can I take to support my heart health while managing prostate cancer treatments?
+  pass 2   flags=[1,1,0]   all_nc=False   score=0.9415
+      Q1 (cos 0.9414): What steps can I take to support my heart health while managing prostate cancer treatments?
+      Q2 (cos 0.9414): What steps can I take to support my heart health while managing prostate cancer treatments?
+      Q3 (cos 0.9414): What steps can I take to support my heart health while managing prostate cancer treatments?
+  pass 3   flags=[1,0,1]   all_nc=False   score=0.9414
+      Q1 (cos 0.9414): What steps can I take to support my heart health while managing prostate cancer treatments?
+      Q2 (cos 0.9414): What steps can I take to support my heart health while managing prostate cancer treatments?
+      Q3 (cos 0.9414): What steps can I take to support my heart health while managing prostate cancer treatments?
+
+====================================================================================================
+ROW 45   baseline=0.0000  deepeval=1.000  P(zero) over 3 passes = 1.00  mean_cosine=0.9383
+  USER QUESTION: What are some practical ways I can reduce my sitting time while going through treatment?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9452): What strategies can I use to reduce my sitting time?
+      Q2 (cos 0.9452): What strategies can I use to reduce my sitting time?
+      Q3 (cos 0.9453): What strategies can I use to reduce my sitting time?
+  pass 2   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9349): What are some strategies to reduce sitting time?
+      Q2 (cos 0.9349): What are some strategies to reduce sitting time?
+      Q3 (cos 0.9349): What are some strategies to reduce sitting time?
+  pass 3   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9349): What are some strategies to reduce sitting time?
+      Q2 (cos 0.9349): What are some strategies to reduce sitting time?
+      Q3 (cos 0.9349): What are some strategies to reduce sitting time?
+
+====================================================================================================
+ROW 47   baseline=0.0000  deepeval=1.000  P(zero) over 3 passes = 1.00  mean_cosine=0.8580
+  USER QUESTION: I'm curious about how exercise can help me recover during and after my cancer treatment. Are there specific types of exercises that are better for different cancer types?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.8511): What type of exercise are you interested in exploring?
+      Q2 (cos 0.8511): What type of exercise are you interested in exploring?
+      Q3 (cos 0.9132): What type of exercise should cancer survivors consider for recovery?
+  pass 2   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.8511): What type of exercise are you interested in exploring?
+      Q2 (cos 0.8511): What type of exercise are you interested in exploring?
+      Q3 (cos 0.8511): What type of exercise are you interested in exploring?
+  pass 3   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.8511): What type of exercise are you interested in exploring?
+      Q2 (cos 0.8511): What type of exercise are you interested in exploring?
+      Q3 (cos 0.8511): What type of exercise are you interested in exploring?
+
+====================================================================================================
+ROW 48   baseline=0.0000  deepeval=1.000  P(zero) over 3 passes = 1.00  mean_cosine=0.9052
+  USER QUESTION: I'm curious about how my BMI affects my heart health after cancer treatment. Is it more important than other factors like my age or whether I smoke?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9373): How does BMI impact heart health after cancer treatment?
+      Q2 (cos 0.8961): What factors should I consider for my heart health after cancer treatment?
+      Q3 (cos 0.8961): What factors should I consider for my heart health after cancer treatment?
+  pass 2   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.8961): What factors should I consider for my heart health after cancer treatment?
+      Q2 (cos 0.8961): What factors should I consider for my heart health after cancer treatment?
+      Q3 (cos 0.9373): How does BMI impact heart health after cancer treatment?
+  pass 3   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.8961): What factors should I consider for my heart health after cancer treatment?
+      Q2 (cos 0.8961): What factors should I consider for my heart health after cancer treatment?
+      Q3 (cos 0.8961): What factors should I consider for my heart health after cancer treatment?
+
+====================================================================================================
+ROW 51   baseline=0.0000  deepeval=1.000  P(zero) over 3 passes = 1.00  mean_cosine=0.8799
+  USER QUESTION: I'm worried about how a biopsy might affect my overall health and recovery. Can you help me understand what to expect in terms of sedation and any impacts on my well-being?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.8720): What should I expect after undergoing a biopsy?
+      Q2 (cos 0.8868): What are the effects and risks of undergoing a biopsy?
+      Q3 (cos 0.8719): What should I expect after undergoing a biopsy?
+  pass 2   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.8970): What should I expect regarding health and recovery after a biopsy?
+      Q2 (cos 0.8970): What should I expect regarding health and recovery after a biopsy?
+      Q3 (cos 0.8630): What should I expect after having a biopsy?
+  pass 3   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.8630): What should I expect after having a biopsy?
+      Q2 (cos 0.9059): What should I expect regarding health risks and recovery after a biopsy?
+      Q3 (cos 0.8630): What should I expect after having a biopsy?
+
+====================================================================================================
+ROW 57   baseline=0.0000  deepeval=1.000  P(zero) over 3 passes = 1.00  mean_cosine=0.9477
+  USER QUESTION: What kinds of exercise are best for cancer survivors — cardio or weights?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9493): What type of exercise is best for cancer survivors?
+      Q2 (cos 0.9493): What type of exercise is best for cancer survivors?
+      Q3 (cos 0.9493): What type of exercise is best for cancer survivors?
+  pass 2   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9347): What type of exercises are beneficial for cancer survivors?
+      Q2 (cos 0.9493): What type of exercise is best for cancer survivors?
+      Q3 (cos 0.9493): What type of exercise is best for cancer survivors?
+  pass 3   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9493): What type of exercise is best for cancer survivors?
+      Q2 (cos 0.9493): What type of exercise is best for cancer survivors?
+      Q3 (cos 0.9493): What type of exercise is best for cancer survivors?
+
+====================================================================================================
+ROW 68   baseline=0.0000  deepeval=1.000  P(zero) over 3 passes = 0.67  mean_cosine=0.9399
+  USER QUESTION: I finished breast cancer treatment and had surgery. My shoulder feels stiff. Can exercise help?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9543): Can exercise help with shoulder stiffness after breast cancer treatment?
+      Q2 (cos 0.9364): What exercises can help with shoulder stiffness after breast cancer treatment?
+      Q3 (cos 0.9354): What can I do to help with shoulder stiffness after breast cancer treatment?
+  pass 2   flags=[1,0,1]   all_nc=False   score=0.9420
+      Q1 (cos 0.9364): What exercises can help with shoulder stiffness after breast cancer treatment?
+      Q2 (cos 0.9543): Can exercise help with shoulder stiffness after breast cancer treatment?
+      Q3 (cos 0.9354): What can I do to help with shoulder stiffness after breast cancer treatment?
+  pass 3   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9354): What can I do to help with shoulder stiffness after breast cancer treatment?
+      Q2 (cos 0.9364): What exercises can help with shoulder stiffness after breast cancer treatment?
+      Q3 (cos 0.9354): What can I do to help with shoulder stiffness after breast cancer treatment?
+
+====================================================================================================
+ROW 70   baseline=0.0000  deepeval=1.000  P(zero) over 3 passes = 1.00  mean_cosine=0.8746
+  USER QUESTION: I gained a lot of weight during chemotherapy. Can I use exercise to lose it?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.8813): What should cancer survivors consider when managing their weight through exercise?
+      Q2 (cos 0.8615): What should I consider when starting an exercise routine after cancer treatment?
+      Q3 (cos 0.8813): What should cancer survivors consider when managing their weight through exercise?
+  pass 2   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.8812): What should cancer survivors consider when managing their weight through exercise?
+      Q2 (cos 0.8812): What should cancer survivors consider when managing their weight through exercise?
+      Q3 (cos 0.8614): What should I consider when starting an exercise routine after cancer treatment?
+  pass 3   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.8813): What should cancer survivors consider when managing their weight through exercise?
+      Q2 (cos 0.8614): What should I consider when starting an exercise routine after cancer treatment?
+      Q3 (cos 0.8813): What should cancer survivors consider when managing their weight through exercise?
+
+====================================================================================================
+ROW 74   baseline=0.0000  deepeval=1.000  P(zero) over 3 passes = 1.00  mean_cosine=0.9858
+  USER QUESTION: What are some personal goals I can set to improve my heart health while managing my cancer treatment?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9784): What are some personal goals for heart health during cancer treatment?
+      Q2 (cos 0.9879): What are some personal goals I can set for my heart health during cancer treatment?
+      Q3 (cos 0.9879): What are some personal goals I can set for my heart health during cancer treatment?
+  pass 2   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9784): What are some personal goals for heart health during cancer treatment?
+      Q2 (cos 0.9879): What are some personal goals I can set for my heart health during cancer treatment?
+      Q3 (cos 0.9879): What are some personal goals I can set for my heart health during cancer treatment?
+  pass 3   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9879): What are some personal goals I can set for my heart health during cancer treatment?
+      Q2 (cos 0.9879): What are some personal goals I can set for my heart health during cancer treatment?
+      Q3 (cos 0.9879): What are some personal goals I can set for my heart health during cancer treatment?
+
+====================================================================================================
+ROW 84   baseline=0.0000  deepeval=1.000  P(zero) over 3 passes = 1.00  mean_cosine=0.8755
+  USER QUESTION: I'm curious about how my nutrition choices, like breastfeeding or formula feeding, might affect my child's health and immune system. Can you help me understand this better?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.8703): What are the benefits of breastfeeding compared to formula feeding?
+      Q2 (cos 0.8703): What are the benefits of breastfeeding compared to formula feeding?
+      Q3 (cos 0.8703): What are the benefits of breastfeeding compared to formula feeding?
+  pass 2   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.8703): What are the benefits of breastfeeding compared to formula feeding?
+      Q2 (cos 0.8703): What are the benefits of breastfeeding compared to formula feeding?
+      Q3 (cos 0.8703): What are the benefits of breastfeeding compared to formula feeding?
+  pass 3   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.8937): What are the benefits of breastfeeding compared to formula feeding for a child's health?
+      Q2 (cos 0.8937): What are the benefits of breastfeeding compared to formula feeding for a child's health?
+      Q3 (cos 0.8703): What are the benefits of breastfeeding compared to formula feeding?
+
+====================================================================================================
+ROW 85   baseline=0.0000  deepeval=1.000  P(zero) over 3 passes = 1.00  mean_cosine=0.9274
+  USER QUESTION: Should I cut out all sugar to reduce my cancer risk?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9205): Is it necessary to completely cut out sugar from my diet for better health?
+      Q2 (cos 0.9296): Is it necessary to cut out all sugar from my diet for better health?
+      Q3 (cos 0.9296): Is it necessary to cut out all sugar from my diet for better health?
+  pass 2   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9296): Is it necessary to cut out all sugar from my diet for better health?
+      Q2 (cos 0.9296): Is it necessary to cut out all sugar from my diet for better health?
+      Q3 (cos 0.9296): Is it necessary to cut out all sugar from my diet for better health?
+  pass 3   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9242): Should I completely cut out sugar from my diet?
+      Q2 (cos 0.9296): Is it necessary to cut out all sugar from my diet for better health?
+      Q3 (cos 0.9242): Should I completely cut out sugar from my diet?
+
+====================================================================================================
+ROW 89   baseline=0.0000  deepeval=1.000  P(zero) over 3 passes = 1.00  mean_cosine=1.0000
+  USER QUESTION: Do the benefits of weight training for cancer risk differ between men and women?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 1.0000): Do the benefits of weight training for cancer risk differ between men and women?
+      Q2 (cos 1.0000): Do the benefits of weight training for cancer risk differ between men and women?
+      Q3 (cos 1.0000): Do the benefits of weight training for cancer risk differ between men and women?
+  pass 2   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 1.0000): Do the benefits of weight training for cancer risk differ between men and women?
+      Q2 (cos 1.0000): Do the benefits of weight training for cancer risk differ between men and women?
+      Q3 (cos 1.0000): Do the benefits of weight training for cancer risk differ between men and women?
+  pass 3   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 1.0000): Do the benefits of weight training for cancer risk differ between men and women?
+      Q2 (cos 1.0000): Do the benefits of weight training for cancer risk differ between men and women?
+      Q3 (cos 1.0000): Do the benefits of weight training for cancer risk differ between men and women?
+
+====================================================================================================
+ROW 90   baseline=0.0000  deepeval=1.000  P(zero) over 3 passes = 1.00  mean_cosine=0.9595
+  USER QUESTION: I've heard that PSA levels can indicate prostate cancer risk, but how do they really affect my overall health and what should I focus on for my heart health instead?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9691): How can PSA levels indicate prostate cancer risk and what should I focus on for heart health?
+      Q2 (cos 0.9670): How can PSA levels be related to prostate cancer risk and what should I focus on for heart health?
+      Q3 (cos 0.9532): Can PSA levels diagnose prostate cancer and how can I improve my heart health?
+  pass 2   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9662): What can PSA levels indicate regarding prostate cancer risk and how can I improve my heart health?
+      Q2 (cos 0.9671): What can PSA levels indicate regarding prostate cancer risk, and how can I improve my heart health?
+      Q3 (cos 0.9656): What can PSA levels indicate about prostate cancer risk and how can I improve my heart health?
+  pass 3   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9171): Can you explain the relationship between PSA levels and prostate cancer risk?
+      Q2 (cos 0.9662): What can PSA levels indicate regarding prostate cancer risk and how can I improve my heart health?
+      Q3 (cos 0.9638): Can PSA levels indicate prostate cancer risk and how can I improve my heart health?
+
+====================================================================================================
+ROW 92   baseline=0.0000  deepeval=1.000  P(zero) over 3 passes = 0.33  mean_cosine=0.9770
+  USER QUESTION: What are some effective ways I can increase my fruit and vegetable intake while also managing my screen time better?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9779): What are some strategies to improve fruit and vegetable intake while managing screen time?
+      Q2 (cos 0.9771): What are some effective strategies to improve fruit and vegetable intake and manage screen time?
+      Q3 (cos 0.9779): What are some strategies to improve fruit and vegetable intake while managing screen time?
+  pass 2   flags=[1,0,1]   all_nc=False   score=0.9766
+      Q1 (cos 0.9779): What are some strategies to improve fruit and vegetable intake while managing screen time?
+      Q2 (cos 0.9779): What are some strategies to improve fruit and vegetable intake while managing screen time?
+      Q3 (cos 0.9741): What are some strategies to improve fruit and vegetable intake and manage screen time?
+  pass 3   flags=[1,0,0]   all_nc=False   score=0.9767
+      Q1 (cos 0.9783): What are some strategies for improving fruit and vegetable intake while managing screen time?
+      Q2 (cos 0.9779): What are some strategies to improve fruit and vegetable intake while managing screen time?
+      Q3 (cos 0.9741): What are some strategies to improve fruit and vegetable intake and manage screen time?
+
+====================================================================================================
+ROW 94   baseline=0.0000  deepeval=1.000  P(zero) over 3 passes = 1.00  mean_cosine=0.8939
+  USER QUESTION: Should I aim for specific exercise goals, like reaching 10,000 steps a day, or is it better to keep my goals more general?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.8938): What type of exercise goals should I set for myself?
+      Q2 (cos 0.8938): What type of exercise goals should I set for myself?
+      Q3 (cos 0.8958): What kind of exercise goals should I set for myself?
+  pass 2   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.8957): What kind of exercise goals should I set for myself?
+      Q2 (cos 0.8957): What kind of exercise goals should I set for myself?
+      Q3 (cos 0.8957): What kind of exercise goals should I set for myself?
+  pass 3   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.8937): What type of exercise goals should I set for myself?
+      Q2 (cos 0.8876): What kind of exercise goals should I set to stay motivated?
+      Q3 (cos 0.8937): What type of exercise goals should I set for myself?
+
+====================================================================================================
+ROW 95   baseline=0.0000  deepeval=1.000  P(zero) over 3 passes = 1.00  mean_cosine=0.9247
+  USER QUESTION: My prostate cancer has spread regionally. What does treatment typically look like?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9247): What are the treatment options for regional prostate cancer?
+      Q2 (cos 0.9247): What are the treatment options for regional prostate cancer?
+      Q3 (cos 0.9247): What are the treatment options for regional prostate cancer?
+  pass 2   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9247): What are the treatment options for regional prostate cancer?
+      Q2 (cos 0.9247): What are the treatment options for regional prostate cancer?
+      Q3 (cos 0.9247): What are the treatment options for regional prostate cancer?
+  pass 3   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9247): What are the treatment options for regional prostate cancer?
+      Q2 (cos 0.9247): What are the treatment options for regional prostate cancer?
+      Q3 (cos 0.9247): What are the treatment options for regional prostate cancer?
+
+====================================================================================================
+ROW 96   baseline=0.0000  deepeval=1.000  P(zero) over 3 passes = 1.00  mean_cosine=0.9607
+  USER QUESTION: What are some ways I can stay motivated to exercise regularly while managing my health during treatment?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9650): What are some strategies to stay motivated to exercise during treatment?
+      Q2 (cos 0.9573): What strategies can help someone stay motivated to exercise during treatment?
+      Q3 (cos 0.9573): What strategies can help someone stay motivated to exercise during treatment?
+  pass 2   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9573): What strategies can help someone stay motivated to exercise during treatment?
+      Q2 (cos 0.9650): What are some strategies to stay motivated to exercise during treatment?
+      Q3 (cos 0.9650): What are some strategies to stay motivated to exercise during treatment?
+  pass 3   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9573): What strategies can help someone stay motivated to exercise during treatment?
+      Q2 (cos 0.9650): What are some strategies to stay motivated to exercise during treatment?
+      Q3 (cos 0.9573): What strategies can help someone stay motivated to exercise during treatment?
+
+====================================================================================================
+ROW 97   baseline=0.0000  deepeval=1.000  P(zero) over 3 passes = 1.00  mean_cosine=0.9828
+  USER QUESTION: Is it safe for me to start exercising now that I've completed my breast cancer treatment?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9823): Is it safe to start exercising after breast cancer treatment?
+      Q2 (cos 0.9823): Is it safe to start exercising after breast cancer treatment?
+      Q3 (cos 0.9823): Is it safe to start exercising after breast cancer treatment?
+  pass 2   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9823): Is it safe to start exercising after breast cancer treatment?
+      Q2 (cos 0.9823): Is it safe to start exercising after breast cancer treatment?
+      Q3 (cos 0.9823): Is it safe to start exercising after breast cancer treatment?
+  pass 3   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9863): Is it safe to start exercising after completing breast cancer treatment?
+      Q2 (cos 0.9823): Is it safe to start exercising after breast cancer treatment?
+      Q3 (cos 0.9823): Is it safe to start exercising after breast cancer treatment?
+
+====================================================================================================
+ROW 100   baseline=0.0000  deepeval=1.000  P(zero) over 3 passes = 1.00  mean_cosine=0.9254
+  USER QUESTION: What steps can I take to set a physical activity goal that fits my current health situation and helps me stay active?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9055): What physical activity goal should I set using the SMART goal framework?
+      Q2 (cos 0.9374): What should I consider when setting a physical activity goal?
+      Q3 (cos 0.9055): What physical activity goal should I set using the SMART goal framework?
+  pass 2   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9015): What physical activity goal should I set using the SMART framework?
+      Q2 (cos 0.9374): What should I consider when setting a physical activity goal?
+      Q3 (cos 0.9374): What should I consider when setting a physical activity goal?
+  pass 3   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9298): What framework can I use to set a physical activity goal that aligns with my health situation?
+      Q2 (cos 0.9040): What framework can I use to set a physical activity goal?
+      Q3 (cos 0.9705): How can I set a physical activity goal that aligns with my health situation?
+
+====================================================================================================
+ROW 102   baseline=0.0000  deepeval=1.000  P(zero) over 3 passes = 1.00  mean_cosine=0.9551
+  USER QUESTION: What are some realistic dietary goals I can set to improve my nutrition and help reduce my risk of cancer?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9565): What are some dietary goals to reduce cancer risk?
+      Q2 (cos 0.9565): What are some dietary goals to reduce cancer risk?
+      Q3 (cos 0.9547): What dietary goals can help reduce cancer risk?
+  pass 2   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9547): What dietary goals can help reduce cancer risk?
+      Q2 (cos 0.9547): What dietary goals can help reduce cancer risk?
+      Q3 (cos 0.9547): What dietary goals can help reduce cancer risk?
+  pass 3   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9547): What dietary goals can help reduce cancer risk?
+      Q2 (cos 0.9547): What dietary goals can help reduce cancer risk?
+      Q3 (cos 0.9547): What dietary goals can help reduce cancer risk?
+
+====================================================================================================
+ROW 106   baseline=0.0000  deepeval=1.000  P(zero) over 3 passes = 1.00  mean_cosine=0.9550
+  USER QUESTION: As a cancer survivor, what should I consider when deciding if I need medical clearance before getting back into my exercise routine?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9582): Do cancer survivors need medical clearance before resuming their exercise routine?
+      Q2 (cos 0.9582): Do cancer survivors need medical clearance before resuming their exercise routine?
+      Q3 (cos 0.9484): What should a cancer survivor consider before resuming their exercise routine?
+  pass 2   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9581): Do cancer survivors need medical clearance before resuming their exercise routine?
+      Q2 (cos 0.9581): Do cancer survivors need medical clearance before resuming their exercise routine?
+      Q3 (cos 0.9437): What factors should a cancer survivor consider before resuming their exercise routine?
+  pass 3   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9582): Do cancer survivors need medical clearance before resuming their exercise routine?
+      Q2 (cos 0.9542): Do cancer survivors need medical clearance before resuming exercise?
+      Q3 (cos 0.9581): Do cancer survivors need medical clearance before resuming their exercise routine?
+
+====================================================================================================
+ROW 111   baseline=0.0000  deepeval=1.000  P(zero) over 3 passes = 1.00  mean_cosine=0.9481
+  USER QUESTION: I'm curious about the safety of starting an exercise routine while I'm undergoing chemotherapy for breast cancer. What does the research say about this?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9577): Is it safe to start an exercise routine during chemotherapy treatment for breast cancer?
+      Q2 (cos 0.9577): Is it safe to start an exercise routine during chemotherapy treatment for breast cancer?
+      Q3 (cos 0.9490): Is it safe to start an exercise routine during chemotherapy treatment?
+  pass 2   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9577): Is it safe to start an exercise routine during chemotherapy treatment for breast cancer?
+      Q2 (cos 0.9490): Is it safe to start an exercise routine during chemotherapy treatment?
+      Q3 (cos 0.9490): Is it safe to start an exercise routine during chemotherapy treatment?
+  pass 3   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9577): Is it safe to start an exercise routine during chemotherapy treatment for breast cancer?
+      Q2 (cos 0.9277): What should I consider before starting an exercise routine during chemotherapy?
+      Q3 (cos 0.9277): What should I consider before starting an exercise routine during chemotherapy?
+
+====================================================================================================
+ROW 126   baseline=0.0000  deepeval=0.938  P(zero) over 3 passes = 1.00  mean_cosine=0.9159
+  USER QUESTION: I finished cancer treatment. Should I be following the same diet and lifestyle advice as people trying to prevent cancer?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9179): Are the dietary and lifestyle recommendations for cancer prevention also beneficial for cancer survivors?
+      Q2 (cos 0.9149): Are dietary and lifestyle recommendations for cancer prevention also beneficial for cancer survivors?
+      Q3 (cos 0.9149): Are dietary and lifestyle recommendations for cancer prevention also beneficial for cancer survivors?
+  pass 2   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9149): Are dietary and lifestyle recommendations for cancer prevention also beneficial for cancer survivors?
+      Q2 (cos 0.9149): Are dietary and lifestyle recommendations for cancer prevention also beneficial for cancer survivors?
+      Q3 (cos 0.9149): Are dietary and lifestyle recommendations for cancer prevention also beneficial for cancer survivors?
+  pass 3   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9149): Are dietary and lifestyle recommendations for cancer prevention also beneficial for cancer survivors?
+      Q2 (cos 0.9179): Are the dietary and lifestyle recommendations for cancer prevention also beneficial for cancer survivors?
+      Q3 (cos 0.9179): Are the dietary and lifestyle recommendations for cancer prevention also beneficial for cancer survivors?
+
+====================================================================================================
+ROW 129   baseline=0.0000  deepeval=0.923  P(zero) over 3 passes = 1.00  mean_cosine=0.9233
+  USER QUESTION: I am scared to do resistance training because of my lymphedema. What does the research say?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9259): Is resistance training safe for someone with lymphedema?
+      Q2 (cos 0.9212): Is resistance training safe for individuals with lymphedema?
+      Q3 (cos 0.9212): Is resistance training safe for individuals with lymphedema?
+  pass 2   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9258): Is resistance training safe for someone with lymphedema?
+      Q2 (cos 0.9258): Is resistance training safe for someone with lymphedema?
+      Q3 (cos 0.9258): Is resistance training safe for someone with lymphedema?
+  pass 3   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9213): Is resistance training safe for individuals with lymphedema?
+      Q2 (cos 0.9213): Is resistance training safe for individuals with lymphedema?
+      Q3 (cos 0.9213): Is resistance training safe for individuals with lymphedema?
+
+====================================================================================================
+ROW 132   baseline=0.0000  deepeval=0.900  P(zero) over 3 passes = 1.00  mean_cosine=0.7964
+  USER QUESTION: I am older and just starting to exercise after a prostate cancer diagnosis. Does the amount of weight training I do really matter, or is any amount helpful?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.7964): What type of exercise are you interested in trying?
+      Q2 (cos 0.7964): What type of exercise are you interested in trying?
+      Q3 (cos 0.7964): What type of exercise are you interested in trying?
+  pass 2   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.7964): What type of exercise are you interested in trying?
+      Q2 (cos 0.7964): What type of exercise are you interested in trying?
+      Q3 (cos 0.7964): What type of exercise are you interested in trying?
+  pass 3   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.7964): What type of exercise are you interested in trying?
+      Q2 (cos 0.7964): What type of exercise are you interested in trying?
+      Q3 (cos 0.7964): What type of exercise are you interested in trying?
+
+====================================================================================================
+ROW 135   baseline=0.0000  deepeval=0.900  P(zero) over 3 passes = 1.00  mean_cosine=0.8790
+  USER QUESTION: How much exercise do I need to do for it to make a difference for my bone health?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.8796): What exercises are recommended for improving bone health as a cancer survivor?
+      Q2 (cos 0.8740): What type of exercises are recommended for improving bone health as a cancer survivor?
+      Q3 (cos 0.8796): What exercises are recommended for improving bone health as a cancer survivor?
+  pass 2   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.8796): What exercises are recommended for improving bone health as a cancer survivor?
+      Q2 (cos 0.8796): What exercises are recommended for improving bone health as a cancer survivor?
+      Q3 (cos 0.8796): What exercises are recommended for improving bone health as a cancer survivor?
+  pass 3   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.8796): What exercises are recommended for improving bone health as a cancer survivor?
+      Q2 (cos 0.8796): What exercises are recommended for improving bone health as a cancer survivor?
+      Q3 (cos 0.8796): What exercises are recommended for improving bone health as a cancer survivor?
+
+====================================================================================================
+ROW 137   baseline=0.0000  deepeval=0.889  P(zero) over 3 passes = 1.00  mean_cosine=0.9273
+  USER QUESTION: I'm concerned about how surgery might affect my bladder control after treatment. What can I do to prevent urinary incontinence and stay healthy?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9238): What can be done to manage bladder control after surgery?
+      Q2 (cos 0.9238): What can be done to manage bladder control after surgery?
+      Q3 (cos 0.9313): What can I do to manage bladder control after surgery?
+  pass 2   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9229): What can be done to manage bladder control after surgery?
+      Q2 (cos 0.9314): What can I do to manage bladder control after surgery?
+      Q3 (cos 0.9262): What steps can I take to manage bladder control after surgery?
+  pass 3   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9238): What can be done to manage bladder control after surgery?
+      Q2 (cos 0.9313): What can I do to manage bladder control after surgery?
+      Q3 (cos 0.9313): What can I do to manage bladder control after surgery?
+
+====================================================================================================
+ROW 140   baseline=0.0000  deepeval=0.889  P(zero) over 3 passes = 1.00  mean_cosine=0.8983
+  USER QUESTION: Should I focus on one specific food or nutrient to reduce my cancer risk, like eating more antioxidants?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.8991): What is the best dietary approach to reduce cancer risk?
+      Q2 (cos 0.8954): What dietary approach is recommended for reducing cancer risk?
+      Q3 (cos 0.8954): What dietary approach is recommended for reducing cancer risk?
+  pass 2   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.8991): What is the best dietary approach to reduce cancer risk?
+      Q2 (cos 0.8991): What is the best dietary approach to reduce cancer risk?
+      Q3 (cos 0.9005): What dietary approach is best for reducing cancer risk?
+  pass 3   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.8983): What dietary changes can help reduce cancer risk?
+      Q2 (cos 0.8991): What is the best dietary approach to reduce cancer risk?
+      Q3 (cos 0.8991): What is the best dietary approach to reduce cancer risk?
+
+====================================================================================================
+ROW 141   baseline=0.0000  deepeval=0.875  P(zero) over 3 passes = 1.00  mean_cosine=0.9279
+  USER QUESTION: I've heard that physical activity can help with cancer survival, but how does it really affect different types of cancer? Are there specific exercises I should focus on?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9225): What are the benefits of physical activity on cancer survival?
+      Q2 (cos 0.9282): What is the impact of physical activity on cancer survival?
+      Q3 (cos 0.9216): What are the benefits of physical activity for cancer survival?
+  pass 2   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9225): What are the benefits of physical activity on cancer survival?
+      Q2 (cos 0.9282): What is the impact of physical activity on cancer survival?
+      Q3 (cos 0.9216): What are the benefits of physical activity for cancer survival?
+  pass 3   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9216): What are the benefits of physical activity for cancer survival?
+      Q2 (cos 0.9225): What are the benefits of physical activity on cancer survival?
+      Q3 (cos 0.9627): How can physical activity impact cancer survival and what types of exercises are recommended?
+
+====================================================================================================
+ROW 143   baseline=0.0000  deepeval=0.875  P(zero) over 3 passes = 1.00  mean_cosine=0.9155
+  USER QUESTION: I have prostate cancer and my doctor mentioned my PSA. Should I avoid intense exercise because it might affect my PSA levels?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9300): What should prostate cancer survivors consider regarding exercise and PSA levels?
+      Q2 (cos 0.9137): Is exercise safe for prostate cancer survivors and how does it affect PSA levels?
+      Q3 (cos 0.9137): Is exercise safe for prostate cancer survivors and how does it affect PSA levels?
+  pass 2   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9137): Is exercise safe for prostate cancer survivors and how does it affect PSA levels?
+      Q2 (cos 0.9110): What are the effects of exercise on PSA levels for prostate cancer survivors?
+      Q3 (cos 0.9137): Is exercise safe for prostate cancer survivors and how does it affect PSA levels?
+  pass 3   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9160): Is exercise safe for prostate cancer survivors in relation to PSA levels?
+      Q2 (cos 0.9137): Is exercise safe for prostate cancer survivors and how does it affect PSA levels?
+      Q3 (cos 0.9137): Is exercise safe for prostate cancer survivors and how does it affect PSA levels?
+
+====================================================================================================
+ROW 144   baseline=0.0000  deepeval=0.867  P(zero) over 3 passes = 1.00  mean_cosine=0.9239
+  USER QUESTION: I've been feeling some discomfort while urinating, and I'm worried about my health. Should I be concerned about how this might affect my heart health, especially given my age and family history?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9218): What should I do about my urinary discomfort and heart health?
+      Q2 (cos 0.9218): What should I do about my urinary discomfort and heart health?
+      Q3 (cos 0.9218): What should I do about my urinary discomfort and heart health?
+  pass 2   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9404): What should I do about my discomfort during urination and my heart health?
+      Q2 (cos 0.9218): What should I do about my urinary discomfort and heart health?
+      Q3 (cos 0.9218): What should I do about my urinary discomfort and heart health?
+  pass 3   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9218): What should I do about my urinary discomfort and heart health?
+      Q2 (cos 0.9218): What should I do about my urinary discomfort and heart health?
+      Q3 (cos 0.9218): What should I do about my urinary discomfort and heart health?
+
+====================================================================================================
+ROW 145   baseline=0.0000  deepeval=0.857  P(zero) over 3 passes = 1.00  mean_cosine=0.9394
+  USER QUESTION: I am a postmenopausal woman and I am worried about breast cancer. Does exercise help?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9394): What are the benefits of exercise for postmenopausal women concerned about breast cancer?
+      Q2 (cos 0.9394): What are the benefits of exercise for postmenopausal women concerned about breast cancer?
+      Q3 (cos 0.9394): What are the benefits of exercise for postmenopausal women concerned about breast cancer?
+  pass 2   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9394): What are the benefits of exercise for postmenopausal women concerned about breast cancer?
+      Q2 (cos 0.9394): What are the benefits of exercise for postmenopausal women concerned about breast cancer?
+      Q3 (cos 0.9394): What are the benefits of exercise for postmenopausal women concerned about breast cancer?
+  pass 3   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9394): What are the benefits of exercise for postmenopausal women concerned about breast cancer?
+      Q2 (cos 0.9394): What are the benefits of exercise for postmenopausal women concerned about breast cancer?
+      Q3 (cos 0.9394): What are the benefits of exercise for postmenopausal women concerned about breast cancer?
+
+====================================================================================================
+ROW 147   baseline=0.0000  deepeval=0.846  P(zero) over 3 passes = 1.00  mean_cosine=0.9346
+  USER QUESTION: I'm curious about how my cancer treatment is going. Can you help me understand what a PET scan can tell me about my health and how it relates to my heart health?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9339): What is a PET scan and how does it relate to cancer detection and heart health?
+      Q2 (cos 0.9370): What is a PET scan and how does it relate to cancer and heart health?
+      Q3 (cos 0.9370): What is a PET scan and how does it relate to cancer and heart health?
+  pass 2   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9340): What is a PET scan and how does it relate to cancer detection and heart health?
+      Q2 (cos 0.9340): What is a PET scan and how does it relate to cancer detection and heart health?
+      Q3 (cos 0.9340): What is a PET scan and how does it relate to cancer detection and heart health?
+  pass 3   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9339): What is a PET scan and how does it relate to cancer detection and heart health?
+      Q2 (cos 0.9339): What is a PET scan and how does it relate to cancer detection and heart health?
+      Q3 (cos 0.9339): What is a PET scan and how does it relate to cancer detection and heart health?
+
+====================================================================================================
+ROW 149   baseline=0.0000  deepeval=0.818  P(zero) over 3 passes = 1.00  mean_cosine=0.8907
+  USER QUESTION: I am on active surveillance for low-grade prostate cancer. Should I be doing resistance training?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.8258): Can you help me set up a plan for incorporating resistance training into my routine?
+      Q2 (cos 0.8258): Can you help me set up a plan for incorporating resistance training into my routine?
+      Q3 (cos 0.9198): Can you help me set up a plan for resistance training during active surveillance for prostate cancer?
+  pass 2   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9374): Can you help me set up a resistance training plan during my active surveillance for low-grade prostate cancer?
+      Q2 (cos 0.9374): Can you help me set up a resistance training plan during my active surveillance for low-grade prostate cancer?
+      Q3 (cos 0.8258): Can you help me set up a plan for incorporating resistance training into my routine?
+  pass 3   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.8922): What are the benefits of resistance training for cancer survivors in active surveillance?
+      Q2 (cos 0.9284): Can you help me set up a plan for incorporating resistance training into my routine during active surveillance for low-grade prostate cancer?
+      Q3 (cos 0.9237): Can you help me set up a resistance training plan for my health during active surveillance for prostate cancer?
+
+====================================================================================================
+ROW 151   baseline=0.0000  deepeval=0.818  P(zero) over 3 passes = 1.00  mean_cosine=0.9089
+  USER QUESTION: How often should I do cardio versus weights as a cancer survivor?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9089): What is the recommended exercise routine for cancer survivors?
+      Q2 (cos 0.9089): What is the recommended exercise routine for cancer survivors?
+      Q3 (cos 0.9089): What is the recommended exercise routine for cancer survivors?
+  pass 2   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9089): What is the recommended exercise routine for cancer survivors?
+      Q2 (cos 0.9089): What is the recommended exercise routine for cancer survivors?
+      Q3 (cos 0.9089): What is the recommended exercise routine for cancer survivors?
+  pass 3   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9089): What is the recommended exercise routine for cancer survivors?
+      Q2 (cos 0.9089): What is the recommended exercise routine for cancer survivors?
+      Q3 (cos 0.9089): What is the recommended exercise routine for cancer survivors?
+
+====================================================================================================
+ROW 156   baseline=0.0000  deepeval=0.778  P(zero) over 3 passes = 1.00  mean_cosine=0.9054
+  USER QUESTION: What is the recommended level of exercise I should aim for to help reduce my risk of cancer, and does it vary depending on the type of cancer?
+----------------------------------------------------------------------------------------------------
+  pass 1   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9054): What is the recommended amount of physical activity for cancer survivors?
+      Q2 (cos 0.9054): What is the recommended amount of physical activity for cancer survivors?
+      Q3 (cos 0.9054): What is the recommended amount of physical activity for cancer survivors?
+  pass 2   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9055): What is the recommended amount of physical activity for cancer survivors?
+      Q2 (cos 0.9055): What is the recommended amount of physical activity for cancer survivors?
+      Q3 (cos 0.9055): What is the recommended amount of physical activity for cancer survivors?
+  pass 3   flags=[1,1,1]   all_nc=True   score=0.0000
+      Q1 (cos 0.9054): What is the recommended amount of physical activity for cancer survivors?
+      Q2 (cos 0.9054): What is the recommended amount of physical activity for cancer survivors?
+      Q3 (cos 0.9054): What is the recommended amount of physical activity for cancer survivors?

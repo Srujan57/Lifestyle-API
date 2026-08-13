@@ -1,0 +1,471 @@
+====================================================================================================
+POST-ABLATION TEXT OF EVERY -Q ROW THAT REMAINED FLAGGED
+====================================================================================================
+
+These are the responses AFTER the trailing question was removed, which
+still scored exactly 0.0 in a majority of the 3 passes.
+n = 23 of 47 -Q-ablatable rows.
+
+For contrast, the same ablation flipped 24 rows to non-zero.
+
+====================================================================================================
+ROW 4   P(zero) after -Q = 1.00   mean_cosine = 0.9180
+  question_marks=0  autonomy=0  options=1  reflection=0  len=729  sentences=6
+  USER QUESTION: If I already do some weight training, do I need to do more to get cancer prevention benefits?
+  REMOVED BY -Q:
+    - "Are there specific areas of strength training you're interested in or any barriers you're facing that we can discuss?"
+----------------------------------------------------------------------------------------------------
+It's great to hear that you're already incorporating weight training into your routine! Current
+research suggests that strength training can indeed provide cancer prevention benefits,
+particularly by improving overall physical function and potentially lowering the risk of certain
+cancers. However, the exact amount of weight training needed for optimal benefits isn't fully
+established.
+
+If you're currently doing some weight training, consider focusing on consistency and gradually
+increasing the intensity or frequency of your sessions. Aim for at least two days a week of
+strength training, targeting all major muscle groups. This can help enhance your overall fitness
+and may contribute to better cancer prevention outcomes.
+
+====================================================================================================
+ROW 18   P(zero) after -Q = 1.00   mean_cosine = 0.8572
+  question_marks=0  autonomy=0  options=1  reflection=0  len=703  sentences=5
+  USER QUESTION: My doctor has never talked to me about diet or exercise. Is that normal?
+  REMOVED BY -Q:
+    - "Getting back to your health goals, is there a specific area you're looking to improve, like physical activity or nutrition?"
+----------------------------------------------------------------------------------------------------
+It's not uncommon for some healthcare providers to focus primarily on medical treatments without
+discussing lifestyle factors like diet and exercise, especially in the context of cancer care.
+However, integrating discussions about nutrition and physical activity is increasingly
+recognized as important for overall health and recovery, particularly for cancer survivors.
+
+Research shows that addressing lifestyle factors can significantly impact long-term health
+outcomes, including cardiovascular health. If you feel comfortable, it might be beneficial to
+bring up these topics with your doctor or a registered dietitian. They can help guide you on how
+to incorporate healthy habits into your routine.
+
+====================================================================================================
+ROW 22   P(zero) after -Q = 1.00   mean_cosine = 0.9105
+  question_marks=0  autonomy=1  options=0  reflection=0  len=734  sentences=6
+  USER QUESTION: Should I join a gym with a trainer or can I exercise at home on my own?
+  REMOVED BY -Q:
+    - 'Would you prefer the support of a trainer, or do you feel confident working out at home?'
+    - 'What sounds more appealing to you?'
+----------------------------------------------------------------------------------------------------
+Both options have their benefits, and the best choice really depends on your personal
+preferences and comfort level.
+
+Joining a gym with a trainer can provide you with professional guidance, motivation, and a
+structured workout plan tailored to your needs, especially as a cancer survivor. A trainer can
+help ensure you're using proper form and can adjust exercises based on any limitations you might
+have.
+
+On the other hand, exercising at home can offer flexibility and convenience. You can choose
+activities that you enjoy and fit them into your schedule without the need to travel. There are
+many effective bodyweight exercises and online resources available, including guided workouts
+specifically designed for cancer survivors.
+
+====================================================================================================
+ROW 27   P(zero) after -Q = 1.00   mean_cosine = 0.8980
+  question_marks=0  autonomy=0  options=0  reflection=0  len=821  sentences=8
+  USER QUESTION: My prostate cancer has spread to my bones. Is it safe for me to lift weights?
+  REMOVED BY -Q:
+    - 'Would you like to explore some gentle exercise options?'
+----------------------------------------------------------------------------------------------------
+It's understandable to have concerns about exercise, especially with your diagnosis. Generally,
+exercise can be safe and beneficial for cancer survivors, including those with metastatic
+prostate cancer. Strength training, like lifting weights, can help maintain muscle strength and
+improve overall quality of life. However, it's crucial to approach this carefully, particularly
+with bone metastases.
+
+Before starting any weightlifting program, I recommend discussing it with your healthcare team.
+They can provide guidance tailored to your specific situation, including any precautions you
+should take based on your treatment and overall health.
+
+If you're cleared for strength training, consider starting with lighter weights and focusing on
+form. Additionally, incorporating low-impact exercises can also be beneficial.
+
+====================================================================================================
+ROW 33   P(zero) after -Q = 1.00   mean_cosine = 0.8872
+  question_marks=0  autonomy=0  options=2  reflection=0  len=649  sentences=6
+  USER QUESTION: I get so tired after treatment. Will exercising make my fatigue worse or better?
+  REMOVED BY -Q:
+    - 'Would you like to explore some specific exercises or activities that could work for you?'
+----------------------------------------------------------------------------------------------------
+It's understandable to be concerned about fatigue, especially after treatment. In fact, research
+shows that exercise can help reduce cancer-related fatigue for many survivors. While some
+studies have shown no significant effect, others have demonstrated that moderate-intensity
+aerobic or resistance exercise can improve energy levels and overall well-being.
+
+The key is to start slowly and listen to your body. Gentle activities like walking, stretching,
+or light resistance exercises can often be beneficial. It's important to find a routine that
+feels manageable for you, especially considering any treatment side effects you may be
+experiencing.
+
+====================================================================================================
+ROW 34   P(zero) after -Q = 1.00   mean_cosine = 0.9269
+  question_marks=0  autonomy=0  options=0  reflection=0  len=746  sentences=7
+  USER QUESTION: I am worried that exercising will hurt my cancer treatment. Could working out interfere with my therapy?
+  REMOVED BY -Q:
+    - 'What do you think?'
+----------------------------------------------------------------------------------------------------
+It's completely understandable to have concerns about exercising during cancer treatment. Many
+cancer survivors worry about how physical activity might affect their therapy. However, research
+shows that being physically active is generally safe for most people undergoing treatment, and
+it can actually help improve your overall well-being.
+
+Exercise can help reduce fatigue, improve mood, and enhance physical function, which is
+especially important during and after treatment. It's crucial, though, to consult with your care
+team before starting any exercise program. They can provide personalized guidance based on your
+specific treatment and health status.
+
+If you're interested, we can explore some gentle activities that might work for you.
+
+====================================================================================================
+ROW 38   P(zero) after -Q = 1.00   mean_cosine = 0.9251
+  question_marks=0  autonomy=0  options=0  reflection=0  len=532  sentences=4
+  USER QUESTION: Should I drink alcohol at all as a cancer survivor?
+  REMOVED BY -Q:
+    - "If you're considering changes to your alcohol consumption, what feels most important to you right now regarding this decision?"
+----------------------------------------------------------------------------------------------------
+As a cancer survivor, it's important to be cautious about alcohol consumption. Research
+indicates that alcohol can increase the risk of several types of cancer, and there is no safe
+level of consumption. If you choose to drink, the American Cancer Society suggests limiting
+alcohol intake to no more than one drink per day for women and two drinks per day for men.
+However, it's best to discuss your individual situation with your healthcare team, as they can
+provide tailored advice based on your specific health needs and history.
+
+====================================================================================================
+ROW 41   P(zero) after -Q = 1.00   mean_cosine = 0.9440
+  question_marks=0  autonomy=1  options=5  reflection=0  len=880  sentences=7
+  USER QUESTION: I have numbness and tingling in my feet from chemo. Are there exercises I should avoid?
+  REMOVED BY -Q:
+    - 'Would you like to explore some gentle exercise options that could be safe for you?'
+----------------------------------------------------------------------------------------------------
+It's understandable to be cautious about exercise with numbness and tingling in your feet,
+especially after chemotherapy. Generally, it's important to avoid exercises that could increase
+your risk of falls or injury. Here are some types of exercises you might want to approach with
+caution or avoid altogether:
+
+1. **High-impact activities**: Activities that involve jumping or running can be risky if you're
+experiencing balance issues.
+
+2. **Exercises requiring fine motor control**: Movements that require precise foot placement or
+balance may be challenging.
+
+3. **Heavy lifting**: If you have any weakness or instability, lifting heavy weights could pose
+a risk.
+
+Gentle movement and stretching can be very beneficial, as they help improve balance and
+coordination. Always listen to your body and consult with your healthcare team before starting
+any new exercise program.
+
+====================================================================================================
+ROW 48   P(zero) after -Q = 1.00   mean_cosine = 0.9109
+  question_marks=0  autonomy=0  options=0  reflection=0  len=1000  sentences=8
+  USER QUESTION: I'm curious about how my BMI affects my heart health after cancer treatment. Is it more important than other factors like my age or whether I smoke?
+  REMOVED BY -Q:
+    - 'Would you like to start with that?'
+----------------------------------------------------------------------------------------------------
+It's great that you're thinking about how your BMI and other factors impact your heart health,
+especially after cancer treatment. BMI is an important measure because it can indicate whether
+you're in a healthy weight range, which is linked to cardiovascular health. However, it's not
+the only factor to consider.
+
+Age, smoking status, physical activity, diet, and blood pressure also play significant roles in
+heart health. For instance, smoking is a major risk factor for heart disease, and being
+physically active can greatly improve your cardiovascular health.
+
+In cancer survivors, maintaining a healthy weight (BMI) can be particularly important because
+obesity is associated with poorer outcomes in some cancers. However, the context of your overall
+health, including your treatment side effects and lifestyle choices, is crucial.
+
+If you’d like, I can help you assess your BMI and explore how to improve your heart health
+through the American Heart Association's Life's Essential 8 framework.
+
+====================================================================================================
+ROW 57   P(zero) after -Q = 1.00   mean_cosine = 0.9441
+  question_marks=0  autonomy=0  options=2  reflection=0  len=845  sentences=7
+  USER QUESTION: What kinds of exercise are best for cancer survivors — cardio or weights?
+  REMOVED BY -Q:
+    - 'Would you like to explore setting a goal for increasing your physical activity?'
+----------------------------------------------------------------------------------------------------
+Both cardio and strength training exercises can be beneficial for cancer survivors, and the best
+choice often depends on individual preferences, treatment side effects, and overall health
+status.
+
+**Cardio exercises** (like walking, cycling, or swimming) can improve cardiovascular fitness,
+help manage weight, and boost energy levels. They are generally safe and can be adjusted based
+on how you're feeling.
+
+**Strength training** (using weights or bodyweight exercises) helps build muscle, improve
+strength, and can enhance overall quality of life. It's especially important for combating
+muscle loss that can occur during treatment.
+
+A balanced approach that includes both types of exercise is often recommended. It's always a
+good idea to consult with your healthcare team to tailor an exercise program to your specific
+needs and abilities.
+
+====================================================================================================
+ROW 70   P(zero) after -Q = 1.00   mean_cosine = 0.8813
+  question_marks=0  autonomy=0  options=1  reflection=0  len=554  sentences=4
+  USER QUESTION: I gained a lot of weight during chemotherapy. Can I use exercise to lose it?
+  REMOVED BY -Q:
+    - 'Would you like to explore some specific exercise goals or types of activities that you might enjoy?'
+----------------------------------------------------------------------------------------------------
+It's great that you're considering exercise as a way to manage your weight! Many cancer
+survivors find that physical activity can help improve their overall health and support weight
+management, especially after treatment.
+
+However, it's important to approach this gently, especially if you've experienced weight gain
+due to treatment side effects like steroids or hormonal changes. Instead of focusing solely on
+weight loss, we can aim for a balanced approach that includes building strength, improving
+endurance, and enhancing your overall well-being.
+
+====================================================================================================
+ROW 84   P(zero) after -Q = 1.00   mean_cosine = 0.8717
+  question_marks=0  autonomy=0  options=2  reflection=0  len=938  sentences=7
+  USER QUESTION: I'm curious about how my nutrition choices, like breastfeeding or formula feeding, might affect my child's health and immune system. Can you help me understand this better?
+  REMOVED BY -Q:
+    - "Now, getting back to your health — is there a specific area of your nutrition or health you'd like to focus on?"
+----------------------------------------------------------------------------------------------------
+It's great that you're looking into how nutrition choices can impact your child's health!
+Breastfeeding has been shown to provide numerous benefits for both mothers and infants. For
+infants, breastfeeding can help protect against infections and lower the risk of childhood
+diseases. It supports the development of a strong immune system and contributes to a healthier
+weight as they grow.
+
+In contrast, formula feeding can also provide adequate nutrition, but it may not offer the same
+immune-boosting benefits as breast milk. The World Health Organization recommends exclusive
+breastfeeding for the first six months, followed by continued breastfeeding alongside
+appropriate complementary foods up to two years or beyond when possible.
+
+If you have specific concerns or questions about your situation, it might be helpful to discuss
+them with your healthcare provider, as they can provide personalized advice based on your
+circumstances.
+
+====================================================================================================
+ROW 85   P(zero) after -Q = 1.00   mean_cosine = 0.9216
+  question_marks=0  autonomy=0  options=0  reflection=0  len=702  sentences=7
+  USER QUESTION: Should I cut out all sugar to reduce my cancer risk?
+  REMOVED BY -Q:
+    - 'Would you like to explore ways to improve your eating habits?'
+----------------------------------------------------------------------------------------------------
+It's great that you're thinking about your diet and its impact on health! While it's not
+necessary to cut out all sugar completely, reducing added sugars can be beneficial. Research
+suggests that limiting added sugars, especially from sugar-sweetened beverages, can help lower
+cancer risk and support overall health.
+
+Instead of eliminating sugar entirely, focus on making healthier choices. This includes opting
+for whole foods like fruits and vegetables, which provide natural sugars along with important
+nutrients and fiber. It's also a good idea to avoid highly processed foods that often contain
+added sugars.
+
+If you're looking for specific dietary changes, I can help you set a goal around that.
+
+====================================================================================================
+ROW 90   P(zero) after -Q = 1.00   mean_cosine = 0.9485
+  question_marks=0  autonomy=0  options=0  reflection=0  len=844  sentences=7
+  USER QUESTION: I've heard that PSA levels can indicate prostate cancer risk, but how do they really affect my overall health and what should I focus on for my heart health instead?
+  REMOVED BY -Q:
+    - 'Would you like to start with that?'
+----------------------------------------------------------------------------------------------------
+It's true that PSA (prostate-specific antigen) levels can indicate prostate cancer risk, but
+they are just one piece of the puzzle when it comes to your overall health. Elevated PSA levels
+can suggest the need for further testing, but they don't directly diagnose cancer. Factors like
+age, race, and prostate size can also influence PSA levels.
+
+When it comes to your heart health, focusing on the American Heart Association's Life's
+Essential 8 (LE8) framework is a great approach. This includes monitoring your physical
+activity, sleep, blood pressure, blood sugar, blood lipids, BMI, diet, and smoking status. Each
+of these areas plays a vital role in cardiovascular health.
+
+If you're interested, I can help you assess your current health metrics based on the LE8
+framework and provide specific guidance on how to improve your heart health.
+
+====================================================================================================
+ROW 94   P(zero) after -Q = 1.00   mean_cosine = 0.8737
+  question_marks=0  autonomy=1  options=1  reflection=0  len=571  sentences=6
+  USER QUESTION: Should I aim for specific exercise goals, like reaching 10,000 steps a day, or is it better to keep my goals more general?
+  REMOVED BY -Q:
+    - 'What do you think feels more comfortable for you right now: setting a specific target or starting with a more general goal?'
+----------------------------------------------------------------------------------------------------
+That's a great question! Aiming for specific exercise goals, like reaching 10,000 steps a day,
+can be very effective, especially if you're already somewhat active. Specific goals help you
+focus on a clear target and can motivate you to stay consistent. However, if you're just
+starting or have been less active, more general goals might be better to avoid feeling
+overwhelmed.
+
+For instance, you could set a goal to increase your daily steps gradually, like adding 1,000
+steps more than your current average. This way, you can build your ability and confidence over
+time.
+
+====================================================================================================
+ROW 97   P(zero) after -Q = 1.00   mean_cosine = 0.9778
+  question_marks=0  autonomy=0  options=2  reflection=0  len=726  sentences=6
+  USER QUESTION: Is it safe for me to start exercising now that I've completed my breast cancer treatment?
+  REMOVED BY -Q:
+    - 'Would you like to discuss that?'
+----------------------------------------------------------------------------------------------------
+It's great to hear that you've completed your breast cancer treatment! Generally, exercise is
+considered safe for most people after cancer treatment, including breast cancer. Engaging in
+physical activity can help improve your strength, energy levels, and overall quality of life.
+
+However, it's important to listen to your body and consider any specific side effects you may
+have experienced during treatment, such as fatigue or joint issues. I recommend checking in with
+your healthcare team before starting any new exercise program to ensure it’s safe and
+appropriate for your current health status.
+
+If you're ready to explore exercise options, I can help you set some goals or suggest activities
+that might work for you!
+
+====================================================================================================
+ROW 111   P(zero) after -Q = 1.00   mean_cosine = 0.9505
+  question_marks=0  autonomy=0  options=1  reflection=0  len=1053  sentences=8
+  USER QUESTION: I'm curious about the safety of starting an exercise routine while I'm undergoing chemotherapy for breast cancer. What does the research say about this?
+  REMOVED BY -Q:
+    - 'Would you like to discuss that?'
+----------------------------------------------------------------------------------------------------
+It's great that you're interested in starting an exercise routine during your chemotherapy
+treatment. Research shows that exercise is generally safe and can be beneficial for individuals
+undergoing treatment for breast cancer. Studies have found that exercise can improve aerobic
+fitness, muscular strength, quality of life, and even help manage fatigue.
+
+Many clinical trials have included various forms of exercise, from home-based walking programs
+to structured fitness sessions, and they've consistently reported positive outcomes. However,
+it's essential to tailor your exercise routine to your current energy levels and any side
+effects you may be experiencing.
+
+Before starting any new exercise program, it's always a good idea to discuss it with your
+healthcare team to ensure it's appropriate for your specific situation. They can provide
+guidance based on your treatment plan and any side effects you're experiencing.
+
+If you're ready to explore an exercise routine, I can help you set some goals or suggest
+activities that might work for you.
+
+====================================================================================================
+ROW 126   P(zero) after -Q = 1.00   mean_cosine = 0.9179
+  question_marks=0  autonomy=0  options=0  reflection=0  len=832  sentences=6
+  USER QUESTION: I finished cancer treatment. Should I be following the same diet and lifestyle advice as people trying to prevent cancer?
+  REMOVED BY -Q:
+    - 'How are you feeling about making changes to your diet and lifestyle?'
+----------------------------------------------------------------------------------------------------
+Yes, many of the dietary and lifestyle recommendations for cancer prevention are also beneficial
+for cancer survivors. Following a healthy diet, staying physically active, maintaining a healthy
+weight, and avoiding tobacco can all support your overall health and reduce the risk of
+recurrence.
+
+It's important to focus on a balanced diet rich in fruits, vegetables, whole grains, and lean
+proteins, while limiting processed foods, sugar-sweetened beverages, and alcohol. Regular
+physical activity is also crucial, as it can help improve your energy levels, manage weight, and
+enhance your overall well-being.
+
+However, individual circumstances can vary, especially considering treatment side effects. It's
+always a good idea to consult with your healthcare team to tailor these recommendations to your
+specific needs and situation.
+
+====================================================================================================
+ROW 129   P(zero) after -Q = 0.67   mean_cosine = 0.9212
+  question_marks=0  autonomy=0  options=1  reflection=0  len=839  sentences=6
+  USER QUESTION: I am scared to do resistance training because of my lymphedema. What does the research say?
+  REMOVED BY -Q:
+    - 'How does that sound?'
+----------------------------------------------------------------------------------------------------
+It's completely understandable to feel apprehensive about resistance training with lymphedema.
+However, research shows that progressive resistance training can actually be safe and beneficial
+for those at risk of lymphedema, especially for breast cancer survivors. Studies indicate that
+engaging in a structured resistance program can help improve symptoms and even protect against
+lymphedema flare-ups when done with appropriate precautions, such as using a compression
+garment.
+
+The key is to start slowly and focus on major muscle groups, ideally under the guidance of a
+fitness professional. Light weights or resistance bands can be effective, and exercises can be
+modified to suit your comfort level.
+
+If you're open to it, we can explore some gentle resistance training options that could help you
+feel more confident and supported.
+
+====================================================================================================
+ROW 140   P(zero) after -Q = 1.00   mean_cosine = 0.8979
+  question_marks=0  autonomy=0  options=1  reflection=0  len=864  sentences=6
+  USER QUESTION: Should I focus on one specific food or nutrient to reduce my cancer risk, like eating more antioxidants?
+  REMOVED BY -Q:
+    - 'What do you think?'
+----------------------------------------------------------------------------------------------------
+It's a common thought that focusing on specific foods or nutrients, like antioxidants, can
+significantly reduce cancer risk. However, the evidence suggests that it's more beneficial to
+adopt an overall healthy dietary pattern rather than targeting individual components. A diet
+rich in a variety of vegetables, fruits, whole grains, and lean proteins can provide a range of
+bioactive compounds that may help reduce cancer risk.
+
+Incorporating a diverse array of whole foods will not only help with cancer prevention but also
+support your overall health, especially during and after treatment. Instead of focusing solely
+on one nutrient, aim for a balanced diet that includes plenty of colorful fruits and vegetables,
+as they contain various beneficial compounds.
+
+If you're interested in making dietary changes, we could explore specific areas to improve
+together.
+
+====================================================================================================
+ROW 141   P(zero) after -Q = 1.00   mean_cosine = 0.9233
+  question_marks=0  autonomy=0  options=2  reflection=0  len=994  sentences=7
+  USER QUESTION: I've heard that physical activity can help with cancer survival, but how does it really affect different types of cancer? Are there specific exercises I should focus on?
+  REMOVED BY -Q:
+    - 'Would you like to discuss your current activity level or any preferences you have for exercises?'
+----------------------------------------------------------------------------------------------------
+It's great that you're interested in how physical activity can impact cancer survival! Research
+shows that regular exercise can improve quality of life, reduce fatigue, and even enhance
+survival rates for certain types of cancer, such as breast, colorectal, and prostate cancers.
+While the benefits of exercise are well-documented for these cancers, emerging evidence suggests
+that it can also be beneficial for other cancer types, although more research is needed to
+understand the specifics.
+
+As for exercises, it's important to choose activities that you enjoy and that fit your current
+abilities. Generally, a mix of aerobic exercises (like walking or cycling) and strength training
+(like bodyweight exercises) is recommended. Gentle stretching and flexibility exercises, such as
+yoga or tai chi, can also be beneficial, especially for managing stress and improving overall
+well-being.
+
+If you're interested in setting some specific goals around physical activity, I can help you
+with that!
+
+====================================================================================================
+ROW 144   P(zero) after -Q = 1.00   mean_cosine = 0.9257
+  question_marks=0  autonomy=0  options=1  reflection=0  len=1025  sentences=8
+  USER QUESTION: I've been feeling some discomfort while urinating, and I'm worried about my health. Should I be concerned about how this might affect my heart health, especially given my age and family history?
+  REMOVED BY -Q:
+    - 'Would you like to discuss any specific areas?'
+----------------------------------------------------------------------------------------------------
+It's understandable to feel concerned about any discomfort you're experiencing, especially when
+it comes to urination. While I can't provide medical advice, I encourage you to discuss these
+symptoms with your healthcare team. They can assess your situation thoroughly and determine if
+any further tests or treatments are needed.
+
+As for your heart health, it's important to keep in mind that various factors, including family
+history, can influence cardiovascular risk. Symptoms like urinary discomfort may not directly
+affect heart health, but overall well-being and quality of life do play a role in managing heart
+health effectively.
+
+In the meantime, focusing on your heart health through the American Heart Association's Life's
+Essential 8 (LE8) framework can be beneficial. This includes maintaining a balanced diet,
+staying physically active, managing stress, and monitoring key health metrics like blood
+pressure and cholesterol levels. If you're interested, we can explore ways to improve your heart
+health together.
+
+====================================================================================================
+ROW 156   P(zero) after -Q = 1.00   mean_cosine = 0.9054
+  question_marks=0  autonomy=0  options=0  reflection=0  len=742  sentences=5
+  USER QUESTION: What is the recommended level of exercise I should aim for to help reduce my risk of cancer, and does it vary depending on the type of cancer?
+  REMOVED BY -Q:
+    - 'Would you like to explore that?'
+----------------------------------------------------------------------------------------------------
+The general recommendation for cancer survivors is to aim for at least 150 minutes of moderate-
+intensity physical activity per week. However, some studies suggest that increasing this to 300
+minutes per week may be beneficial, especially for specific cancer types like breast cancer.
+
+It's important to note that the optimal level of exercise can vary based on the type of cancer
+and individual circumstances, including treatment side effects. Engaging in regular physical
+activity can help improve overall health, reduce fatigue, and enhance quality of life during and
+after treatment.
+
+If you're considering how to incorporate more activity into your routine, I can help you set
+specific goals based on your current levels and preferences!

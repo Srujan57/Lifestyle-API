@@ -1,0 +1,162 @@
+====================================================================================================
+LE8 CONTENT vs ANSWER-RELEVANCY ZEROS  and  (separately) vs FAITHFULNESS
+====================================================================================================
+source: /Users/priyankarazdan/Documents/GitHub/Lifestyle-API/back-end/evals/RAGAS/RAGAS_Baseline.csv
+rows  : 163
+
+####################################################################################################
+# SECTION 1 -- IDENTIFYING LE8 CONTENT (two independent signals, NOT merged)
+####################################################################################################
+
+(a) le8_by_category : Category in ['BMI', 'Blood Lipids', 'Blood Pressure', 'Blood Sugar', 'Diet', 'LE8 Composite', 'Physical Activity', 'Sleep']
+    -> 72 rows
+
+    Category breakdown:
+      [   ] rag_grounded                        76
+      [LE8] Physical Activity                   54
+      [   ] Cancer & Survivorship Education     11
+      [LE8] Diet                                 9
+      [   ] SMART Goal                           4
+      [LE8] BMI                                  2
+      [LE8] Blood Pressure                       2
+      [LE8] Blood Lipids                         2
+      [LE8] LE8 Composite                        1
+      [LE8] Sleep                                1
+      [LE8] Blood Sugar                          1
+
+(b) le8_by_text : Bot Answer carries an LE8 score/tier/category reference
+    -> 70 rows
+
+    Components (a row can trip more than one):
+      b1 digit within 40 chars of an LE8 domain term :  39
+      b2 explicit score/tier wording                     :   7
+      b3 bare 'moderate'/'high'                          :  47
+
+    CAVEAT: b3 is the qualifier wording named in the brief, but 'moderate'
+    and 'high' are also ordinary exercise vocabulary in this corpus
+    ('moderate-intensity aerobic activity', 'high-impact'), so b3 is a
+    weak indicator of LE8 scoring content. Counts with and without b3
+    are reported below so its effect is visible.
+      le8_by_text WITHOUT b3 : 43 rows (vs 70 with it)
+
+----------------------------------------------------------------------------------------------------
+WHERE (a) AND (b) DISAGREE
+----------------------------------------------------------------------------------------------------
+
+                             text=YES    text=NO
+    category=YES                   20         52
+    category=NO                    50         41
+
+    agreement: 61/163 = 37.4%
+    Cohen-style disagreement: 52 category-only, 50 text-only
+
+    CATEGORY=LE8 but TEXT shows no LE8 reference (52 rows):
+      row   0  [Physical Activity]  My cancer has spread to my bones. Is it safe for me to exercise?
+      row   2  [Physical Activity]  I am on hormone therapy for prostate cancer and I feel like I am losing muscle
+      row   3  [Physical Activity]  I do cardio regularly. Do I still need to add weight training, or does running
+      row   4  [Physical Activity]  If I already do some weight training, do I need to do more to get cancer preve
+      row   6  [Physical Activity]  I barely feel like moving some days. Is there any point in doing a little exer
+      row   7  [Physical Activity]  I feel stiff and my joints ache after cancer treatment. What kind of stretchin
+      row  12  [Physical Activity]  Will exercise improve my quality of life after a cancer diagnosis?
+      row  14  [Physical Activity]  I have not exercised in years and just finished cancer treatment. Where do I e
+      row  15  [Physical Activity]  I feel really stiff after my cancer treatment. Would stretching help?
+      row  19  [BMI]  I am at a healthy weight. Is weight management still something I need to think
+      row  21  [Physical Activity]  I am 72 and just finished cancer treatment. Is exercise still safe for me at m
+      row  22  [Physical Activity]  Should I join a gym with a trainer or can I exercise at home on my own?
+
+    TEXT shows LE8 reference but CATEGORY is not LE8 (50 rows) -- first 12:
+      row   1  [rag_grounded]  trips=b3  I'm curious about how specific exercise plans can improve my
+      row   8  [rag_grounded]  trips=b1+b2+b3  I'm curious about how my weight and exercise habits can affe
+      row  10  [rag_grounded]  trips=b1+b2+b3  As a cancer survivor, what should I keep in mind about my he
+      row  11  [rag_grounded]  trips=b1  What are some easy ways I can stay active and manage stress 
+      row  23  [rag_grounded]  trips=b3  I've heard about bone scans for cancer, but can you explain 
+      row  40  [rag_grounded]  trips=b3  I've heard that high-dose dietary supplements aren't recomme
+      row  42  [rag_grounded]  trips=b1+b3  I'm really concerned about how my prostate cancer treatments
+      row  46  [Cancer & Survivorship Education]  trips=b3  How does exercise protect my heart as a cancer survivor?
+      row  47  [rag_grounded]  trips=b2  I'm curious about how exercise can help me recover during an
+      row  48  [rag_grounded]  trips=b1  I'm curious about how my BMI affects my heart health after c
+      row  50  [rag_grounded]  trips=b3  What are some fiber-rich plant foods I can include in my die
+      row  53  [rag_grounded]  trips=b3  I'm curious about how moderate-intensity activities stack up
+
+
+####################################################################################################
+# SECTION 2 -- LE8 CONTENT vs ANSWER-RELEVANCY ZEROS
+#   metric: ragas_answer_relevancy == 0.0   (the noncommittal-flag artifact)
+####################################################################################################
+
+  (a) BY CATEGORY
+                                baseline_zero   baseline_nonzero
+    LE8 category                           25                 47
+    non-LE8 category                       31                 60
+    Fisher exact: odds ratio = 1.030, p = 1
+    zero rate, LE8 category             = 0.347  (25/72)
+    zero rate, non-LE8 category         = 0.341  (31/91)
+
+  (b) BY TEXT
+                                baseline_zero   baseline_nonzero
+    LE8 text ref                           19                 51
+    no LE8 text ref                        37                 56
+    Fisher exact: odds ratio = 0.564, p = 0.099049
+    zero rate, LE8 text ref             = 0.271  (19/70)
+    zero rate, no LE8 text ref          = 0.398  (37/93)
+
+  (b-strict) BY TEXT, no b3
+                                baseline_zero   baseline_nonzero
+    LE8 text (strict)                      13                 30
+    no LE8 text (strict)                   43                 77
+    Fisher exact: odds ratio = 0.776, p = 0.5771
+    zero rate, LE8 text (strict)        = 0.302  (13/43)
+    zero rate, no LE8 text (strict)     = 0.358  (43/120)
+
+
+####################################################################################################
+# SECTION 3 -- LE8 CONTENT vs FAITHFULNESS   [DIFFERENT METRIC, DIFFERENT ARTIFACT]
+#   metric: ragas_faithfulness    (the LE8-injection artifact)
+#   This is NOT the same failure mode as Section 2. Do not read across.
+####################################################################################################
+
+  faithfulness overall: n=161, NaN=2, mean=0.5087, median=0.5000
+
+  (a) BY CATEGORY
+    LE8     : n= 72  mean faithfulness = 0.5156  median = 0.5167
+    non-LE8 : n= 91  mean faithfulness = 0.5032  median = 0.4783
+    difference (LE8 - non-LE8) = +0.0124
+    Mann-Whitney U: p = 0.64124, AUC = 0.521
+    LE8 rows below 0.4     : 20/72 (27.8%)
+    non-LE8 rows below 0.4 : 31/91 (34.1%)
+
+  (b) BY TEXT
+    LE8     : n= 70  mean faithfulness = 0.5159  median = 0.5217
+    non-LE8 : n= 93  mean faithfulness = 0.5034  median = 0.5000
+    difference (LE8 - non-LE8) = +0.0124
+    Mann-Whitney U: p = 0.73384, AUC = 0.516
+    LE8 rows below 0.4     : 23/70 (32.9%)
+    non-LE8 rows below 0.4 : 28/93 (30.1%)
+
+  (b-strict) BY TEXT, no b3
+    LE8     : n= 43  mean faithfulness = 0.5444  median = 0.5298
+    non-LE8 : n=120  mean faithfulness = 0.4962  median = 0.5000
+    difference (LE8 - non-LE8) = +0.0482
+    Mann-Whitney U: p = 0.26653, AUC = 0.558
+    LE8 rows below 0.4     : 11/43 (25.6%)
+    non-LE8 rows below 0.4 : 40/120 (33.3%)
+
+
+####################################################################################################
+# SECTION 4 -- OVERLAP: are the two failure modes the same rows?
+####################################################################################################
+
+                                 faithfulness<0.4   faithfulness>=0.4
+    answer_relevancy == 0                      16                  40
+    answer_relevancy > 0                       35                  72
+
+    Fisher exact: odds ratio = 0.823, p = 0.7223
+    low-faithfulness rate among relevancy zeros    : 0.286  (16/56)
+    low-faithfulness rate among relevancy non-zeros: 0.327  (35/107)
+
+    mean faithfulness, relevancy zeros    : 0.5173
+    mean faithfulness, relevancy non-zeros: 0.5043
+    Mann-Whitney U on faithfulness: p = 0.71075, AUC = 0.518
+
+    Rows that are BOTH relevancy-zero AND faithfulness<0.4: 16
+      row ids: [3, 14, 16, 22, 27, 33, 34, 39, 48, 57, 74, 84, 96, 111, 135, 149]

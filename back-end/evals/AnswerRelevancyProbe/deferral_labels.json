@@ -1,0 +1,1143 @@
+[
+  {
+    "row": 0,
+    "label": "COMMITS",
+    "reason": "The response provides substantive content by suggesting that exercise can be safe and beneficial, recommending low-impact activities, and advising modifications.",
+    "prompt_tokens": 485,
+    "completion_tokens": 33
+  },
+  {
+    "row": 1,
+    "label": "COMMITS",
+    "reason": "The response provides specific guidance on exercise considerations, including safety, starting slow, incorporating variety, setting goals, and staying consistent.",
+    "prompt_tokens": 664,
+    "completion_tokens": 34
+  },
+  {
+    "row": 2,
+    "label": "COMMITS",
+    "reason": "The response provides substantive information about how exercise, particularly resistance training, can help counteract muscle loss during hormone therapy.",
+    "prompt_tokens": 470,
+    "completion_tokens": 32
+  },
+  {
+    "row": 3,
+    "label": "COMMITS",
+    "reason": "The response provides substantive information about the benefits of weight training for cancer prevention, including building lean muscle mass and supporting metabolic health.",
+    "prompt_tokens": 491,
+    "completion_tokens": 34
+  },
+  {
+    "row": 4,
+    "label": "COMMITS",
+    "reason": "The response provides guidance on the frequency and focus of weight training for cancer prevention benefits.",
+    "prompt_tokens": 491,
+    "completion_tokens": 26
+  },
+  {
+    "row": 5,
+    "label": "COMMITS",
+    "reason": "The response explains the purpose of asking questions as tailoring goals to the user's unique situation, which is substantive content.",
+    "prompt_tokens": 471,
+    "completion_tokens": 31
+  },
+  {
+    "row": 6,
+    "label": "COMMITS",
+    "reason": "The response provides substantive content by explaining the benefits of even small amounts of exercise and suggesting specific activities like short walks and stretching.",
+    "prompt_tokens": 449,
+    "completion_tokens": 34
+  },
+  {
+    "row": 7,
+    "label": "COMMITS",
+    "reason": "The response provides specific types of stretches and exercises that can help with stiffness and joint discomfort.",
+    "prompt_tokens": 567,
+    "completion_tokens": 27
+  },
+  {
+    "row": 8,
+    "label": "COMMITS",
+    "reason": "The response provides substantive information on how weight and exercise habits affect heart health, including BMI and exercise recommendations.",
+    "prompt_tokens": 555,
+    "completion_tokens": 30
+  },
+  {
+    "row": 9,
+    "label": "COMMITS",
+    "reason": "The response commits to helping set realistic physical activity goals and begins by asking about the user's current activity level, which is a substantive step in goal-setting.",
+    "prompt_tokens": 436,
+    "completion_tokens": 39
+  },
+  {
+    "row": 10,
+    "label": "COMMITS",
+    "reason": "The response provides specific guidance on exercise considerations for heart health, including starting slow, modifying for side effects, and aiming for regular activity.",
+    "prompt_tokens": 658,
+    "completion_tokens": 36
+  },
+  {
+    "row": 11,
+    "label": "COMMITS",
+    "reason": "The response provides specific strategies for staying active and managing stress, such as gentle movement, breathing exercises, and creative outlets.",
+    "prompt_tokens": 588,
+    "completion_tokens": 33
+  },
+  {
+    "row": 12,
+    "label": "COMMITS",
+    "reason": "The response provides substantive information about the benefits of exercise for cancer survivors, including reducing symptoms and improving well-being.",
+    "prompt_tokens": 468,
+    "completion_tokens": 31
+  },
+  {
+    "row": 13,
+    "label": "COMMITS",
+    "reason": "The response provides substantive information about how apps can help with goal tracking, reminders, progress monitoring, and personalized recommendations.",
+    "prompt_tokens": 479,
+    "completion_tokens": 32
+  },
+  {
+    "row": 14,
+    "label": "COMMITS",
+    "reason": "The response provides specific exercise suggestions like walking, stretching, and bodyweight exercises to help the user start exercising.",
+    "prompt_tokens": 519,
+    "completion_tokens": 31
+  },
+  {
+    "row": 15,
+    "label": "COMMITS",
+    "reason": "The response provides substantive information about the benefits of stretching, including relieving muscle tightness and improving range of motion.",
+    "prompt_tokens": 455,
+    "completion_tokens": 31
+  },
+  {
+    "row": 16,
+    "label": "COMMITS",
+    "reason": "The response provides guidance on safely incorporating exercise by suggesting setting realistic goals based on current activity levels.",
+    "prompt_tokens": 456,
+    "completion_tokens": 28
+  },
+  {
+    "row": 17,
+    "label": "COMMITS",
+    "reason": "The response provides specific, actionable suggestions for incorporating more movement into daily life.",
+    "prompt_tokens": 586,
+    "completion_tokens": 24
+  },
+  {
+    "row": 18,
+    "label": "COMMITS",
+    "reason": "The response provides substantive information about the importance of discussing lifestyle factors like diet and exercise in cancer care and suggests bringing up these topics with a doctor or dietitian.",
+    "prompt_tokens": 488,
+    "completion_tokens": 41
+  },
+  {
+    "row": 19,
+    "label": "COMMITS",
+    "reason": "The response provides substantive information on why weight management is important for cancer survivors and offers guidance on maintaining a healthy weight through energy balance and sustainable habits.",
+    "prompt_tokens": 513,
+    "completion_tokens": 38
+  },
+  {
+    "row": 20,
+    "label": "COMMITS",
+    "reason": "The response provides specific strategies for setting and sticking to exercise goals, such as starting small, being specific, and tracking progress.",
+    "prompt_tokens": 619,
+    "completion_tokens": 34
+  },
+  {
+    "row": 21,
+    "label": "COMMITS",
+    "reason": "The response provides substantive information about the safety and benefits of exercise for older cancer survivors.",
+    "prompt_tokens": 447,
+    "completion_tokens": 26
+  },
+  {
+    "row": 22,
+    "label": "COMMITS",
+    "reason": "The response provides substantive content by explaining the benefits of both gym and home exercise options, allowing the user to make an informed decision.",
+    "prompt_tokens": 507,
+    "completion_tokens": 35
+  },
+  {
+    "row": 23,
+    "label": "COMMITS",
+    "reason": "The response explains what bone scans are and how they might indirectly relate to exercise and heart health.",
+    "prompt_tokens": 534,
+    "completion_tokens": 28
+  },
+  {
+    "row": 24,
+    "label": "COMMITS",
+    "reason": "The response provides specific strategies for encouraging children to eat more fruits and vegetables, such as making it fun, involving them in cooking, and setting a routine.",
+    "prompt_tokens": 648,
+    "completion_tokens": 40
+  },
+  {
+    "row": 25,
+    "label": "COMMITS",
+    "reason": "The response provides substantive guidance on the benefits of consulting a nutritionist after diagnosis.",
+    "prompt_tokens": 443,
+    "completion_tokens": 25
+  },
+  {
+    "row": 26,
+    "label": "COMMITS",
+    "reason": "The response provides substantive information about the risks of prolonged sitting and offers actionable advice on incorporating movement into the workday.",
+    "prompt_tokens": 486,
+    "completion_tokens": 32
+  },
+  {
+    "row": 27,
+    "label": "COMMITS",
+    "reason": "The response provides substantive guidance on the potential benefits of strength training and suggests starting with lighter weights and focusing on form.",
+    "prompt_tokens": 498,
+    "completion_tokens": 32
+  },
+  {
+    "row": 28,
+    "label": "COMMITS",
+    "reason": "The response provides substantive information about the safety and benefits of resistance training for breast cancer survivors, including recommendations on how to approach it safely.",
+    "prompt_tokens": 534,
+    "completion_tokens": 36
+  },
+  {
+    "row": 29,
+    "label": "COMMITS",
+    "reason": "The response provides substantive information about the benefits of weight lifting for managing depression, including mood improvement and endorphin release.",
+    "prompt_tokens": 487,
+    "completion_tokens": 33
+  },
+  {
+    "row": 30,
+    "label": "COMMITS",
+    "reason": "The response explains the benefits of reflecting on progress, such as reinforcing positive behaviors and enhancing self-awareness.",
+    "prompt_tokens": 446,
+    "completion_tokens": 29
+  },
+  {
+    "row": 31,
+    "label": "COMMITS",
+    "reason": "The response provides substantive information about the safety and benefits of exercise during and after cancer treatment.",
+    "prompt_tokens": 470,
+    "completion_tokens": 27
+  },
+  {
+    "row": 32,
+    "label": "COMMITS",
+    "reason": "The response provides substantive information about the benefits of exercise across different demographics and suggests that exercise can be tailored to individual needs.",
+    "prompt_tokens": 496,
+    "completion_tokens": 33
+  },
+  {
+    "row": 33,
+    "label": "COMMITS",
+    "reason": "The response provides substantive information about how exercise can help reduce cancer-related fatigue and offers guidance on starting with gentle activities.",
+    "prompt_tokens": 477,
+    "completion_tokens": 32
+  },
+  {
+    "row": 34,
+    "label": "COMMITS",
+    "reason": "The response provides substantive information that exercise is generally safe and beneficial during cancer treatment, while also advising consultation with a care team.",
+    "prompt_tokens": 483,
+    "completion_tokens": 34
+  },
+  {
+    "row": 35,
+    "label": "COMMITS",
+    "reason": "The response provides specific information on how exercise can help manage treatment side effects, including improving quality of life and reducing fatigue.",
+    "prompt_tokens": 493,
+    "completion_tokens": 33
+  },
+  {
+    "row": 36,
+    "label": "COMMITS",
+    "reason": "The response provides substantive information about the benefits of exercise for recovery after prostate cancer surgery, including specific types of exercises.",
+    "prompt_tokens": 469,
+    "completion_tokens": 32
+  },
+  {
+    "row": 37,
+    "label": "COMMITS",
+    "reason": "The response explains that immediate treatment may not be necessary and describes the concept of active surveillance as a potential approach.",
+    "prompt_tokens": 481,
+    "completion_tokens": 31
+  },
+  {
+    "row": 38,
+    "label": "COMMITS",
+    "reason": "The response provides specific guidance on alcohol consumption limits and mentions research on alcohol's cancer risk.",
+    "prompt_tokens": 466,
+    "completion_tokens": 27
+  },
+  {
+    "row": 39,
+    "label": "COMMITS",
+    "reason": "The response provides specific types of physical activities to focus on for heart health improvement.",
+    "prompt_tokens": 564,
+    "completion_tokens": 25
+  },
+  {
+    "row": 40,
+    "label": "COMMITS",
+    "reason": "The response provides specific dietary alternatives such as fruits, vegetables, whole grains, legumes, healthy fats, and lean proteins.",
+    "prompt_tokens": 612,
+    "completion_tokens": 33
+  },
+  {
+    "row": 41,
+    "label": "COMMITS",
+    "reason": "The response provides specific guidance on types of exercises to avoid, such as high-impact activities and heavy lifting.",
+    "prompt_tokens": 533,
+    "completion_tokens": 30
+  },
+  {
+    "row": 42,
+    "label": "COMMITS",
+    "reason": "The response provides specific actionable steps for maintaining heart health during prostate cancer treatment, such as staying active, eating a heart-healthy diet, and monitoring health metrics.",
+    "prompt_tokens": 629,
+    "completion_tokens": 41
+  },
+  {
+    "row": 43,
+    "label": "COMMITS",
+    "reason": "The response provides specific qualifications to look for in a fitness professional for older cancer survivors, such as certification in cancer exercise and experience with older adults.",
+    "prompt_tokens": 582,
+    "completion_tokens": 38
+  },
+  {
+    "row": 44,
+    "label": "COMMITS",
+    "reason": "The response provides specific exercise recommendations like Tai Chi, chair yoga, and walking for someone with neuropathy and balance issues.",
+    "prompt_tokens": 513,
+    "completion_tokens": 33
+  },
+  {
+    "row": 45,
+    "label": "COMMITS",
+    "reason": "The response provides specific strategies for reducing sitting time, such as setting a timer, using a standing desk, and incorporating movement into tasks.",
+    "prompt_tokens": 607,
+    "completion_tokens": 36
+  },
+  {
+    "row": 46,
+    "label": "COMMITS",
+    "reason": "The response provides substantive information on how exercise benefits heart health, including strengthening the heart muscle, improving circulation, and managing cholesterol levels.",
+    "prompt_tokens": 506,
+    "completion_tokens": 35
+  },
+  {
+    "row": 47,
+    "label": "COMMITS",
+    "reason": "The response provides specific types of exercises beneficial for cancer survivors, such as aerobic exercise, strength training, and flexibility activities.",
+    "prompt_tokens": 636,
+    "completion_tokens": 33
+  },
+  {
+    "row": 48,
+    "label": "COMMITS",
+    "reason": "The response provides substantive information about the role of BMI and other factors like age, smoking, and physical activity in heart health after cancer treatment.",
+    "prompt_tokens": 555,
+    "completion_tokens": 37
+  },
+  {
+    "row": 49,
+    "label": "COMMITS",
+    "reason": "The response provides specific strategies for adapting an exercise program to accommodate memory changes after chemotherapy.",
+    "prompt_tokens": 588,
+    "completion_tokens": 26
+  },
+  {
+    "row": 50,
+    "label": "COMMITS",
+    "reason": "The response provides a list of specific fiber-rich plant foods and explains their benefits for heart health.",
+    "prompt_tokens": 626,
+    "completion_tokens": 28
+  },
+  {
+    "row": 51,
+    "label": "COMMITS",
+    "reason": "The response provides substantive information about the safety of biopsies, potential risks, effects of sedation, and typical recovery expectations.",
+    "prompt_tokens": 553,
+    "completion_tokens": 33
+  },
+  {
+    "row": 52,
+    "label": "COMMITS",
+    "reason": "The response explains how prostate cancer treatments like ADT can affect heart health by causing weight gain, cholesterol changes, and increased blood pressure.",
+    "prompt_tokens": 512,
+    "completion_tokens": 36
+  },
+  {
+    "row": 53,
+    "label": "COMMITS",
+    "reason": "The response provides a detailed explanation of the differences between moderate and vigorous-intensity activities, including examples, MET values, and recommended weekly durations for heart health.",
+    "prompt_tokens": 590,
+    "completion_tokens": 40
+  },
+  {
+    "row": 54,
+    "label": "COMMITS",
+    "reason": "The response provides specific ways exercise benefits cancer survivors, including improved physical functioning, enhanced quality of life, better sleep, reduced symptoms, and social connections.",
+    "prompt_tokens": 584,
+    "completion_tokens": 39
+  },
+  {
+    "row": 55,
+    "label": "COMMITS",
+    "reason": "The response explains how health apps track sleep and physical activity using user input and sensor data, providing a substantive answer to the question.",
+    "prompt_tokens": 518,
+    "completion_tokens": 35
+  },
+  {
+    "row": 56,
+    "label": "COMMITS",
+    "reason": "The response provides specific strategies for increasing physical activity, such as walking, incorporating movement into daily routines, setting a step goal, joining a class, and trying short workouts at home.",
+    "prompt_tokens": 645,
+    "completion_tokens": 45
+  },
+  {
+    "row": 57,
+    "label": "COMMITS",
+    "reason": "The response provides substantive information about the benefits of both cardio and strength training for cancer survivors.",
+    "prompt_tokens": 516,
+    "completion_tokens": 27
+  },
+  {
+    "row": 58,
+    "label": "COMMITS",
+    "reason": "The response provides specific considerations for cancer survivors, such as avoiding inactivity and adapting exercise programs based on individual health status and treatment side effects.",
+    "prompt_tokens": 515,
+    "completion_tokens": 36
+  },
+  {
+    "row": 59,
+    "label": "COMMITS",
+    "reason": "The response provides substantive information about the benefits of exercise on body composition during hormone therapy, including specific types of exercise like resistance training.",
+    "prompt_tokens": 491,
+    "completion_tokens": 35
+  },
+  {
+    "row": 60,
+    "label": "COMMITS",
+    "reason": "The response explains what 'localized' means in the context of prostate cancer and outlines potential treatment options.",
+    "prompt_tokens": 448,
+    "completion_tokens": 29
+  },
+  {
+    "row": 61,
+    "label": "COMMITS",
+    "reason": "The response explains why high blood pressure is significant for prostate cancer patients, detailing the increased risk of cardiovascular events and complications with treatment.",
+    "prompt_tokens": 504,
+    "completion_tokens": 35
+  },
+  {
+    "row": 62,
+    "label": "COMMITS",
+    "reason": "The response provides specific ways a chatbot can help with motivation, including setting goals, sending reminders, and offering exercise suggestions.",
+    "prompt_tokens": 563,
+    "completion_tokens": 33
+  },
+  {
+    "row": 63,
+    "label": "COMMITS",
+    "reason": "The response explains how cholesterol levels and prostate cancer treatment can impact heart health and increase heart attack risk.",
+    "prompt_tokens": 519,
+    "completion_tokens": 29
+  },
+  {
+    "row": 64,
+    "label": "COMMITS",
+    "reason": "The response provides specific proactive steps for maintaining cardiovascular health and overall well-being, such as staying active, eating a heart-healthy diet, and managing stress.",
+    "prompt_tokens": 728,
+    "completion_tokens": 40
+  },
+  {
+    "row": 65,
+    "label": "COMMITS",
+    "reason": "The response provides specific strength training methods such as bodyweight exercises, resistance bands, and light dumbbells, which are actionable recommendations.",
+    "prompt_tokens": 660,
+    "completion_tokens": 35
+  },
+  {
+    "row": 66,
+    "label": "COMMITS",
+    "reason": "The response provides specific lifestyle changes such as exercise, diet, sleep, and stress management to help reduce the risk of metabolic syndrome.",
+    "prompt_tokens": 609,
+    "completion_tokens": 35
+  },
+  {
+    "row": 67,
+    "label": "COMMITS",
+    "reason": "The response provides substantive information about how exercise can improve balance and reduce fall risk, and suggests specific types of exercises like yoga and Tai Chi.",
+    "prompt_tokens": 458,
+    "completion_tokens": 37
+  },
+  {
+    "row": 68,
+    "label": "COMMITS",
+    "reason": "The response provides substantive content by confirming that exercise can help with shoulder stiffness and suggests gentle stretching and strengthening exercises.",
+    "prompt_tokens": 450,
+    "completion_tokens": 31
+  },
+  {
+    "row": 69,
+    "label": "COMMITS",
+    "reason": "The response provides detailed information on the benefits of weight training for cancer recovery, including muscle strength, quality of life, bone health, cardiovascular health, and fatigue management.",
+    "prompt_tokens": 661,
+    "completion_tokens": 42
+  },
+  {
+    "row": 70,
+    "label": "COMMITS",
+    "reason": "The response provides substantive guidance on using exercise for weight management and suggests a balanced approach to physical activity.",
+    "prompt_tokens": 464,
+    "completion_tokens": 29
+  },
+  {
+    "row": 71,
+    "label": "COMMITS",
+    "reason": "The response provides specific ways to use DNA information for heart health, such as identifying nutrient needs and tailoring the diet.",
+    "prompt_tokens": 660,
+    "completion_tokens": 32
+  },
+  {
+    "row": 72,
+    "label": "COMMITS",
+    "reason": "The response provides specific strategies for staying positive, such as practicing mindfulness and setting small goals.",
+    "prompt_tokens": 673,
+    "completion_tokens": 27
+  },
+  {
+    "row": 73,
+    "label": "COMMITS",
+    "reason": "The response provides substantive content by introducing the American Heart Association's Life's Essential 8 framework as a guide for setting cardiovascular health goals.",
+    "prompt_tokens": 482,
+    "completion_tokens": 36
+  },
+  {
+    "row": 74,
+    "label": "COMMITS",
+    "reason": "The response provides specific actionable goals related to physical activity, sleep, nutrition, stress management, hydration, and health monitoring.",
+    "prompt_tokens": 659,
+    "completion_tokens": 33
+  },
+  {
+    "row": 75,
+    "label": "COMMITS",
+    "reason": "The response provides specific guidance on types of exercises, volume, intensity, and frequency for resistance training after prostate cancer treatment.",
+    "prompt_tokens": 667,
+    "completion_tokens": 33
+  },
+  {
+    "row": 76,
+    "label": "COMMITS",
+    "reason": "The response provides specific information on how maintaining a healthy weight impacts cancer risk and overall health, including cancer prevention and reduced risk of chronic diseases.",
+    "prompt_tokens": 621,
+    "completion_tokens": 37
+  },
+  {
+    "row": 77,
+    "label": "COMMITS",
+    "reason": "The response provides specific benefits of low-dosage resistance training, such as improving muscle strength, body composition, and reducing cancer recurrence risk.",
+    "prompt_tokens": 585,
+    "completion_tokens": 37
+  },
+  {
+    "row": 78,
+    "label": "COMMITS",
+    "reason": "The response provides specific exercise recommendations such as brisk walking, yoga, and light resistance exercises to help protect heart health.",
+    "prompt_tokens": 496,
+    "completion_tokens": 32
+  },
+  {
+    "row": 79,
+    "label": "COMMITS",
+    "reason": "The response explains how exercise can help reduce fatigue and cites research supporting this claim.",
+    "prompt_tokens": 513,
+    "completion_tokens": 25
+  },
+  {
+    "row": 80,
+    "label": "COMMITS",
+    "reason": "The response provides specific exercise guidelines such as starting slow, incorporating strength training, and aiming for 150 minutes of aerobic activity per week.",
+    "prompt_tokens": 607,
+    "completion_tokens": 36
+  },
+  {
+    "row": 81,
+    "label": "COMMITS",
+    "reason": "The response provides substantive information on how exercise benefits heart health and recovery, including strengthening the heart and reducing fatigue.",
+    "prompt_tokens": 620,
+    "completion_tokens": 31
+  },
+  {
+    "row": 82,
+    "label": "COMMITS",
+    "reason": "The response provides specific dietary recommendations such as increasing fruits and vegetables, choosing whole grains, and focusing on healthy fats.",
+    "prompt_tokens": 686,
+    "completion_tokens": 32
+  },
+  {
+    "row": 83,
+    "label": "COMMITS",
+    "reason": "The response provides specific assessments for range of motion, strength, swelling, and pain to consider before starting exercises.",
+    "prompt_tokens": 578,
+    "completion_tokens": 31
+  },
+  {
+    "row": 84,
+    "label": "COMMITS",
+    "reason": "The response provides substantive information about the benefits of breastfeeding and formula feeding on a child's health and immune system.",
+    "prompt_tokens": 548,
+    "completion_tokens": 30
+  },
+  {
+    "row": 85,
+    "label": "COMMITS",
+    "reason": "The response provides substantive dietary guidance on reducing added sugars and making healthier food choices to potentially lower cancer risk.",
+    "prompt_tokens": 485,
+    "completion_tokens": 30
+  },
+  {
+    "row": 86,
+    "label": "COMMITS",
+    "reason": "The response provides specific dietary recommendations by listing categories of foods to limit or avoid after a cancer diagnosis.",
+    "prompt_tokens": 582,
+    "completion_tokens": 29
+  },
+  {
+    "row": 87,
+    "label": "COMMITS",
+    "reason": "The response provides specific safety considerations for cancer survivors, such as individual variability, medical clearance, risk of injury, supervision, and exercise adaptations.",
+    "prompt_tokens": 598,
+    "completion_tokens": 37
+  },
+  {
+    "row": 88,
+    "label": "COMMITS",
+    "reason": "The response provides a detailed process for aligning health goals with personal desires and capabilities, including reflecting on values, assessing the current situation, setting SMART goals, and checking motivation.",
+    "prompt_tokens": 631,
+    "completion_tokens": 43
+  },
+  {
+    "row": 89,
+    "label": "COMMITS",
+    "reason": "The response provides substantive information about the benefits of weight training for cancer risk, noting that both men and women can experience positive effects and mentioning specific benefits like improved physical function and potentially lower cancer risks.",
+    "prompt_tokens": 488,
+    "completion_tokens": 48
+  },
+  {
+    "row": 90,
+    "label": "COMMITS",
+    "reason": "The response provides substantive information about PSA levels and offers guidance on heart health using the Life's Essential 8 framework.",
+    "prompt_tokens": 543,
+    "completion_tokens": 32
+  },
+  {
+    "row": 91,
+    "label": "COMMITS",
+    "reason": "The response provides detailed explanations of the benefits of both aerobic exercises and strength training for heart health.",
+    "prompt_tokens": 577,
+    "completion_tokens": 28
+  },
+  {
+    "row": 92,
+    "label": "COMMITS",
+    "reason": "The response provides specific strategies for increasing fruit and vegetable intake and managing screen time.",
+    "prompt_tokens": 619,
+    "completion_tokens": 25
+  },
+  {
+    "row": 93,
+    "label": "COMMITS",
+    "reason": "The response provides specific strategies for setting exercise goals, such as starting small, using the SMART framework, and focusing on enjoyable activities.",
+    "prompt_tokens": 671,
+    "completion_tokens": 35
+  },
+  {
+    "row": 94,
+    "label": "COMMITS",
+    "reason": "The response provides guidance on setting specific versus general exercise goals and suggests gradually increasing steps.",
+    "prompt_tokens": 505,
+    "completion_tokens": 26
+  },
+  {
+    "row": 95,
+    "label": "COMMITS",
+    "reason": "The response provides substantive information about typical treatments for regional prostate cancer, including radiation, hormone therapy, and surgery.",
+    "prompt_tokens": 514,
+    "completion_tokens": 31
+  },
+  {
+    "row": 96,
+    "label": "COMMITS",
+    "reason": "The response provides specific strategies for staying motivated to exercise, such as setting realistic goals and finding enjoyable activities.",
+    "prompt_tokens": 630,
+    "completion_tokens": 30
+  },
+  {
+    "row": 97,
+    "label": "COMMITS",
+    "reason": "The response provides substantive information about the general safety and benefits of exercise after breast cancer treatment, while also advising to consult a healthcare team.",
+    "prompt_tokens": 490,
+    "completion_tokens": 36
+  },
+  {
+    "row": 98,
+    "label": "COMMITS",
+    "reason": "The response provides specific measurable benefits of working with a health coach, such as improved physical activity, better sleep quality, and lower blood pressure.",
+    "prompt_tokens": 667,
+    "completion_tokens": 37
+  },
+  {
+    "row": 99,
+    "label": "COMMITS",
+    "reason": "The response provides specific strategies such as setting SMART goals, prioritizing, planning ahead, and using reminders, which are actionable steps for achieving health goals.",
+    "prompt_tokens": 697,
+    "completion_tokens": 39
+  },
+  {
+    "row": 100,
+    "label": "COMMITS",
+    "reason": "The response provides a substantive answer by suggesting the SMART goal framework for setting a physical activity goal.",
+    "prompt_tokens": 446,
+    "completion_tokens": 28
+  },
+  {
+    "row": 101,
+    "label": "COMMITS",
+    "reason": "The response provides specific dietary patterns that are beneficial for cancer survivors, such as plant-based and Mediterranean diets.",
+    "prompt_tokens": 588,
+    "completion_tokens": 30
+  },
+  {
+    "row": 102,
+    "label": "COMMITS",
+    "reason": "The response provides specific dietary goals such as increasing vegetables and fruits, choosing whole grains, and limiting processed foods.",
+    "prompt_tokens": 611,
+    "completion_tokens": 31
+  },
+  {
+    "row": 103,
+    "label": "COMMITS",
+    "reason": "The response provides substantive information about the benefits of physical activity and other lifestyle factors in reducing cancer risk.",
+    "prompt_tokens": 520,
+    "completion_tokens": 29
+  },
+  {
+    "row": 104,
+    "label": "COMMITS",
+    "reason": "The response provides specific guidance on physical activity, nutrition, sleep, stress management, regular check-ups, and social support, which are actionable areas for improving health post-treatment.",
+    "prompt_tokens": 652,
+    "completion_tokens": 43
+  },
+  {
+    "row": 105,
+    "label": "COMMITS",
+    "reason": "The response provides specific nutritional strategies such as focusing on nutrient-dense foods, increasing fiber intake, and incorporating healthy fats.",
+    "prompt_tokens": 697,
+    "completion_tokens": 33
+  },
+  {
+    "row": 106,
+    "label": "COMMITS",
+    "reason": "The response provides specific factors to consider, such as current health status, type of cancer and treatment, and personal risk factors, when deciding on the need for medical clearance.",
+    "prompt_tokens": 593,
+    "completion_tokens": 43
+  },
+  {
+    "row": 107,
+    "label": "COMMITS",
+    "reason": "The response provides specific lifestyle changes such as staying active, eating a heart-healthy diet, managing stress, and avoiding tobacco to protect heart health during prostate cancer treatment.",
+    "prompt_tokens": 674,
+    "completion_tokens": 42
+  },
+  {
+    "row": 108,
+    "label": "COMMITS",
+    "reason": "The response provides specific exercise recommendations for managing anxiety, including frequency and types of activities.",
+    "prompt_tokens": 464,
+    "completion_tokens": 26
+  },
+  {
+    "row": 109,
+    "label": "COMMITS",
+    "reason": "The response provides specific benefits of exercise for cancer survivors and contrasts them with the effects of a sedentary lifestyle.",
+    "prompt_tokens": 520,
+    "completion_tokens": 31
+  },
+  {
+    "row": 110,
+    "label": "COMMITS",
+    "reason": "The response provides specific exercise programs designed for cancer survivors, offering actionable options.",
+    "prompt_tokens": 490,
+    "completion_tokens": 24
+  },
+  {
+    "row": 111,
+    "label": "COMMITS",
+    "reason": "The response provides substantive information about the safety and benefits of exercise during chemotherapy, citing research findings and suggesting tailoring exercise to individual conditions.",
+    "prompt_tokens": 545,
+    "completion_tokens": 35
+  },
+  {
+    "row": 112,
+    "label": "COMMITS",
+    "reason": "The response provides specific exercises like walking, yoga, tai chi, strength training, and stretching to help reduce cancer-related fatigue.",
+    "prompt_tokens": 560,
+    "completion_tokens": 34
+  },
+  {
+    "row": 113,
+    "label": "COMMITS",
+    "reason": "The response provides specific evidence supporting the benefits of resistance exercise for prostate cancer survivors, including improvements in muscle strength, physical function, body composition, and quality of life.",
+    "prompt_tokens": 564,
+    "completion_tokens": 42
+  },
+  {
+    "row": 114,
+    "label": "COMMITS",
+    "reason": "The response provides specific examples of aerobic exercises such as walking, cycling, swimming, dance, and group classes.",
+    "prompt_tokens": 592,
+    "completion_tokens": 31
+  },
+  {
+    "row": 115,
+    "label": "COMMITS",
+    "reason": "The response explains how hormone therapy works and its potential impact on heart health, providing actionable lifestyle recommendations.",
+    "prompt_tokens": 562,
+    "completion_tokens": 29
+  },
+  {
+    "row": 116,
+    "label": "COMMITS",
+    "reason": "The response provides detailed explanations of how exercise affects hormonal regulation, body weight, inflammation, immune function, and insulin sensitivity to lower cancer risk.",
+    "prompt_tokens": 598,
+    "completion_tokens": 37
+  },
+  {
+    "row": 117,
+    "label": "COMMITS",
+    "reason": "The response provides specific guidance on the frequency of PSA testing and mentions the possibility of a digital rectal exam.",
+    "prompt_tokens": 515,
+    "completion_tokens": 31
+  },
+  {
+    "row": 118,
+    "label": "COMMITS",
+    "reason": "The response provides specific guidance on how an exercise plan for an older cancer survivor may differ, including safety, progression, functional movement, recovery, and support systems.",
+    "prompt_tokens": 585,
+    "completion_tokens": 41
+  },
+  {
+    "row": 119,
+    "label": "COMMITS",
+    "reason": "The response provides specific guidance on breastfeeding, balanced diet, limiting supplements, creating a healthy eating environment, and regular check-ups.",
+    "prompt_tokens": 603,
+    "completion_tokens": 34
+  },
+  {
+    "row": 120,
+    "label": "COMMITS",
+    "reason": "The response provides substantive information on how exercise can improve sleep quality for cancer patients, including specific types of exercise and their benefits.",
+    "prompt_tokens": 487,
+    "completion_tokens": 34
+  },
+  {
+    "row": 121,
+    "label": "COMMITS",
+    "reason": "The response provides specific recommended activity levels for different age groups and offers actionable tips for incorporating them into a routine.",
+    "prompt_tokens": 604,
+    "completion_tokens": 31
+  },
+  {
+    "row": 122,
+    "label": "COMMITS",
+    "reason": "The response provides specific dietary recommendations, including fruits, vegetables, whole grains, lean proteins, healthy fats, and hydration, to support health after cancer.",
+    "prompt_tokens": 585,
+    "completion_tokens": 39
+  },
+  {
+    "row": 123,
+    "label": "COMMITS",
+    "reason": "The response provides specific dietary strategies such as focusing on nutrient-dense foods, balanced meals, mindful eating, and staying hydrated.",
+    "prompt_tokens": 704,
+    "completion_tokens": 34
+  },
+  {
+    "row": 124,
+    "label": "COMMITS",
+    "reason": "The response provides specific types of exercises that can benefit cancer survivors, such as walking, strength training, yoga, aerobic activities, and stretching.",
+    "prompt_tokens": 559,
+    "completion_tokens": 37
+  },
+  {
+    "row": 125,
+    "label": "COMMITS",
+    "reason": "The response provides specific lifestyle recommendations for managing heart health during prostate cancer treatment, including exercise, diet, monitoring blood pressure, sleep, and stress management.",
+    "prompt_tokens": 655,
+    "completion_tokens": 39
+  },
+  {
+    "row": 126,
+    "label": "COMMITS",
+    "reason": "The response provides specific dietary and lifestyle recommendations for cancer survivors, such as focusing on a balanced diet and regular physical activity.",
+    "prompt_tokens": 517,
+    "completion_tokens": 33
+  },
+  {
+    "row": 127,
+    "label": "COMMITS",
+    "reason": "The response provides specific guidance on strength training, nutrition, and consulting a professional to regain muscle.",
+    "prompt_tokens": 585,
+    "completion_tokens": 28
+  },
+  {
+    "row": 128,
+    "label": "COMMITS",
+    "reason": "The response provides specific evidence and statistics about the benefits of exercise on heart health and cancer risk, including quantified risk reductions.",
+    "prompt_tokens": 503,
+    "completion_tokens": 33
+  },
+  {
+    "row": 129,
+    "label": "COMMITS",
+    "reason": "The response provides substantive information about research supporting the safety and benefits of resistance training for those with lymphedema, along with practical guidance on how to approach it safely.",
+    "prompt_tokens": 515,
+    "completion_tokens": 44
+  },
+  {
+    "row": 130,
+    "label": "COMMITS",
+    "reason": "The response provides specific exercise guidelines for cancer survivors, including aerobic exercise, strength training, and flexibility activities.",
+    "prompt_tokens": 577,
+    "completion_tokens": 30
+  },
+  {
+    "row": 131,
+    "label": "COMMITS",
+    "reason": "The response provides substantive information about the benefits of exercise for prostate cancer survivors, including specific benefits like reducing fatigue and improving mood.",
+    "prompt_tokens": 469,
+    "completion_tokens": 34
+  },
+  {
+    "row": 132,
+    "label": "COMMITS",
+    "reason": "The response provides substantive information about the benefits of weight training, emphasizing that even small amounts can be beneficial and advising on consistency and gradual increase.",
+    "prompt_tokens": 507,
+    "completion_tokens": 37
+  },
+  {
+    "row": 133,
+    "label": "COMMITS",
+    "reason": "The response explains how chatbots can clarify goals, personalize experiences, and boost engagement, providing substantive content on the benefits of using a chatbot for goal-setting.",
+    "prompt_tokens": 457,
+    "completion_tokens": 40
+  },
+  {
+    "row": 134,
+    "label": "COMMITS",
+    "reason": "The response provides substantive information about how a healthy lifestyle can reduce cancer risk, including specific lifestyle factors and their impact.",
+    "prompt_tokens": 480,
+    "completion_tokens": 32
+  },
+  {
+    "row": 135,
+    "label": "COMMITS",
+    "reason": "The response provides specific exercise recommendations for bone health, including types of exercises and frequency.",
+    "prompt_tokens": 532,
+    "completion_tokens": 26
+  },
+  {
+    "row": 136,
+    "label": "COMMITS",
+    "reason": "The response provides substantive information on how exercise affects both cholesterol and blood pressure, explaining the mechanisms and benefits.",
+    "prompt_tokens": 474,
+    "completion_tokens": 30
+  },
+  {
+    "row": 137,
+    "label": "COMMITS",
+    "reason": "The response provides substantive advice on pelvic floor exercises, staying active, and maintaining a healthy diet to manage and prevent urinary incontinence.",
+    "prompt_tokens": 605,
+    "completion_tokens": 35
+  },
+  {
+    "row": 138,
+    "label": "COMMITS",
+    "reason": "The response provides substantive guidance by recommending both increasing physical activity and reducing sitting time for heart health.",
+    "prompt_tokens": 477,
+    "completion_tokens": 28
+  },
+  {
+    "row": 139,
+    "label": "COMMITS",
+    "reason": "The response explains how dietary guidelines and physical activity work together to reduce cancer risk by maintaining a healthy weight, supporting the immune system, and improving hormone regulation.",
+    "prompt_tokens": 582,
+    "completion_tokens": 40
+  },
+  {
+    "row": 140,
+    "label": "COMMITS",
+    "reason": "The response provides substantive guidance on adopting an overall healthy dietary pattern rather than focusing on specific nutrients.",
+    "prompt_tokens": 511,
+    "completion_tokens": 28
+  },
+  {
+    "row": 141,
+    "label": "COMMITS",
+    "reason": "The response provides substantive information about the benefits of exercise for cancer survival and recommends specific types of exercises.",
+    "prompt_tokens": 561,
+    "completion_tokens": 29
+  },
+  {
+    "row": 142,
+    "label": "COMMITS",
+    "reason": "The response provides substantive guidance on when to start focusing on nutrition and the benefits of early nutritional assessment.",
+    "prompt_tokens": 457,
+    "completion_tokens": 29
+  },
+  {
+    "row": 143,
+    "label": "COMMITS",
+    "reason": "The response provides substantive information that exercise is generally safe for prostate cancer survivors and does not adversely affect PSA levels.",
+    "prompt_tokens": 487,
+    "completion_tokens": 31
+  },
+  {
+    "row": 144,
+    "label": "COMMITS",
+    "reason": "The response provides substantive content by explaining that urinary discomfort may not directly affect heart health and suggests focusing on heart health through the Life's Essential 8 framework.",
+    "prompt_tokens": 561,
+    "completion_tokens": 40
+  },
+  {
+    "row": 145,
+    "label": "COMMITS",
+    "reason": "The response provides substantive information about the benefits of exercise in reducing breast cancer risk and improving overall health.",
+    "prompt_tokens": 503,
+    "completion_tokens": 29
+  },
+  {
+    "row": 146,
+    "label": "COMMITS",
+    "reason": "The response provides specific information about the organizations that created the guidelines.",
+    "prompt_tokens": 442,
+    "completion_tokens": 22
+  },
+  {
+    "row": 147,
+    "label": "COMMITS",
+    "reason": "The response explains what a PET scan does and its relevance to cancer treatment, and also provides guidance on maintaining heart health.",
+    "prompt_tokens": 522,
+    "completion_tokens": 33
+  },
+  {
+    "row": 148,
+    "label": "COMMITS",
+    "reason": "The response provides specific information on how physical activity reduces all-cause mortality and improves cardiovascular health, inflammation, and mental well-being.",
+    "prompt_tokens": 542,
+    "completion_tokens": 35
+  },
+  {
+    "row": 149,
+    "label": "COMMITS",
+    "reason": "The response provides substantive information about the benefits of resistance training for cancer survivors and suggests low to moderate-intensity resistance training as suitable.",
+    "prompt_tokens": 493,
+    "completion_tokens": 35
+  },
+  {
+    "row": 150,
+    "label": "COMMITS",
+    "reason": "The response provides substantive information on how staying active lowers diabetes risk by improving insulin sensitivity and maintaining a healthy weight.",
+    "prompt_tokens": 488,
+    "completion_tokens": 31
+  },
+  {
+    "row": 151,
+    "label": "COMMITS",
+    "reason": "The response provides specific recommendations for both cardiovascular exercise and strength training frequency for cancer survivors.",
+    "prompt_tokens": 538,
+    "completion_tokens": 26
+  },
+  {
+    "row": 152,
+    "label": "COMMITS",
+    "reason": "The response provides specific information about the timeframe (4 to 8 weeks) for seeing benefits from exercise and describes potential improvements in energy, mood, and quality of life.",
+    "prompt_tokens": 496,
+    "completion_tokens": 43
+  },
+  {
+    "row": 153,
+    "label": "COMMITS",
+    "reason": "The response provides substantive information on how weight lifting may lower colon cancer risk through effects on body composition, insulin sensitivity, and inflammation.",
+    "prompt_tokens": 518,
+    "completion_tokens": 35
+  },
+  {
+    "row": 154,
+    "label": "COMMITS",
+    "reason": "The response provides substantive information about the benefits of staying active, including reduced mortality risk and improved quality of life.",
+    "prompt_tokens": 448,
+    "completion_tokens": 31
+  },
+  {
+    "row": 155,
+    "label": "COMMITS",
+    "reason": "The response provides substantive information about how diet can influence cancer risk, including examples of dietary patterns that may increase or decrease risk.",
+    "prompt_tokens": 513,
+    "completion_tokens": 34
+  },
+  {
+    "row": 156,
+    "label": "COMMITS",
+    "reason": "The response provides specific exercise recommendations of 150 to 300 minutes per week and notes variation by cancer type.",
+    "prompt_tokens": 504,
+    "completion_tokens": 31
+  },
+  {
+    "row": 157,
+    "label": "COMMITS",
+    "reason": "The response provides substantive information about the benefits of staying active, including reducing cancer recurrence risk and improving overall health.",
+    "prompt_tokens": 447,
+    "completion_tokens": 31
+  },
+  {
+    "row": 158,
+    "label": "COMMITS",
+    "reason": "The response provides specific information about the impact of physical activity on cancer mortality, including a statistic about risk reduction.",
+    "prompt_tokens": 481,
+    "completion_tokens": 31
+  },
+  {
+    "row": 159,
+    "label": "COMMITS",
+    "reason": "The response provides substantive information about how lifting weights can reduce cancer risk by improving physical function, maintaining muscle mass, and supporting healthy glucose levels.",
+    "prompt_tokens": 489,
+    "completion_tokens": 37
+  },
+  {
+    "row": 160,
+    "label": "COMMITS",
+    "reason": "The response provides specific exercise recommendations to lower cancer risk, including minutes per week and types of activities.",
+    "prompt_tokens": 486,
+    "completion_tokens": 29
+  },
+  {
+    "row": 161,
+    "label": "COMMITS",
+    "reason": "The response provides substantive information about how exercise lowers blood pressure and its benefits for cancer survivors.",
+    "prompt_tokens": 481,
+    "completion_tokens": 27
+  },
+  {
+    "row": 162,
+    "label": "COMMITS",
+    "reason": "The response provides a specific statistic about the expected number of cancer survivors by 2040 and explains factors contributing to this increase.",
+    "prompt_tokens": 444,
+    "completion_tokens": 34
+  }
+]

@@ -1,0 +1,549 @@
+====================================================================================================
+STEP 2B REVIEW -- deferral hypothesis
+====================================================================================================
+
+Baseline : /Users/priyankarazdan/Documents/GitHub/Lifestyle-API/back-end/evals/RAGAS/RAGAS_Baseline.csv
+Labels   : /Users/priyankarazdan/Documents/GitHub/Lifestyle-API/back-end/evals/AnswerRelevancyProbe/deferral_labels.json  (classifier: gpt-4o, temperature 0)
+Rows     : 163
+
+----------------------------------------------------------------------------------------------------
+HEADLINE: THE DEFERRAL VARIABLE HAS NO VARIANCE
+----------------------------------------------------------------------------------------------------
+
+  COMMITS : 163
+  DEFERS  : 0
+
+  Every one of the 163 responses was labelled COMMITS. The DEFERS row of the
+  requested 2x2 is empty, so the cross-tabulation and its Fisher exact test
+  cannot be computed as specified.
+
+  This is NOT a broken classifier. Fed synthetic texts, the same prompt and
+  model separate the classes cleanly:
+     'Everyone's situation is different, discuss with your healthcare
+      team...'                                              -> DEFERS
+     'I hear you. This one is best answered by your care team.' -> DEFERS
+     empathy with no content and no referral                 -> DEFERS
+     "I'm not able to advise on that. Contact your oncology
+      team right away."                                     -> DEFERS
+     substance + 'do check with your care team'              -> COMMITS
+     substance alone                                         -> COMMITS
+
+  The finding is a property of the corpus: this chatbot always supplies some
+  substantive content. Referral language is layered ON TOP of an answer, it
+  never REPLACES the answer. So 'declines to answer and redirects' describes
+  no row in the baseline, and clinical deferral in the binary sense proposed
+  cannot be what distinguishes the 56 zeros.
+
+----------------------------------------------------------------------------------------------------
+2x2 TABLES
+----------------------------------------------------------------------------------------------------
+
+  (1) DEFERRAL x SCORE  [as requested]
+                             score == 0.0    score > 0.0
+    DEFERS                              0              0
+    COMMITS                            56            107
+    Fisher exact: UNDEFINED -- a margin is zero, the variable does not vary.
+    No association can be measured from this table.
+
+  (2) TRAILING QUESTION x SCORE  [for comparison]
+                             score == 0.0    score > 0.0
+    ends in ?                          47             68
+    does not                            9             39
+    Fisher exact: odds ratio = 2.995, p = 0.00683
+    ends in ? share of zeros     = 0.839
+    ends in ? share of non-zeros = 0.636
+
+  VERDICT ON WHICH VARIABLE SEPARATES BETTER
+    Trailing question : weak but real separation (OR 3.00, p = 0.0068).
+                        Not sufficient -- 68 rows end in '?' and scored fine.
+    Clinical deferral : no separation measurable at all; the variable is
+                        constant across the corpus.
+    Neither variable explains the 56 zeros. The trailing-question split,
+    despite being rejected as the cause, remains the only one of the two with
+    any measurable association.
+
+----------------------------------------------------------------------------------------------------
+GRADED REFERRAL SIGNAL (regex, for orientation only -- not a label)
+----------------------------------------------------------------------------------------------------
+
+  The binary is constant, but referral LANGUAGE still varies in amount, and
+  it varies in the direction the hypothesis predicts:
+
+    zeros      n= 56   mean referral phrases/response = 0.68   per 1k chars = 0.71
+    non-zeros  n=107   mean referral phrases/response = 0.50   per 1k chars = 0.44
+
+  So deferral is plausibly still live as a GRADED property (how much of the
+  response is referral vs substance) even though it is dead as a binary.
+  Measuring that needs a graded instrument, not a two-way label.
+
+====================================================================================================
+HAND-VERIFICATION SAMPLES
+====================================================================================================
+
+  The requested 8-per-cell layout collapses to two populated cells.
+  Cells DEFERS/zero and DEFERS/non-zero contain no rows.
+
+  For the zero-scoring cell the 8 shown are the most referral-heavy rows in
+  the group -- i.e. the BEST available candidates for a DEFERS label. If the
+  COMMITS call looks wrong anywhere, it will look wrong here first.
+
+
+====================================================================================================
+CELL: COMMITS x score == 0.0   (n = 56)
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+[CSV row 37]  ragas=0.0000  deepeval=1.0000  referral_phrases=2  ends_in_?=False
+  CLASSIFIER: COMMITS
+  REASON    : The response explains that immediate treatment may not be necessary and describes the concept of active surveillance as a potential approach.
+----------------------------------------------------------------------------------------------------
+QUESTION:
+    I was just diagnosed with early-stage prostate cancer. Does that mean I need treatment right
+    away?
+
+BOT ANSWER (full text):
+    I'm really sorry to hear about your diagnosis. It's understandable to have questions about
+    treatment options. Many people with early-stage prostate cancer don't need immediate
+    treatment. Often, doctors will conduct a risk assessment to determine how likely the cancer
+    is to grow or spread. In some cases, active surveillance is recommended, where your doctor
+    monitors the cancer closely without immediate treatment. This approach can help avoid
+    unnecessary side effects from treatment, with the option to start treatment later if needed.
+
+    It's important to discuss your specific situation with your healthcare team, as they'll
+    provide guidance tailored to your needs. If you have any other questions or concerns, feel
+    free to share!
+
+  >> FINAL 120 CHARS (verbatim): ..."am, as they'll provide guidance tailored to your needs. If you have any other questions or concerns, feel free to share!"
+
+----------------------------------------------------------------------------------------------------
+[CSV row 34]  ragas=0.0000  deepeval=1.0000  referral_phrases=2  ends_in_?=True
+  CLASSIFIER: COMMITS
+  REASON    : The response provides substantive information that exercise is generally safe and beneficial during cancer treatment, while also advising consultation with a care team.
+----------------------------------------------------------------------------------------------------
+QUESTION:
+    I am worried that exercising will hurt my cancer treatment. Could working out interfere with
+    my therapy?
+
+BOT ANSWER (full text):
+    It's completely understandable to have concerns about exercising during cancer treatment.
+    Many cancer survivors worry about how physical activity might affect their therapy. However,
+    research shows that being physically active is generally safe for most people undergoing
+    treatment, and it can actually help improve your overall well-being.
+
+    Exercise can help reduce fatigue, improve mood, and enhance physical function, which is
+    especially important during and after treatment. It's crucial, though, to consult with your
+    care team before starting any exercise program. They can provide personalized guidance based
+    on your specific treatment and health status.
+
+    If you're interested, we can explore some gentle activities that might work for you. What do
+    you think?
+
+  >> FINAL 120 CHARS (verbatim): ..." health status.\n\nIf you're interested, we can explore some gentle activities that might work for you. What do you think?"
+
+----------------------------------------------------------------------------------------------------
+[CSV row 0]  ragas=0.0000  deepeval=1.0000  referral_phrases=2  ends_in_?=False
+  CLASSIFIER: COMMITS
+  REASON    : The response provides substantive content by suggesting that exercise can be safe and beneficial, recommending low-impact activities, and advising modifications.
+----------------------------------------------------------------------------------------------------
+QUESTION:
+    My cancer has spread to my bones. Is it safe for me to exercise?
+
+BOT ANSWER (full text):
+    It's understandable to have concerns about exercising with bone metastases. Generally,
+    exercise can be safe and beneficial for cancer survivors, including those with bone
+    metastases, but it’s crucial to approach it carefully.
+
+    Before starting any exercise program, it's important to consult with your healthcare team to
+    assess your specific situation and get tailored recommendations. They can help determine
+    what types of activities are safe for you, considering your treatment and any potential
+    risks.
+
+    Low-impact activities, like walking or gentle stretching, are often recommended, but
+    modifications may be necessary to avoid injury. If you have any specific symptoms or
+    limitations, please share them, and we can discuss safe activities that might work for you!
+
+  >> FINAL 120 CHARS (verbatim): ...'ave any specific symptoms or limitations, please share them, and we can discuss safe activities that might work for you!'
+
+----------------------------------------------------------------------------------------------------
+[CSV row 126]  ragas=0.0000  deepeval=0.9375  referral_phrases=2  ends_in_?=True
+  CLASSIFIER: COMMITS
+  REASON    : The response provides specific dietary and lifestyle recommendations for cancer survivors, such as focusing on a balanced diet and regular physical activity.
+----------------------------------------------------------------------------------------------------
+QUESTION:
+    I finished cancer treatment. Should I be following the same diet and lifestyle advice as
+    people trying to prevent cancer?
+
+BOT ANSWER (full text):
+    Yes, many of the dietary and lifestyle recommendations for cancer prevention are also
+    beneficial for cancer survivors. Following a healthy diet, staying physically active,
+    maintaining a healthy weight, and avoiding tobacco can all support your overall health and
+    reduce the risk of recurrence.
+
+    It's important to focus on a balanced diet rich in fruits, vegetables, whole grains, and
+    lean proteins, while limiting processed foods, sugar-sweetened beverages, and alcohol.
+    Regular physical activity is also crucial, as it can help improve your energy levels, manage
+    weight, and enhance your overall well-being.
+
+    However, individual circumstances can vary, especially considering treatment side effects.
+    It's always a good idea to consult with your healthcare team to tailor these recommendations
+    to your specific needs and situation. How are you feeling about making changes to your diet
+    and lifestyle?
+
+  >> FINAL 120 CHARS (verbatim): ...'commendations to your specific needs and situation. How are you feeling about making changes to your diet and lifestyle?'
+
+----------------------------------------------------------------------------------------------------
+[CSV row 57]  ragas=0.0000  deepeval=1.0000  referral_phrases=2  ends_in_?=True
+  CLASSIFIER: COMMITS
+  REASON    : The response provides substantive information about the benefits of both cardio and strength training for cancer survivors.
+----------------------------------------------------------------------------------------------------
+QUESTION:
+    What kinds of exercise are best for cancer survivors — cardio or weights?
+
+BOT ANSWER (full text):
+    Both cardio and strength training exercises can be beneficial for cancer survivors, and the
+    best choice often depends on individual preferences, treatment side effects, and overall
+    health status.
+
+    **Cardio exercises** (like walking, cycling, or swimming) can improve cardiovascular
+    fitness, help manage weight, and boost energy levels. They are generally safe and can be
+    adjusted based on how you're feeling.
+
+    **Strength training** (using weights or bodyweight exercises) helps build muscle, improve
+    strength, and can enhance overall quality of life. It's especially important for combating
+    muscle loss that can occur during treatment.
+
+    A balanced approach that includes both types of exercise is often recommended. It's always a
+    good idea to consult with your healthcare team to tailor an exercise program to your
+    specific needs and abilities.
+
+    Would you like to explore setting a goal for increasing your physical activity?
+
+  >> FINAL 120 CHARS (verbatim): ...' to your specific needs and abilities. \n\nWould you like to explore setting a goal for increasing your physical activity?'
+
+----------------------------------------------------------------------------------------------------
+[CSV row 41]  ragas=0.0000  deepeval=1.0000  referral_phrases=2  ends_in_?=True
+  CLASSIFIER: COMMITS
+  REASON    : The response provides specific guidance on types of exercises to avoid, such as high-impact activities and heavy lifting.
+----------------------------------------------------------------------------------------------------
+QUESTION:
+    I have numbness and tingling in my feet from chemo. Are there exercises I should avoid?
+
+BOT ANSWER (full text):
+    It's understandable to be cautious about exercise with numbness and tingling in your feet,
+    especially after chemotherapy. Generally, it's important to avoid exercises that could
+    increase your risk of falls or injury. Here are some types of exercises you might want to
+    approach with caution or avoid altogether:
+
+    1. **High-impact activities**: Activities that involve jumping or running can be risky if
+    you're experiencing balance issues.
+
+    2. **Exercises requiring fine motor control**: Movements that require precise foot placement
+    or balance may be challenging.
+
+    3. **Heavy lifting**: If you have any weakness or instability, lifting heavy weights could
+    pose a risk.
+
+    Gentle movement and stretching can be very beneficial, as they help improve balance and
+    coordination. Always listen to your body and consult with your healthcare team before
+    starting any new exercise program. Would you like to explore some gentle exercise options
+    that could be safe for you?
+
+  >> FINAL 120 CHARS (verbatim): ...'re starting any new exercise program. Would you like to explore some gentle exercise options that could be safe for you?'
+
+----------------------------------------------------------------------------------------------------
+[CSV row 151]  ragas=0.0000  deepeval=0.8182  referral_phrases=2  ends_in_?=True
+  CLASSIFIER: COMMITS
+  REASON    : The response provides specific recommendations for both cardiovascular exercise and strength training frequency for cancer survivors.
+----------------------------------------------------------------------------------------------------
+QUESTION:
+    How often should I do cardio versus weights as a cancer survivor?
+
+BOT ANSWER (full text):
+    As a cancer survivor, it's important to find a balance between cardiovascular exercise and
+    strength training that works for your body and energy levels. Generally, the recommendation
+    is to aim for:
+
+    - **Cardiovascular Exercise**: At least 150 minutes of moderate aerobic activity per week,
+    which can be broken down into sessions of 30 minutes, five times a week. Activities like
+    walking, cycling, or swimming can be great options.
+
+    - **Strength Training**: Include strength training exercises at least two days a week. This
+    can involve bodyweight exercises like squats or push-ups, or using light weights if you have
+    access to them.
+
+    Listening to your body is key, especially since treatment side effects can affect your
+    energy and strength. It's also beneficial to consult with your healthcare team to tailor a
+    program that considers your specific situation and any limitations you may have.
+
+    How does that sound to you? Would you like to explore setting a specific activity goal?
+
+  >> FINAL 120 CHARS (verbatim): ...' any limitations you may have. \n\nHow does that sound to you? Would you like to explore setting a specific activity goal?'
+
+----------------------------------------------------------------------------------------------------
+[CSV row 135]  ragas=0.0000  deepeval=0.9000  referral_phrases=2  ends_in_?=True
+  CLASSIFIER: COMMITS
+  REASON    : The response provides specific exercise recommendations for bone health, including types of exercises and frequency.
+----------------------------------------------------------------------------------------------------
+QUESTION:
+    How much exercise do I need to do for it to make a difference for my bone health?
+
+BOT ANSWER (full text):
+    For improving bone health, particularly as a cancer survivor, a combination of moderate-
+    vigorous intensity resistance training and high-impact exercises is recommended. Ideally,
+    this should be done 2 to 3 times a week for at least a year.
+
+    Resistance training can include exercises like weight lifting or bodyweight exercises, while
+    high-impact activities could be activities like jumping or brisk walking. It's important to
+    note that while aerobic exercises like walking are beneficial for overall health, they may
+    not provide enough stimulus to significantly improve bone density.
+
+    Always listen to your body and consider any treatment side effects that might affect your
+    ability to perform certain exercises. It's a good idea to consult with your healthcare team
+    before starting a new exercise program, especially if you have specific concerns about bone
+    health or are experiencing treatment-related side effects.
+
+    Would you like to explore some specific exercises or create a plan that fits your current
+    situation?
+
+  >> FINAL 120 CHARS (verbatim): ...'ted side effects. \n\nWould you like to explore some specific exercises or create a plan that fits your current situation?'
+
+====================================================================================================
+CELL: COMMITS x score >  0.0   (n = 107)
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+[CSV row 117]  ragas=0.9233  deepeval=1.0000  referral_phrases=2  ends_in_?=False
+  CLASSIFIER: COMMITS
+  REASON    : The response provides specific guidance on the frequency of PSA testing and mentions the possibility of a digital rectal exam.
+----------------------------------------------------------------------------------------------------
+QUESTION:
+    I've heard that monitoring PSA levels after surgery is important for catching any
+    recurrence. Can you explain how often I should be checked and if there are other tests I
+    should consider?
+
+BOT ANSWER (full text):
+    Monitoring PSA levels after surgery is indeed crucial for detecting any potential recurrence
+    of prostate cancer. Typically, you'll have a PSA test every 6 to 12 months for the first
+    five years after surgery. If you're at higher risk for recurrence, your doctor may recommend
+    testing more frequently, such as every 3 months.
+
+    In addition to PSA testing, your healthcare team may also perform a digital rectal exam
+    (DRE) if they suspect cancer recurrence. This exam helps assess any changes in the prostate
+    area.
+
+    It's essential to stay in close communication with your healthcare provider about your
+    monitoring schedule and any additional tests that might be appropriate for your situation.
+    If you have specific concerns or symptoms, don't hesitate to bring those up during your
+    appointments.
+
+  >> FINAL 120 CHARS (verbatim): ..."or your situation. If you have specific concerns or symptoms, don't hesitate to bring those up during your appointments."
+
+----------------------------------------------------------------------------------------------------
+[CSV row 59]  ragas=0.9435  deepeval=1.0000  referral_phrases=2  ends_in_?=True
+  CLASSIFIER: COMMITS
+  REASON    : The response provides substantive information about the benefits of exercise on body composition during hormone therapy, including specific types of exercise like resistance training.
+----------------------------------------------------------------------------------------------------
+QUESTION:
+    I have prostate cancer and am on hormone therapy. Will exercise help my body composition?
+
+BOT ANSWER (full text):
+    Yes, exercise can be very beneficial for your body composition, especially while undergoing
+    hormone therapy for prostate cancer. Regular physical activity, particularly resistance
+    training, has been shown to improve muscle strength and help manage weight during hormone
+    therapy. It can also help mitigate some side effects, such as fatigue and muscle loss.
+
+    Incorporating both aerobic and resistance exercises into your routine can support
+    maintaining or even increasing lean muscle mass, which can be particularly important during
+    treatment. It’s always a good idea to consult with your care team for personalized exercise
+    recommendations that consider your unique situation and any treatment side effects you may
+    be experiencing.
+
+    Would you like to explore setting a specific exercise goal to help with your body
+    composition?
+
+  >> FINAL 120 CHARS (verbatim): ...'ou may be experiencing. \n\nWould you like to explore setting a specific exercise goal to help with your body composition?'
+
+----------------------------------------------------------------------------------------------------
+[CSV row 110]  ragas=0.9540  deepeval=1.0000  referral_phrases=2  ends_in_?=False
+  CLASSIFIER: COMMITS
+  REASON    : The response provides specific exercise programs designed for cancer survivors, offering actionable options.
+----------------------------------------------------------------------------------------------------
+QUESTION:
+    Where can I find an exercise program specifically designed for cancer survivors?
+
+BOT ANSWER (full text):
+    There are several reputable programs designed specifically for cancer survivors that focus
+    on safe and effective exercise. Here are a couple of options you might consider:
+
+    1. **Rocky Mountain Cancer Rehabilitation Institute**: They offer various training programs
+    tailored to the needs of cancer survivors, focusing on improving physical function and
+    quality of life.
+
+    2. **Rehabilitation Systems**: This organization provides resources and programs aimed at
+    helping cancer survivors regain strength and improve their overall fitness.
+
+    It's always a good idea to consult with your healthcare team before starting any new
+    exercise program to ensure it's safe and appropriate for your specific situation. If you're
+    interested, I can also help you set up a personal exercise plan based on your preferences
+    and current activity levels!
+
+  >> FINAL 120 CHARS (verbatim): ...'e interested, I can also help you set up a personal exercise plan based on your preferences and current activity levels!'
+
+----------------------------------------------------------------------------------------------------
+[CSV row 63]  ragas=0.9194  deepeval=1.0000  referral_phrases=2  ends_in_?=False
+  CLASSIFIER: COMMITS
+  REASON    : The response explains how cholesterol levels and prostate cancer treatment can impact heart health and increase heart attack risk.
+----------------------------------------------------------------------------------------------------
+QUESTION:
+    My doctor said my cholesterol relates to my heart-attack risk from prostate cancer
+    treatment. How so?
+
+BOT ANSWER (full text):
+    Your doctor is correct. Cholesterol levels, particularly non-HDL cholesterol, can
+    significantly impact your heart health, especially for those undergoing treatment for
+    prostate cancer. Certain cancer treatments, like androgen deprivation therapy (ADT), can
+    increase the risk of cardiovascular issues, including heart attacks.
+
+    High cholesterol can lead to the buildup of plaques in your arteries, narrowing them and
+    making it harder for blood to flow. This can increase your risk of heart disease and related
+    events, such as heart attacks. It's important to monitor and manage your cholesterol levels
+    through lifestyle changes, including diet and physical activity, to help reduce this risk.
+
+    If you have any specific questions about your cholesterol levels or how to manage them, it’s
+    always best to discuss them with your healthcare team. They can provide personalized
+    guidance based on your overall health and treatment plan.
+
+  >> FINAL 120 CHARS (verbatim): ...' them with your healthcare team. They can provide personalized guidance based on your overall health and treatment plan.'
+
+----------------------------------------------------------------------------------------------------
+[CSV row 58]  ragas=0.9873  deepeval=1.0000  referral_phrases=2  ends_in_?=False
+  CLASSIFIER: COMMITS
+  REASON    : The response provides specific considerations for cancer survivors, such as avoiding inactivity and adapting exercise programs based on individual health status and treatment side effects.
+----------------------------------------------------------------------------------------------------
+QUESTION:
+    Are the physical activity recommendations for cancer survivors different from the general
+    adult guidelines?
+
+BOT ANSWER (full text):
+    Yes, the physical activity recommendations for cancer survivors do have some specific
+    considerations compared to the general adult guidelines. While the general recommendation is
+    to engage in regular aerobic activity and strength training, cancer survivors are encouraged
+    to "avoid inactivity" and return to normal daily activities as soon as possible after
+    surgery or during treatment.
+
+    The guidelines emphasize the importance of adapting exercise programs based on individual
+    health status, treatment side effects, and any specific concerns related to their cancer
+    type. This means that cancer survivors may need tailored exercise plans that account for
+    fatigue, reduced exercise tolerance, and other treatment-related effects.
+
+    It's always a good idea for cancer survivors to consult with their healthcare team to create
+    a safe and effective exercise program that meets their unique needs.
+
+    If you're interested in discussing your physical activity or setting some goals, I'm here to
+    help!
+
+  >> FINAL 120 CHARS (verbatim): ..."their unique needs. \n\nIf you're interested in discussing your physical activity or setting some goals, I'm here to help!"
+
+----------------------------------------------------------------------------------------------------
+[CSV row 21]  ragas=0.9122  deepeval=1.0000  referral_phrases=1  ends_in_?=True
+  CLASSIFIER: COMMITS
+  REASON    : The response provides substantive information about the safety and benefits of exercise for older cancer survivors.
+----------------------------------------------------------------------------------------------------
+QUESTION:
+    I am 72 and just finished cancer treatment. Is exercise still safe for me at my age?
+
+BOT ANSWER (full text):
+    Yes, exercise is generally safe for cancer survivors, including those who are older, like
+    yourself. Research has shown that being physically active can help improve your overall
+    health, quality of life, and even reduce fatigue, which is common after treatment. However,
+    it’s always important to check in with your healthcare team before starting any new exercise
+    program to ensure it’s tailored to your specific needs and health status.
+
+    What types of physical activities are you interested in exploring?
+
+  >> FINAL 120 CHARS (verbatim): ...'s tailored to your specific needs and health status.\n\nWhat types of physical activities are you interested in exploring?'
+
+----------------------------------------------------------------------------------------------------
+[CSV row 65]  ragas=0.9567  deepeval=1.0000  referral_phrases=3  ends_in_?=True
+  CLASSIFIER: COMMITS
+  REASON    : The response provides specific strength training methods such as bodyweight exercises, resistance bands, and light dumbbells, which are actionable recommendations.
+----------------------------------------------------------------------------------------------------
+QUESTION:
+    What are some safe ways I can start strength training to help my heart health after
+    finishing cancer treatment?
+
+BOT ANSWER (full text):
+    It's great to hear that you're interested in strength training to support your heart health
+    after cancer treatment! Strength training can be very beneficial, especially for cancer
+    survivors, as it helps improve muscle strength, endurance, and overall quality of life.
+
+    Here are some safe ways to start strength training:
+
+    1. **Bodyweight Exercises**: Begin with exercises that use your own body weight, such as
+    squats, lunges, push-ups (or wall push-ups), and seated leg lifts. These can be done
+    anywhere and are gentle on the joints.
+
+    2. **Resistance Bands**: These are excellent for beginners as they provide resistance
+    without the need for heavy weights. You can use bands for exercises like bicep curls, tricep
+    extensions, and seated rows.
+
+    3. **Light Dumbbells**: If you have access to light dumbbells (1-5 lbs), you can incorporate
+    them into your routine for exercises like shoulder presses, lateral raises, and deadlifts.
+
+    4. **Supervised Classes**: Consider joining a strength training class specifically designed
+    for cancer survivors. These classes often provide guidance and modifications based on
+    individual needs.
+
+    5. **Consult Your Care Team**: Before starting any new exercise program, it's always a good
+    idea to check in with your healthcare team. They can provide personalized recommendations
+    and ensure that your plan is safe given your treatment history.
+
+    Start slowly and listen to your body, gradually increasing the intensity as you feel more
+    comfortable. Would you like to explore setting a specific goal around your strength
+    training?
+
+  >> FINAL 120 CHARS (verbatim): ...'intensity as you feel more comfortable. Would you like to explore setting a specific goal around your strength training?'
+
+----------------------------------------------------------------------------------------------------
+[CSV row 130]  ragas=0.9205  deepeval=0.9167  referral_phrases=2  ends_in_?=True
+  CLASSIFIER: COMMITS
+  REASON    : The response provides specific exercise guidelines for cancer survivors, including aerobic exercise, strength training, and flexibility activities.
+----------------------------------------------------------------------------------------------------
+QUESTION:
+    As a cancer survivor, I'm curious about how the exercise guidelines differ for me compared
+    to the general recommendations for adults. What should I be aiming for each week?
+
+BOT ANSWER (full text):
+    As a cancer survivor, the exercise guidelines are slightly adjusted to accommodate your
+    unique health needs and treatment effects. Here’s what you should aim for each week:
+
+    1. **Avoid Inactivity**: It's important to keep moving as much as possible, even if it's
+    just light activity.
+
+    2. **Aerobic Exercise**: Aim for at least 150 minutes of moderate-intensity aerobic exercise
+    per week. This can include activities like brisk walking, cycling, or swimming. If you
+    prefer, you can break this down into smaller sessions throughout the week.
+
+    3. **Strength Training**: Incorporate resistance exercises at least twice a week. This helps
+    maintain muscle mass and strength, which can be affected by cancer treatments.
+
+    4. **Flexibility and Balance**: Consider adding flexibility and balance exercises, like yoga
+    or tai chi, to improve overall stability and reduce the risk of falls.
+
+    Always listen to your body and consult with your healthcare team to tailor these
+    recommendations to your specific situation. How do you feel about incorporating some of
+    these activities into your routine?
+
+  >> FINAL 120 CHARS (verbatim): ...'ommendations to your specific situation. How do you feel about incorporating some of these activities into your routine?'
+
+====================================================================================================
+CELL: DEFERS  x score == 0.0   (n = 0)
+====================================================================================================
+
+  EMPTY -- no rows received this label.
+
+====================================================================================================
+CELL: DEFERS  x score >  0.0   (n = 0)
+====================================================================================================
+
+  EMPTY -- no rows received this label.

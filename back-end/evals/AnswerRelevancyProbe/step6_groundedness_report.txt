@@ -1,0 +1,845 @@
+====================================================================================================
+TRULENS GROUNDEDNESS -- WHY THE SCORES ARE LOW
+====================================================================================================
+source (read-only): /Users/priyankarazdan/Documents/GitHub/Lifestyle-API/back-end/evals/TruLens/trulens_scored_results.csv
+context joined from: /Users/priyankarazdan/Documents/GitHub/Lifestyle-API/back-end/evals/TruLens/flagged_records.json
+TruLens was NOT re-run. No API calls. Nothing under evals/TruLens/ written.
+
+####################################################################################################
+# SECTION 1 -- n AND SCORE DISTRIBUTION
+####################################################################################################
+
+  n = 59 rows
+  mean 0.2837   median 0.2857   std 0.1200
+  min  0.0000   max 0.5000
+
+  distribution:
+    (-0.001, 0.2]   15  ###############
+    (0.2, 0.4]      33  #################################
+    (0.4, 0.6]      11  ###########
+    (0.6, 0.8]       0  
+    (0.8, 1.0]       0  
+
+  *** SELECTION CAVEAT -- READ BEFORE QUOTING ANY NUMBER ABOVE ***
+  These 59 rows come from flagged_records.json, i.e. they were SELECTED ON
+  OUTCOME (records already flagged as problematic on ragas faithfulness /
+  context recall). This is a DIAGNOSTIC sample, NOT a prevalence estimate.
+  The mean of 0.284 is the mean among rows chosen for being bad; it says
+  nothing about the groundedness of the pipeline overall, and the maximum
+  observed score is 0.50 precisely because high scorers were never
+  eligible for inclusion. Do not report these as 'groundedness is 0.28'.
+
+  Claims parsed: 490 distinct (claim x row) pairs, mean 8.3 per row.
+  Unsupported ('NOTHING FOUND'): 226/490 = 46.1%
+
+
+####################################################################################################
+# SECTION 2 -- FAILURE TYPES (derived from the reasoning text, not a preset list)
+####################################################################################################
+
+  Categories were derived by reading the unsupported criteria, then encoded
+  as rules. Counts are of UNSUPPORTED claims.
+
+  failure_type                            claims       %   rows
+  other_unclassified                          39   17.3%     21
+  exercise_modality_description               38   16.8%     19
+  nutrition_enumeration                       35   15.5%     10
+  generic_wellness_advice                     28   12.4%     13
+  cancer_specific_claim                       25   11.1%     18
+  off_domain_topic                            13    5.8%      3
+  numeric_prescription                        11    4.9%      7
+  physiological_mechanism_claim               10    4.4%      8
+  progression_pacing_guidance                  8    3.5%      7
+  list_scaffold_header                         7    3.1%      7
+  interrogative_intake_question                6    2.7%      5
+  clinician_referral                           3    1.3%      2
+  named_authority_attribution                  3    1.3%      3
+  TOTAL                                      226
+
+  --- other_unclassified  (n=39) ---
+      verbatim: 'Keep it Simple: Choose exercises that are straightforward and don’t require complex instructions.'
+      from row 1, score 0.034
+
+  --- exercise_modality_description  (n=38) ---
+      verbatim: '**Mind-Body Exercises**: Incorporate activities like yoga or tai chi, which not only promote physical fitness but also enhance mindfulness and focus.'
+      from row 1, score 0.034
+
+  --- nutrition_enumeration  (n=35) ---
+      verbatim: 'Eat a Heart-Healthy Diet: Focus on a diet rich in fruits, vegetables, whole grains, and lean proteins.'
+      from row 5, score 0.133
+
+  --- generic_wellness_advice  (n=28) ---
+      verbatim: 'Routine and Consistency: Establish a regular schedule for your workouts.'
+      from row 1, score 0.034
+
+  --- cancer_specific_claim  (n=25) ---
+      verbatim: "Many cancer survivors experience changes in memory and cognitive function, often referred to as 'chemo brain.'"
+      from row 1, score 0.034
+
+  --- off_domain_topic  (n=13) ---
+      verbatim: 'Healthy Eating Environment: Create a positive mealtime atmosphere, involving your child in food choices and preparation when appropriate.'
+      from row 4, score 0.097
+
+  --- numeric_prescription  (n=11) ---
+      verbatim: '**Stress Management**: Set a goal to practice relaxation techniques, such as deep breathing or gentle yoga, for at least 10 minutes a day to help manage stress levels.'
+      from row 7, score 0.156
+
+  --- physiological_mechanism_claim  (n=10) ---
+      verbatim: 'High cholesterol can lead to the buildup of plaques in your arteries, narrowing them and making it harder for blood to flow.'
+      from row 2, score 0.067
+
+  --- progression_pacing_guidance  (n=8) ---
+      verbatim: 'You can start with short distances and gradually increase as you feel more confident.'
+      from row 14, score 0.200
+
+  --- list_scaffold_header  (n=7) ---
+      verbatim: 'Here are some ways to account for this in your exercise program:'
+      from row 1, score 0.034
+
+  --- interrogative_intake_question  (n=6) ---
+      verbatim: 'To start, can you share what your current physical activity looks like?'
+      from row 0, score 0.000
+
+  --- clinician_referral  (n=3) ---
+      verbatim: 'If you have concerns about specific nutrients, consult a healthcare provider before starting any supplements.'
+      from row 4, score 0.097
+
+  --- named_authority_attribution  (n=3) ---
+      verbatim: 'Consult a Dietitian: If possible, work with a registered dietitian who specializes in cancer recovery.'
+      from row 28, score 0.271
+
+
+####################################################################################################
+# SECTION 3 -- MECHANISM: why each unsupported claim went unsupported
+####################################################################################################
+
+  Rule: content-word overlap between the claim and the row's retrieved_context.
+    overlap >= 0.60            -> present but paraphrased (judge strictness)
+    overlap <  0.30, on-topic  -> absent from context (retrieval problem)
+    overlap <  0.30, off-topic -> general knowledge added (grounding problem)
+    0.30 <= overlap < 0.60     -> UNCLASSIFIED (the rule cannot separate these)
+    no factual content         -> counted as a claim despite asserting nothing
+
+  LIMIT: on-topic vs off-topic is keyed on cancer/treatment vocabulary, so a
+  generic-wellness sentence that happens to name cancer is filed as retrieval.
+  This split is a heuristic, not an adjudication.
+
+  mechanism                                         claims       %
+  general_knowledge_added_grounding_problem            144   63.7%
+  unclassified_intermediate_overlap                     47   20.8%
+  absent_from_context_retrieval_problem                 16    7.1%
+  no_factual_content_counted_as_claim                   13    5.8%
+  present_but_paraphrased_judge_strictness               6    2.7%
+  TOTAL                                                226
+
+  COULD NOT CLASSIFY: 47 claims with intermediate overlap (0.30-0.60).
+
+  failure_type x mechanism:
+    mechanism                      absent_from_context_retrieval_problem  general_knowledge_added_grounding_problem  no_factual_content_counted_as_claim  present_but_paraphrased_judge_strictness  unclassified_intermediate_overlap
+    failure_type                                                                                                                                                                                                                     
+    cancer_specific_claim                                             12                                          0                                    0                                         1                                 12
+    clinician_referral                                                 1                                          1                                    0                                         0                                  1
+    exercise_modality_description                                      0                                         33                                    0                                         0                                  5
+    generic_wellness_advice                                            0                                         22                                    0                                         0                                  6
+    interrogative_intake_question                                      0                                          0                                    6                                         0                                  0
+    list_scaffold_header                                               0                                          0                                    7                                         0                                  0
+    named_authority_attribution                                        1                                          0                                    0                                         0                                  2
+    numeric_prescription                                               0                                          9                                    0                                         1                                  1
+    nutrition_enumeration                                              0                                         33                                    0                                         0                                  2
+    off_domain_topic                                                   0                                          8                                    0                                         1                                  4
+    other_unclassified                                                 0                                         26                                    0                                         3                                 10
+    physiological_mechanism_claim                                      2                                          4                                    0                                         0                                  4
+    progression_pacing_guidance                                        0                                          8                                    0                                         0                                  0
+
+
+####################################################################################################
+# SECTION 4 -- SOURCE DOCUMENT AND QUESTION TYPE vs GROUNDEDNESS
+####################################################################################################
+
+  source_pdf is NULL for 29/59 rows (the deepeval-generated 'rag_grounded' set carries no source_pdf).
+
+  by source_pdf:
+    (none - rag_grounded)                                        n= 29  mean=0.2818  min=0.0000  max=0.5000
+    12528_2022_Article_9338.pdf                                  n=  1  mean=0.5000  min=0.5000  max=0.5000
+    40279_2025_Article_2373.pdf                                  n=  1  mean=0.1429  min=0.1429  max=0.1429
+    CA_A_Cancer_J_Clinicians__2022__Rock__American_Cancer_Soci   n=  1  mean=0.2083  min=0.2083  max=0.2083
+    Cancer2026Winters_StoneExerciserecommendationsforolderadul   n=  3  mean=0.2028  min=0.0340  max=0.3743
+    ConsolidatedInfographicfortheACSMRoundtableonCancerandExer   n=  1  mean=0.3095  min=0.3095  max=0.3095
+    american_college_of_sports_medicine_roundtable_on_23.pdf.p   n=  1  mean=0.4952  min=0.4952  max=0.4952
+    combined_scripts.pdf                                         n=  1  mean=0.2857  min=0.2857  max=0.2857
+    exercise_guidelines_for_cancer_survivors__23.pdf             n=  8  mean=0.3293  min=0.1562  max=0.4603
+    formativev10e83630.pdf                                       n=  1  mean=0.4127  min=0.4127  max=0.4127
+    nihms1841196.pdf                                             n=  1  mean=0.3333  min=0.3333  max=0.3333
+    prostateadvancedpatient.pdf                                  n=  3  mean=0.1054  min=0.0667  max=0.1662
+    resistance_exercise_dosage_in_men_with_prostate_1.pdf        n=  2  mean=0.1990  min=0.1837  max=0.2143
+    summary-third-expert-report.pdf                              n=  1  mean=0.2361  min=0.2361  max=0.2361
+    weight_training_and_risk_of_10_common_types_of_7.pdf         n=  5  mean=0.3371  min=0.1786  max=0.4405
+
+  by category:
+    Blood Lipids                           n=  1  mean=0.0667  min=0.0667  max=0.0667
+    Blood Pressure                         n=  1  mean=0.0833  min=0.0833  max=0.0833
+    Cancer & Survivorship Education        n=  3  mean=0.2201  min=0.1662  max=0.2857
+    Diet                                   n=  1  mean=0.2361  min=0.2361  max=0.2361
+    Physical Activity                      n= 21  mean=0.3078  min=0.0340  max=0.4952
+    SMART Goal                             n=  3  mean=0.3519  min=0.1429  max=0.5000
+    rag_grounded                           n= 29  mean=0.2818  min=0.0000  max=0.5000
+
+  Kruskal-Wallis across categories (groups with n>=2): H=2.990, p=0.3932
+
+  Unsupported-claim RATE by category (claims, not rows):
+    Blood Lipids                           claims=   5  unsupported=0.200
+    Blood Pressure                         claims=   4  unsupported=0.000
+    Cancer & Survivorship Education        claims=  38  unsupported=0.553
+    Diet                                   claims=  15  unsupported=0.533
+    Physical Activity                      claims= 107  unsupported=0.383
+    SMART Goal                             claims=   9  unsupported=0.000
+    rag_grounded                           claims= 312  unsupported=0.497
+
+
+####################################################################################################
+# SECTION 5 -- FULL REASONING TEXT, 10 LOWEST-SCORING ROWS
+####################################################################################################
+
+====================================================================================================
+ROW 0   groundedness = 0.0000   context_relevance = 0.5714
+  category   : rag_grounded
+  source_pdf : nan
+  QUESTION   : I'm feeling a bit overwhelmed with all the health advice out there. Can you help me set some realistic physical activity goals that fit my current level and the time I have available?
+----------------------------------------------------------------------------------------------------
+BOT ANSWER:
+Absolutely, I’d be happy to help you set some realistic physical activity goals! It’s completely
+understandable to feel overwhelmed, especially with so much information out there. Let’s break
+it down together.
+
+To start, can you share what your current physical activity looks like? Specifically, how often
+are you moving or exercising right now?
+----------------------------------------------------------------------------------------------------
+GROUNDEDNESS REASONING (verbatim, deduped to distinct criteria):
+
+  Criteria: To start, can you share what your current physical activity looks like?
+  Supporting Evidence: NOTHING FOUND
+
+  Criteria: Specifically, how often are you moving or exercising right now?
+  Supporting Evidence: NOTHING FOUND
+
+====================================================================================================
+ROW 1   groundedness = 0.0340   context_relevance = 0.3333
+  category   : Physical Activity
+  source_pdf : Cancer2026Winters_StoneExerciserecommendationsforolderadultslivingwithandbeyondcancerAconsensusNiniCallan.pdf
+  QUESTION   : My memory has not been the same since chemotherapy. How should my exercise program account for this?
+----------------------------------------------------------------------------------------------------
+BOT ANSWER:
+It's great that you're thinking about how to tailor your exercise program to your needs,
+especially after chemotherapy. Many cancer survivors experience changes in memory and cognitive
+function, often referred to as "chemo brain." Here are some ways to account for this in your
+exercise program:
+
+1. **Keep it Simple**: Choose exercises that are straightforward and don’t require complex
+instructions. This can help reduce any frustration or confusion.
+
+2. **Routine and Consistency**: Establish a regular schedule for your workouts. Familiarity can
+help ease any cognitive load, making it easier to remember when and what to do.
+
+3. **Visual Aids**: Consider using written notes or visual reminders for your workouts. This can
+help jog your memory and keep you on track.
+
+4. **Mind-Body Exercises**: Incorporate activities like yoga or tai chi, which not only promote
+physical fitness but also enhance mindfulness and focus.
+
+5. **Social Support**: Exercising with a friend or in a group can provide encouragement and help
+keep you accountable, which may also support cognitive engagement.
+
+If you're interested in setting up a specific exercise goal or routine, we can dive into that
+together!
+----------------------------------------------------------------------------------------------------
+GROUNDEDNESS REASONING (verbatim, deduped to distinct criteria):
+
+  Criteria: Many cancer survivors experience changes in memory and cognitive function, often referred to
+    as 'chemo brain.'
+  Supporting Evidence: NOTHING FOUND
+
+  Criteria: Here are some ways to account for this in your exercise program:
+  Supporting Evidence: NOTHING FOUND
+
+  Criteria: Keep it Simple: Choose exercises that are straightforward and don’t require complex
+    instructions.
+  Supporting Evidence: NOTHING FOUND
+
+  Criteria: Routine and Consistency: Establish a regular schedule for your workouts.
+  Supporting Evidence: NOTHING FOUND
+
+  Criteria: Visual Aids: Consider using written notes or visual reminders for your workouts.
+  Supporting Evidence: NOTHING FOUND
+
+  Criteria: **Mind-Body Exercises**: Incorporate activities like yoga or tai chi, which not only promote
+    physical fitness but also enhance mindfulness and focus.
+  Supporting Evidence: NOTHING FOUND
+
+  Criteria: Social Support: Exercising with a friend or in a group can provide encouragement and help
+    keep you accountable, which may also support cognitive engagement.
+  Supporting Evidence: NOTHING FOUND
+
+  Criteria: **Social Support**: Exercising with a friend or in a group can provide encouragement and
+    help keep you accountable, which may also support cognitive engagement.
+  Supporting Evidence: NOTHING FOUND
+
+====================================================================================================
+ROW 2   groundedness = 0.0667   context_relevance = 0.1905
+  category   : Blood Lipids
+  source_pdf : prostateadvancedpatient.pdf
+  QUESTION   : My doctor said my cholesterol relates to my heart-attack risk from prostate cancer treatment. How so?
+----------------------------------------------------------------------------------------------------
+BOT ANSWER:
+Your doctor is correct. Cholesterol levels, particularly non-HDL cholesterol, can significantly
+impact your heart health, especially for those undergoing treatment for prostate cancer. Certain
+cancer treatments, like androgen deprivation therapy (ADT), can increase the risk of
+cardiovascular issues, including heart attacks.
+
+High cholesterol can lead to the buildup of plaques in your arteries, narrowing them and making
+it harder for blood to flow. This can increase your risk of heart disease and related events,
+such as heart attacks. It's important to monitor and manage your cholesterol levels through
+lifestyle changes, including diet and physical activity, to help reduce this risk.
+
+If you have any specific questions about your cholesterol levels or how to manage them, it’s
+always best to discuss them with your healthcare team. They can provide personalized guidance
+based on your overall health and treatment plan.
+----------------------------------------------------------------------------------------------------
+GROUNDEDNESS REASONING (verbatim, deduped to distinct criteria):
+
+  Criteria: Cholesterol levels, particularly non-HDL cholesterol, can significantly impact your heart
+    health, especially for those undergoing treatment for prostate cancer.
+  Supporting Evidence: People with prostate cancer are also at risk for heart disease and cardiovascular events
+    like heart attack and stroke.
+
+  Criteria: Certain cancer treatments, like androgen deprivation therapy (ADT), can increase the risk of
+    cardiovascular issues, including heart attacks.
+  Supporting Evidence: People with prostate cancer are also at risk for heart disease and cardiovascular events
+    like heart attack and stroke.
+
+  Criteria: High cholesterol can lead to the buildup of plaques in your arteries, narrowing them and
+    making it harder for blood to flow.
+  Supporting Evidence: NOTHING FOUND
+
+  Criteria: This can increase your risk of heart disease and related events, such as heart attacks.
+  Supporting Evidence: People with prostate cancer are also at risk for heart disease and cardiovascular events
+    like heart attack and stroke.
+
+  Criteria: It's important to monitor and manage your cholesterol levels through lifestyle changes,
+    including diet and physical activity, to help reduce this risk.
+  Supporting Evidence: People with prostate cancer are also at risk for heart disease and cardiovascular events
+    like heart attack and stroke.
+
+====================================================================================================
+ROW 3   groundedness = 0.0833   context_relevance = 0.0952
+  category   : Blood Pressure
+  source_pdf : prostateadvancedpatient.pdf
+  QUESTION   : Why does high blood pressure matter so much for someone with prostate cancer?
+----------------------------------------------------------------------------------------------------
+BOT ANSWER:
+High blood pressure, or hypertension, is particularly important for individuals with prostate
+cancer because it can increase the risk of cardiovascular events like heart attack and stroke.
+This risk is heightened due to the cardiovascular side effects that can result from certain
+cancer treatments, such as androgen deprivation therapy (ADT) and other hormone therapies.
+
+Managing blood pressure is crucial not only for overall heart health but also for ensuring that
+your body can better tolerate cancer treatments. High blood pressure can complicate treatment
+plans and lead to additional health issues, making it essential to keep it within a healthy
+range.
+
+If you have any specific concerns about your blood pressure or how it relates to your treatment,
+it's always best to discuss them with your healthcare team. They can provide tailored advice
+based on your individual health needs.
+----------------------------------------------------------------------------------------------------
+GROUNDEDNESS REASONING (verbatim, deduped to distinct criteria):
+
+  Criteria: High blood pressure, or hypertension, is particularly important for individuals with
+    prostate cancer because it can increase the risk of cardiovascular events like heart
+    attack and stroke.
+  Supporting Evidence: People with prostate cancer are also at risk for heart disease and cardiovascular events
+    like heart attack and stroke.
+
+  Criteria: This risk is heightened due to the cardiovascular side effects that can result from certain
+    cancer treatments, such as androgen deprivation therapy (ADT) and other hormone
+    therapies.
+  Supporting Evidence: People with prostate cancer are also at risk for heart disease and cardiovascular events
+    like heart attack and stroke.
+
+  Criteria: Managing blood pressure is crucial not only for overall heart health but also for ensuring
+    that your body can better tolerate cancer treatments.
+  Supporting Evidence: People with prostate cancer are also at risk for heart disease and cardiovascular events
+    like heart attack and stroke.
+
+  Criteria: High blood pressure can complicate treatment plans and lead to additional health issues,
+    making it essential to keep it within a healthy range.
+  Supporting Evidence: People with prostate cancer are also at risk for heart disease and cardiovascular events
+    like heart attack and stroke.
+
+====================================================================================================
+ROW 4   groundedness = 0.0969   context_relevance = 0.3333
+  category   : rag_grounded
+  source_pdf : nan
+  QUESTION   : What are some effective ways to ensure my child is getting the right nutrition, especially when considering options like breastfeeding and dietary supplements?
+----------------------------------------------------------------------------------------------------
+BOT ANSWER:
+It's wonderful that you're focused on ensuring your child gets the right nutrition! Here are
+some effective ways to support their nutritional needs:
+
+1. **Breastfeeding**: If possible, exclusive breastfeeding for the first six months is
+recommended, as it provides essential nutrients and antibodies. It’s beneficial for both mother
+and child.
+
+2. **Balanced Diet**: As your child grows, introduce a variety of foods, including fruits,
+vegetables, whole grains, and proteins. Aim for a colorful plate to ensure a range of nutrients.
+
+3. **Limit Supplements**: While dietary supplements can be necessary in some cases, it's
+generally best to meet nutritional needs through a balanced diet. If you have concerns about
+specific nutrients, consult a healthcare provider before starting any supplements.
+
+4. **Healthy Eating Environment**: Create a positive mealtime atmosphere, involving your child
+in food choices and preparation when appropriate. This encourages healthy eating habits.
+
+5. **Regular Check-ups**: Regular pediatric visits can help monitor your child's growth and
+nutritional status, allowing for tailored advice based on their individual needs.
+
+If you have specific dietary concerns or questions about your child's nutrition, it's always a
+good idea to consult a pediatrician or a registered dietitian.
+----------------------------------------------------------------------------------------------------
+GROUNDEDNESS REASONING (verbatim, deduped to distinct criteria):
+
+  Criteria: Here are some effective ways to support their nutritional needs:
+  Supporting Evidence: NOTHING FOUND
+
+  Criteria: **Breastfeeding**: If possible, exclusive breastfeeding for the first six months is
+    recommended, as it provides essential nutrients and antibodies.
+  Supporting Evidence: Increasing the rate of exclusive breastfeeding is one of WHO’s Global Nutrition Targets
+    2025.
+
+  Criteria: Balanced Diet: As your child grows, introduce a variety of foods, including fruits,
+    vegetables, whole grains, and proteins.
+  Supporting Evidence: may be effective in improving healthy lifestyles and ultimately improving the primary
+    prevention of cancer, other chronic diseases and disabilities, and other related health
+    outcomes.
+
+  Criteria: Limit Supplements: While dietary supplements can be necessary in some cases, it's generally
+    best to meet nutritional needs through a balanced diet.
+  Supporting Evidence: meet nutritional needs through diet alone
+
+  Criteria: If you have concerns about specific nutrients, consult a healthcare provider before starting
+    any supplements.
+  Supporting Evidence: NOTHING FOUND
+
+  Criteria: Healthy Eating Environment: Create a positive mealtime atmosphere, involving your child in
+    food choices and preparation when appropriate.
+  Supporting Evidence: NOTHING FOUND
+
+  Criteria: Regular Check-ups: Regular pediatric visits can help monitor your child's growth and
+    nutritional status, allowing for tailored advice based on their individual needs.
+  Supporting Evidence: NOTHING FOUND
+
+  Criteria: Breastfeeding: If possible, exclusive breastfeeding for the first six months is recommended,
+    as it provides essential nutrients and antibodies.
+  Supporting Evidence: ‘Exclusive breastfeeding’ is defined as giving a baby only breastmilk (including breastmilk
+    that has been expressed or is from a wet nurse) and nothing else – no other liquids or
+    solid foods, not even water.
+
+  Criteria: If you have specific dietary concerns or questions about your child's nutrition, consult a
+    pediatrician or a registered dietitian.
+  Supporting Evidence: NOTHING FOUND
+
+  Criteria: If you have specific dietary concerns or questions about your child's nutrition, it's always
+    a good idea to consult a pediatrician or a registered dietitian.
+  Supporting Evidence: NOTHING FOUND
+
+====================================================================================================
+ROW 5   groundedness = 0.1327   context_relevance = 0.2857
+  category   : rag_grounded
+  source_pdf : nan
+  QUESTION   : Given my family history of prostate cancer, what proactive steps can I take to maintain my cardiovascular health and overall well-being?
+----------------------------------------------------------------------------------------------------
+BOT ANSWER:
+It's great that you're taking a proactive approach to your health, especially considering your
+family history of prostate cancer. Here are some steps you can take to support your
+cardiovascular health and overall well-being:
+
+1. **Stay Active**: Aim for regular physical activity, such as walking, swimming, or cycling.
+This can help manage weight, improve heart health, and reduce cancer risk. Even light exercises
+like stretching or yoga can be beneficial, especially if you're experiencing treatment side
+effects.
+
+2. **Eat a Heart-Healthy Diet**: Focus on a diet rich in fruits, vegetables, whole grains, and
+lean proteins. Limit saturated fats and processed foods, as these can impact both heart health
+and cancer risk. Incorporating foods high in omega-3 fatty acids (like fish) and soluble fiber
+(like oats and beans) can be particularly beneficial.
+
+3. **Monitor Your Blood Pressure and Cholesterol**: Regular check-ups can help you stay informed
+about your cardiovascular health. If you have high blood pressure or cholesterol, work with your
+healthcare team to manage these levels effectively.
+
+4. **Manage Stress**: Consider relaxation techniques such as meditation, deep breathing
+exercises, or gentle yoga to help manage stress, which can impact both heart health and cancer
+recovery.
+
+5. **Stay Hydrated**: Drink plenty of water throughout the day, as hydration is essential for
+overall health.
+
+6. **Avoid Smoking**: If you smoke, seek support to quit, as smoking is a significant risk
+factor for both heart disease and cancer.
+
+7. **Regular Check-ups**: Stay in touch with your healthcare team for regular screenings and
+discussions about your health, especially given your family history.
+
+These steps can help you maintain your cardiovascular health while also being mindful of your
+cancer history. Would you like to explore any specific area further, such as physical activity
+or nutrition?
+----------------------------------------------------------------------------------------------------
+GROUNDEDNESS REASONING (verbatim, deduped to distinct criteria):
+
+  Criteria: Here are some steps you can take to support your cardiovascular health and overall well-
+    being:
+  Supporting Evidence: People with prostate cancer are also at risk for heart disease and cardiovascular events
+    like heart attack and stroke.
+
+  Criteria: Stay Active: Aim for regular physical activity, such as walking, swimming, or cycling.
+  Supporting Evidence: NOTHING FOUND
+
+  Criteria: This can help manage weight, improve heart health, and reduce cancer risk.
+  Supporting Evidence: People with prostate cancer are also at risk for heart disease and cardiovascular events
+    like heart attack and stroke.
+
+  Criteria: Even light exercises like stretching or yoga can be beneficial, especially if you're
+    experiencing treatment side effects.
+  Supporting Evidence: NOTHING FOUND
+
+  Criteria: Eat a Heart-Healthy Diet: Focus on a diet rich in fruits, vegetables, whole grains, and lean
+    proteins.
+  Supporting Evidence: NOTHING FOUND
+
+  Criteria: Limit saturated fats and processed foods, as these can impact both heart health and cancer
+    risk.
+  Supporting Evidence: eating food high in fat, such as meat and dairy products, has been linked to an increased
+    risk for prostate cancer.
+
+  Criteria: Incorporating foods high in omega-3 fatty acids (like fish) and soluble fiber (like oats and
+    beans) can be particularly beneficial.
+  Supporting Evidence: NOTHING FOUND
+
+  Criteria: Monitor Your Blood Pressure and Cholesterol: Regular check-ups can help you stay informed
+    about your cardiovascular health.
+  Supporting Evidence: People with prostate cancer are also at risk for heart disease and cardiovascular events
+    like heart attack and stroke.
+
+  Criteria: If you have high blood pressure or cholesterol, work with your healthcare team to manage
+    these levels effectively.
+  Supporting Evidence: People with prostate cancer are also at risk for heart disease and cardiovascular events
+    like heart attack and stroke.
+
+  Criteria: Manage Stress: Consider relaxation techniques such as meditation, deep breathing exercises,
+    or gentle yoga to help manage stress, which can impact both heart health and cancer
+    recovery.
+  Supporting Evidence: NOTHING FOUND
+
+  Criteria: Stay Hydrated: Drink plenty of water throughout the day, as hydration is essential for
+    overall health.
+  Supporting Evidence: NOTHING FOUND
+
+  Criteria: Avoid Smoking: If you smoke, seek support to quit, as smoking is a significant risk factor
+    for both heart disease and cancer.
+  Supporting Evidence: NOTHING FOUND
+
+  Criteria: Regular Check-ups: Stay in touch with your healthcare team for regular screenings and
+    discussions about your health, especially given your family history.
+  Supporting Evidence: Your care team will ask about the health history of family members who are blood relatives.
+    This information is called a family history.
+
+  Criteria: These steps can help you maintain your cardiovascular health while also being mindful of
+    your cancer history.
+  Supporting Evidence: People with prostate cancer are also at risk for heart disease and cardiovascular events
+    like heart attack and stroke.
+
+====================================================================================================
+ROW 6   groundedness = 0.1429   context_relevance = 0.3333
+  category   : SMART Goal
+  source_pdf : 40279_2025_Article_2373.pdf
+  QUESTION   : Why do you ask me so many questions before giving me a goal? Can't you just tell me what to do?
+----------------------------------------------------------------------------------------------------
+BOT ANSWER:
+I understand that it can feel a bit overwhelming with all the questions, but each one helps me
+tailor a goal that's just right for you. Everyone's situation is unique, especially for cancer
+survivors, and I want to ensure that the recommendations fit your current lifestyle,
+preferences, and any challenges you might be facing. This way, the goal feels achievable and
+meaningful to you.
+
+Would you like to start with a specific area you'd like to improve, like physical activity,
+sleep, or nutrition? That way, we can focus on what matters most to you right now.
+----------------------------------------------------------------------------------------------------
+GROUNDEDNESS REASONING (verbatim, deduped to distinct criteria):
+
+  Criteria: Everyone's situation is unique, especially for cancer survivors, and I want to ensure that
+    the recommendations fit your current lifestyle, preferences, and any challenges you
+    might be facing.
+  Supporting Evidence: Would you like to incorporate other goal types as well to help give you some flexibility
+    (e.g. depending on your progress and constraints)?
+
+  Criteria: Would you like to start with a specific area you'd like to improve, like physical activity,
+    sleep, or nutrition?
+  Supporting Evidence: Default use of specific performance goals for individuals who are new to complex tasks (e.g.
+    new exercises or initial attempts to be active)
+
+====================================================================================================
+ROW 7   groundedness = 0.1558   context_relevance = 0.5238
+  category   : rag_grounded
+  source_pdf : nan
+  QUESTION   : What are some personal goals I can set to improve my heart health while managing my cancer treatment?
+----------------------------------------------------------------------------------------------------
+BOT ANSWER:
+It's great that you're looking to set personal goals for your heart health during cancer
+treatment! Here are a few ideas that align with the American Heart Association's Life's
+Essential 8 framework, which can help you focus on improving your cardiovascular health while
+being mindful of your treatment:
+
+1. **Physical Activity**: Aim to increase your daily steps. For example, set a goal to walk an
+additional 1,000 steps each day, or try to incorporate short walks after meals.
+
+2. **Sleep**: Focus on improving your sleep quality. You might set a goal to establish a calming
+bedtime routine to help you wind down, aiming for at least 7 hours of sleep each night.
+
+3. **Nutrition**: Consider setting a goal to include more fruits and vegetables in your meals.
+For instance, aim to add one extra serving of vegetables to your dinner each night.
+
+4. **Stress Management**: Set a goal to practice relaxation techniques, such as deep breathing
+or gentle yoga, for at least 10 minutes a day to help manage stress levels.
+
+5. **Hydration**: Aim to drink enough water daily. A good target could be to drink at least 8
+cups of water each day.
+
+6. **Monitoring Health Metrics**: If you have access to a blood pressure monitor or a way to
+track your blood sugar, set a goal to check these metrics regularly and keep a log.
+
+Which of these areas resonates most with you? We can work together to create a specific SMART
+goal in that domain!
+----------------------------------------------------------------------------------------------------
+GROUNDEDNESS REASONING (verbatim, deduped to distinct criteria):
+
+  Criteria: Here are a few ideas that align with the American Heart Association's Life's Essential 8
+    framework, which can help you focus on improving your cardiovascular health while being
+    mindful of your treatment:
+  Supporting Evidence: People with prostate cancer are also at risk for heart disease and cardiovascular events
+    like heart attack and stroke.
+
+  Criteria: **Physical Activity**: Aim to increase your daily steps.
+  Supporting Evidence: NOTHING FOUND
+
+  Criteria: For example, set a goal to walk an additional 1,000 steps each day, or try to incorporate
+    short walks after meals.
+  Supporting Evidence: Your goals may change over time as your treatment and life circumstances evolve. Revisit
+    this self-assessment regularly and share updates with your care team.
+
+  Criteria: **Sleep**: Focus on improving your sleep quality.
+  Supporting Evidence: NOTHING FOUND
+
+  Criteria: You might set a goal to establish a calming bedtime routine to help you wind down, aiming
+    for at least 7 hours of sleep each night.
+  Supporting Evidence: ABSTENTION
+
+  Criteria: **Nutrition**: Consider setting a goal to include more fruits and vegetables in your meals.
+  Supporting Evidence: NOTHING FOUND
+
+  Criteria: For instance, aim to add one extra serving of vegetables to your dinner each night.
+  Supporting Evidence: NOTHING FOUND
+
+  Criteria: **Stress Management**: Set a goal to practice relaxation techniques, such as deep breathing
+    or gentle yoga, for at least 10 minutes a day to help manage stress levels.
+  Supporting Evidence: NOTHING FOUND
+
+  Criteria: **Hydration**: Aim to drink enough water daily.
+  Supporting Evidence: NOTHING FOUND
+
+  Criteria: A good target could be to drink at least 8 cups of water each day.
+  Supporting Evidence: NOTHING FOUND
+
+  Criteria: Monitoring Health Metrics: If you have access to a blood pressure monitor or a way to track
+    your blood sugar, set a goal to check these metrics regularly and keep a log.
+  Supporting Evidence: Revisit this self-assessment regularly and share updates with your care team.
+
+  Criteria: Sleep: Focus on improving your sleep quality.
+  Supporting Evidence: NOTHING FOUND
+
+  Criteria: Nutrition: Consider setting a goal to include more fruits and vegetables in your meals.
+  Supporting Evidence: NOTHING FOUND
+
+  Criteria: Stress Management: Set a goal to practice relaxation techniques, such as deep breathing or
+    gentle yoga, for at least 10 minutes a day to help manage stress levels.
+  Supporting Evidence: Take care of my emotional and mental well-being
+
+  Criteria: Hydration: Aim to drink enough water daily.
+  Supporting Evidence: NOTHING FOUND
+
+  Criteria: Physical Activity: Aim to increase your daily steps.
+  Supporting Evidence: Adopting healthy behaviors for diet and physical activity can have many positive impacts on
+    quality of life and symptoms related to cancer treatment.
+
+  Criteria: **Monitoring Health Metrics**: If you have access to a blood pressure monitor or a way to
+    track your blood sugar, set a goal to check these metrics regularly and keep a log.
+  Supporting Evidence: NOTHING FOUND
+
+====================================================================================================
+ROW 8   groundedness = 0.1562   context_relevance = 0.3750
+  category   : Physical Activity
+  source_pdf : exercise_guidelines_for_cancer_survivors__23.pdf
+  QUESTION   : Should I join a gym with a trainer or can I exercise at home on my own?
+----------------------------------------------------------------------------------------------------
+BOT ANSWER:
+Both options have their benefits, and the best choice really depends on your personal
+preferences and comfort level.
+
+Joining a gym with a trainer can provide you with professional guidance, motivation, and a
+structured workout plan tailored to your needs, especially as a cancer survivor. A trainer can
+help ensure you're using proper form and can adjust exercises based on any limitations you might
+have.
+
+On the other hand, exercising at home can offer flexibility and convenience. You can choose
+activities that you enjoy and fit them into your schedule without the need to travel. There are
+many effective bodyweight exercises and online resources available, including guided workouts
+specifically designed for cancer survivors.
+
+What sounds more appealing to you? Would you prefer the support of a trainer, or do you feel
+confident working out at home?
+----------------------------------------------------------------------------------------------------
+GROUNDEDNESS REASONING (verbatim, deduped to distinct criteria):
+
+  Criteria: Joining a gym with a trainer can provide you with professional guidance, motivation, and a
+    structured workout plan tailored to your needs, especially as a cancer survivor.
+  Supporting Evidence: Exercise programs that were supervised appear to be more effective than strictly
+    unsupervised or home-ba...
+
+  Criteria: A trainer can help ensure you're using proper form and can adjust exercises based on any
+    limitations you might have.
+  Supporting Evidence: Check out our instructional videos for proper form on foundational exercises.
+
+  Criteria: On the other hand, exercising at home can offer flexibility and convenience.
+  Supporting Evidence: NOTHING FOUND
+
+  Criteria: There are many effective bodyweight exercises and online resources available, including
+    guided workouts specifically designed for cancer survivors.
+  Supporting Evidence: ABSTENTION
+
+====================================================================================================
+ROW 9   groundedness = 0.1662   context_relevance = 0.4762
+  category   : Cancer & Survivorship Education
+  source_pdf : prostateadvancedpatient.pdf
+  QUESTION   : What lifestyle changes can I make to protect my heart while being treated for prostate cancer?
+----------------------------------------------------------------------------------------------------
+BOT ANSWER:
+It's great that you're looking to protect your heart health during your prostate cancer
+treatment! Here are some lifestyle changes that can help:
+
+1. **Stay Active**: Regular physical activity can reduce fatigue, improve mood, and help
+maintain muscle mass. Aim for at least 150 minutes of moderate-intensity exercise each week,
+like walking or gentle strength training. Always listen to your body and adjust based on how you
+feel.
+
+2. **Eat a Heart-Healthy Diet**: Focus on whole foods, including plenty of fruits, vegetables,
+whole grains, and lean proteins. Limit saturated fats, added sugars, and sodium. Foods rich in
+omega-3 fatty acids (like fish, walnuts, and flaxseeds) can be particularly beneficial for heart
+health.
+
+3. **Manage Stress**: Stress can impact your heart health. Consider incorporating relaxation
+techniques such as deep breathing, meditation, or yoga into your routine.
+
+4. **Get Enough Sleep**: Aim for 7-8 hours of quality sleep each night. Good sleep is essential
+for overall health and recovery.
+
+5. **Monitor Your Health**: Keep an eye on your blood pressure, cholesterol, and blood sugar
+levels, as cancer treatments can increase the risk of cardiovascular issues.
+
+6. **Avoid Tobacco**: If you smoke, seek support to quit. Smoking significantly increases heart
+disease risk.
+
+7. **Stay Hydrated**: Drink plenty of water, especially if you're experiencing side effects from
+treatment.
+
+These changes can help improve your heart health and overall well-being. If you have specific
+concerns or symptoms, always consult your healthcare team for personalized advice.
+----------------------------------------------------------------------------------------------------
+GROUNDEDNESS REASONING (verbatim, deduped to distinct criteria):
+
+  Criteria: Here are some lifestyle changes that can help:
+  Supporting Evidence: I realized there were only a few variables within my control: Sleep, diet, exercise,
+    spending time with family and friends, and a positive mental attitude.
+
+  Criteria: Stay Active: Regular physical activity can reduce fatigue, improve mood, and help maintain
+    muscle mass.
+  Supporting Evidence: Regular exercise can lessen the symptoms and side effects of hormone therapy, including: •
+    Weight gain • Fatigue • Loss of bone and muscle mass Physical activity can also improve
+    your general health and make you feel better.
+
+  Criteria: Aim for at least 150 minutes of moderate-intensity exercise each week, like walking or
+    gentle strength training.
+  Supporting Evidence: Regular exercise can lessen the symptoms and side effects of hormone therapy... Physical
+    activity can also improve your general health and make you feel better.
+
+  Criteria: Eat a Heart-Healthy Diet: Focus on whole foods, including plenty of fruits, vegetables,
+    whole grains, and lean proteins.
+  Supporting Evidence: People with prostate cancer are also at risk for heart disease and cardiovascular events
+    like heart attack and stroke.
+
+  Criteria: Limit saturated fats, added sugars, and sodium.
+  Supporting Evidence: NOTHING FOUND
+
+  Criteria: Foods rich in omega-3 fatty acids (like fish, walnuts, and flaxseeds) can be particularly
+    beneficial for heart health.
+  Supporting Evidence: NOTHING FOUND
+
+  Criteria: Manage Stress: Stress can impact your heart health.
+  Supporting Evidence: NOTHING FOUND
+
+  Criteria: Consider incorporating relaxation techniques such as deep breathing, meditation, or yoga
+    into your routine.
+  Supporting Evidence: NOTHING FOUND
+
+  Criteria: Get Enough Sleep: Aim for 7-8 hours of quality sleep each night.
+  Supporting Evidence: I realized there were only a few variables within my control: Sleep, diet, exercise,
+    spending time with family and friends, and a positive mental attitude.
+
+  Criteria: Monitor Your Health: Keep an eye on your blood pressure, cholesterol, and blood sugar
+    levels, as cancer treatments can increase the risk of cardiovascular issues.
+  Supporting Evidence: People with prostate cancer are also at risk for heart disease and cardiovascular events
+    like heart attack and stroke.
+
+  Criteria: Avoid Tobacco: If you smoke, seek support to quit.
+  Supporting Evidence: NOTHING FOUND
+
+  Criteria: Smoking significantly increases heart disease risk.
+  Supporting Evidence: NOTHING FOUND
+
+  Criteria: Stay Hydrated: Drink plenty of water, especially if you're experiencing side effects from
+    treatment.
+  Supporting Evidence: NOTHING FOUND
+
+  Criteria: If you have specific concerns or symptoms, always consult your healthcare team for
+    personalized advice.
+  Supporting Evidence: ABSTENTION
+
+  Criteria: Always listen to your body and adjust based on how you feel.
+  Supporting Evidence: ABSTENTION
+
+  Criteria: Good sleep is essential for overall health and recovery.
+  Supporting Evidence: NOTHING FOUND
+
+  Criteria: **Avoid Tobacco**: If you smoke, seek support to quit.
+  Supporting Evidence: NOTHING FOUND
+
+  Criteria: **Stay Active**: Regular physical activity can reduce fatigue, improve mood, and help
+    maintain muscle mass.
+  Supporting Evidence: NOTHING FOUND
+
+  Criteria: It's great that you're looking to protect your heart health during your prostate cancer
+    treatment!
+  Supporting Evidence: NOTHING FOUND
+
+  Criteria: **Monitor Your Health**: Keep an eye on your blood pressure, cholesterol, and blood sugar
+    levels, as cancer treatments can increase the risk of cardiovascular issues.
+  Supporting Evidence: NOTHING FOUND
+
+  Criteria: These changes can help improve your heart health and overall well-being.
+  Supporting Evidence: NOTHING FOUND
