@@ -193,13 +193,22 @@ REFERENCE_INTENT_PATTERN = re.compile(
 # Deliberately broad on intent phrases ("can't handle this anymore", "no
 # point", "hopeless") in addition to explicit self-harm language, since
 # cancer-survivorship crisis language is often indirect.
+#
+# APOSTROPHES: every contraction below spells the quote ['’] rather than '?.
+# `'?` makes the ASCII apostrophe OPTIONAL ("cant"/"can't") — it does NOT
+# accept U+2019, which is what iOS keyboards substitute by default in text
+# fields and what any text pasted from Notes/Word/Docs carries. Confirmed
+# live: "I can't handle this anymore." set is_crisis=True, while the same
+# sentence with a curly apostrophe set is_crisis=False, silently disabling
+# CRISIS_SYSTEM_NOTE, the 988 post-check, and the card suppression above.
 # ---------------------------------------------------------------------------
 CRISIS_PATTERN = re.compile(
     r"\b(suicide|suicidal|kill myself|end my life|ending my life|"
     r"hurt(?:ing)? myself|harm(?:ing)? myself|self[\s-]harm|"
-    r"don'?t want to (?:be here|live|wake up)|want to die|wish i (?:was|were) dead|"
+    r"don['’]?t want to (?:be here|live|wake up)|want to die|"
+    r"wish i (?:was|were) dead|"
     r"no (?:point|reason) (?:in|to) (?:living|going on|anymore)|"
-    r"can'?t (?:handle|do|take|deal with) this anymore|"
+    r"can['’]?t (?:handle|do|take|deal with) this anymore|"
     r"(?:feel|feeling) hopeless|give up on (?:life|everything))\b",
     re.IGNORECASE,
 )
@@ -216,7 +225,13 @@ CRISIS_SYSTEM_NOTE = (
     "4. NOT end the conversation. Close by staying present with them — e.g. invite "
     "them to keep talking, ask how they're doing right now, or note you're here to "
     "listen — never end on the crisis resources alone with nothing further offered.\n"
-    "5. NOT diagnose or make clinical judgments — just support, resources, and presence."
+    "5. NOT diagnose or make clinical judgments — just support, resources, and presence.\n"
+    "6. TAKE PRIORITY OVER EVERY OTHER SYSTEM NOTE THIS TURN. If a COMPUTED "
+    "VALUE, DIFFICULTY, or EXERCISE VIDEO MISMATCH note also appears for this "
+    "turn, this note overrides it: do not report scores or tiers, do not name a "
+    "difficulty level, and do not state a video mismatch in this reply. Those "
+    "instructions are deferred, not cancelled — address them in a later turn if "
+    "the user returns to that topic."
 )
 
 
@@ -831,9 +846,16 @@ _STATED_DIFFICULTY_RE = re.compile(
 # inferring the complement — "not too advanced" does not become Intermediate.
 # Deliberate: with three levels, guessing which one the user meant is exactly
 # the kind of unrequested classification this whole change removes.
+# APOSTROPHES: ['’] not '?, for the reason given on CRISIS_PATTERN above. This
+# veto failing open is worse than it failing closed: with a curly apostrophe
+# "I don’t want anything advanced" loses the veto, _STATED_DIFFICULTY_RE's
+# "want ... advanced" then wins, and the level is recorded as STATED Advanced —
+# which _match_exercise_videos applies as a hard pre-filter. The user gets the
+# exact level they just declined.
 _DIFFICULTY_NEGATION_RE = re.compile(
-    r"\b(?:not|nothing|no|never|avoid|isn'?t|aren'?t|don'?t|doesn'?t|"
-    r"wasn'?t|too|overly|less|tried|used to)\b(?:\s+\w+){0,2}?\s+"
+    r"\b(?:not|nothing|no|never|avoid|isn['’]?t|aren['’]?t|don['’]?t|"
+    r"doesn['’]?t|wasn['’]?t|too|overly|less|tried|used to)\b"
+    r"(?:\s+\w+){0,2}?\s+"
     r"\b(beginner|intermediate|advanced)\b",
     re.IGNORECASE,
 )
@@ -1487,6 +1509,20 @@ def _build_exercise_match_note(filters: dict, difficulty: str, difficulty_source
             "3. Offer to adjust preferences if the alternative doesn't suit them."
         )
 
+    # Precedence escape valve for the one turn where this note's structure and
+    # _build_difficulty_note's cap are both in force. A stated level that the
+    # library lacks, in a category that also needed a fallback, injects BOTH
+    # notes \u2014 and that note's instruction 3 says to combine both disclosures
+    # into a single sentence, which point 1's "state this clearly" + point 2
+    # cannot literally coexist with. Nothing here told the model which wins, so
+    # it had to silently violate one.
+    #
+    # Deliberately conditioned on the other note ASKING to combine rather than
+    # on its mere presence: the INFERRED branch of _build_difficulty_note also
+    # co-occurs with a mismatch (routinely \u2014 an inferred level is the default),
+    # caps only its own sentence, and carries no combining instruction. Keying
+    # off presence alone would collapse that common case's full structure down
+    # to one sentence, which is a regression, not a fix.
     return (
         f"EXERCISE VIDEO MISMATCH \u2014 YOU MUST FOLLOW THESE INSTRUCTIONS:\n"
         f"The user's CURRENT requested category: {cats}\n"
@@ -1496,6 +1532,12 @@ def _build_exercise_match_note(filters: dict, difficulty: str, difficulty_source
         f"{body}\n"
         "4. You may add exercise tips from the health literature context \u2014 "
         "do not invent or cite anything not in that context.\n"
+        "\n"
+        "IF A DIFFICULTY NOTE THIS TURN TELLS YOU TO COMBINE BOTH DISCLOSURES "
+        "INTO A SINGLE SENTENCE, that instruction takes precedence over point "
+        "1: state this mismatch inside that one combined sentence rather than "
+        "as a separate statement. Points 2\u20134 still apply. If no such "
+        "instruction appears this turn, follow the structure above as written.\n"
     )
 
 
@@ -1818,6 +1860,46 @@ _DIABETES_NEGATIVE_RE = re.compile(
     re.IGNORECASE,
 )
 
+# ASKING about diabetes is not REPORTING it. _DIABETES_POSITIVE_RE is a bare
+# substring match, so "Does that mean I have diabetes?" contains the literal
+# span "I have diabetes" and was being read as a self-reported diagnosis. That
+# flips _score_hba1c onto the diabetic scale, where the same HbA1c scores
+# differently (6.0% -> 40 instead of 60), and _build_computed_value_note then
+# injects the wrong number into the prompt as authoritative pre-computed truth.
+# The misread also persists: _detect_diabetes_status scans the whole history,
+# so one question poisons every later note until explicitly contradicted.
+#
+# Two interrogative shapes, vetoed before the positive match rather than
+# folded into it — same structure as _DIFFICULTY_NEGATION_RE above:
+#   (a) the claim sits under an interrogative/conditional head word
+#       ("does that mean I have diabetes", "if I have diabetes", "whether I'm
+#       diabetic"), within a short window so an unrelated later sentence
+#       cannot reach back and veto a real statement;
+#   (b) the claim's own clause ends in "?" — clause-scoped, so a sentence
+#       break between the claim and the question mark blocks the veto
+#       ("I have diabetes. What should I do?" stays a diagnosis).
+#
+# The clause boundary set includes the comma, which is stricter than . and ;
+# alone: "I have diabetes, does that change my score?" is a real self-report
+# followed by a question, and treating the comma as a boundary keeps it. The
+# interrogative-lead cases that a comma would otherwise let through are all
+# caught by (a) anyway.
+#
+# KNOWN LIMITATION: epistemic hedges are not vetoed. "I'm worried I have
+# diabetes" and "I think I have diabetes" still register as positive — there
+# is no interrogative marker and no question mark to key on. Distinguishing
+# worry from diagnosis needs more than surface syntax, and erring toward
+# "treat it as reported" matches the file's existing bias for this population.
+_DIABETES_CLAIM = (
+    r"i(?:'m| am)?\s*(?:a\s+)?diabetic|i\s+have\s+diabetes|my\s+diabetes"
+)
+_DIABETES_INTERROGATIVE_RE = re.compile(
+    r"\b(?:does|do|did|would|if|whether)\b(?:\s+\w+){0,6}?\s+\b(?:"
+    + _DIABETES_CLAIM + r")\b"
+    r"|\b(?:" + _DIABETES_CLAIM + r")\b[^.;?,]*\?",
+    re.IGNORECASE,
+)
+
 
 def _score_hba1c(value: float, has_diabetes: bool) -> int:
     # HbA1c is a percentage of glycated hemoglobin; 0% or negative is not a
@@ -1884,6 +1966,17 @@ def _detect_diabetes_status(text_msgs: list) -> bool | None:
     for text in text_msgs:
         if _DIABETES_NEGATIVE_RE.search(text):
             status = False
+        elif _DIABETES_INTERROGATIVE_RE.search(text):
+            # A question about diabetes, not a report of it. Skip this message
+            # and keep scanning: unlike _DIFFICULTY_NEGATION_RE (which breaks,
+            # because a retracted preference should not fall back to an older
+            # one), asking "does that mean I have diabetes?" says nothing about
+            # a diagnosis stated earlier, so an existing status must survive.
+            logger.info(
+                "diabetes mention vetoed — interrogative/conditional context, "
+                "not a self-reported diagnosis"
+            )
+            continue
         elif _DIABETES_POSITIVE_RE.search(text):
             status = True
     return status
@@ -2977,17 +3070,32 @@ def chatbot():
     ev4_asked     = _ev4_was_asked(history)
     turn_relevant = _exercise_turn_is_relevant(user_message, history)
 
+    # A crisis turn closes the gate outright. CRISIS_SYSTEM_NOTE rule 6 already
+    # defers the exercise/difficulty/mismatch NOTES for this turn, but those
+    # only govern the reply TEXT — exercise_videos rides back on the JSON and
+    # the frontend renders it as cards regardless of what the reply says. So a
+    # user in crisis got a correct, empathetic 988 reply with a row of workout
+    # videos sitting underneath it.
+    #
+    # This has to be its own condition rather than something turn_relevant can
+    # catch: turn_relevant returns True here via its documented EV4 false
+    # positive (see _exercise_turn_is_relevant — it keys off the assistant's
+    # [EV4] question, so ANY message on that turn counts as an exercise turn,
+    # crisis language included). Widening turn_relevant instead would mean
+    # re-opening that trade-off; crisis suppression is a separate concern and
+    # is expressed separately.
     logger.info(
-        "exercise gate — min_filters=%s ev4_asked=%s turn_relevant=%s → %s | "
+        "exercise gate — min_filters=%s ev4_asked=%s turn_relevant=%s is_crisis=%s → %s | "
         "categories=%s format=%s duration=%s-%s exclusions=%s difficulty=%s (%s)",
-        min_filters_set, ev4_asked, turn_relevant,
-        "OPEN" if (min_filters_set and ev4_asked and turn_relevant) else "CLOSED",
+        min_filters_set, ev4_asked, turn_relevant, is_crisis,
+        "OPEN" if (min_filters_set and ev4_asked and turn_relevant
+                   and not is_crisis) else "CLOSED",
         curr_filters.get("categories"), curr_filters.get("format"),
         curr_filters.get("duration_min"), curr_filters.get("duration_max"),
         curr_filters.get("exclusions"), exercise_difficulty, difficulty_source,
     )
 
-    if min_filters_set and ev4_asked and turn_relevant:
+    if min_filters_set and ev4_asked and turn_relevant and not is_crisis:
         exercise_videos, fallback_level, stated_diff_unavailable = (
             _match_exercise_videos(curr_filters, exercise_difficulty,
                                    difficulty_source)
@@ -3040,7 +3148,25 @@ def chatbot():
     # messages), which is a cheap text-level guard that doesn't require an
     # extra embedding call.
     # -----------------------------------------------------------------------
-    if animations:
+    # Crisis turns drop every animation card, for the same reason the exercise
+    # gate above closes: cards are content the user sees no matter what the
+    # reply text says, and CRISIS_SYSTEM_NOTE rule 6 only governs the text.
+    #
+    # This needs its own check rather than relying on the topic filter below,
+    # because that filter is not a topic gate on the CRISIS message — it is a
+    # keyword-overlap test over a 2-message window, and the immediately
+    # preceding assistant message is inside that window. A crisis message also
+    # trips _build_rag_query's enrichment (short + back-reference), so the
+    # embedding query becomes the previous assistant reply, which retrieves
+    # that topic's animations and then passes the overlap test against the very
+    # message that supplied the words. Verified live: a crisis turn after a
+    # sleep reply surfaced "Sleep Hygiene", and after an exercise reply
+    # surfaced "Feel Better Today: Short-Term Benefits of Exercise" — neither
+    # involves the exercise gate at all, so this leak is strictly wider than
+    # the video one.
+    if is_crisis:
+        animations = []
+    elif animations:
         animations = [
             a for a in animations
             if _animation_matches_conversation(
@@ -3135,6 +3261,10 @@ when it sounds medical or health-adjacent. This does NOT apply to genuine
 first-person questions about the user's own health, care, or LE8 numbers — keep
 helping with those exactly as this prompt otherwise describes, including
 redirecting clinical specifics to their care team rather than refusing outright.
+It also does NOT apply to questions about how this app itself works — Fitbit
+connection and data handling, privacy, weather/location availability, and video
+library behavior — which are in scope and answered as KNOWLEDGE BOUNDARY below
+describes, not declined.
 
 Decline — briefly, without answering the substance first — anything matching these
 patterns instead:
@@ -3282,6 +3412,39 @@ KNOWLEDGE BOUNDARY:
 - Exercise prescriptions, nutrition evidence, cancer-specific guidance: use the
   CONTEXT FROM HEALTH LITERATURE section below. Do not cite studies, statistics,
   or guidelines that do not appear in that context.
+- NEVER name a specific organization, clinic, program, or referral resource
+  (e.g. a named rehabilitation institute or fitness program) unless that
+  exact name appears in the CONTEXT below. If no named resource is in
+  context, say "ask your care team for a referral to a program near you"
+  instead of inventing one.
+- NEVER state a specific biological mechanism (e.g. "improves insulin
+  sensitivity," "releases endorphins," "reduces inflammation") to explain
+  WHY something works unless that mechanism is explicitly stated in the
+  CONTEXT. If the context reports an association or outcome without
+  explaining the mechanism, report the outcome and stop there.
+- NEVER attribute a guideline or recommendation to a specific organization
+  (e.g. "the American Cancer Society recommends...") unless that
+  organization is named in the CONTEXT for that specific claim.
+- If the CONTEXT reports a specific finding — a percentage, a statistical
+  comparison, a "no difference" or "significant difference" result — your
+  answer must match that finding's direction exactly. Do not soften,
+  reverse, or generalize away a specific result.
+- Questions about how the app itself works — Fitbit connection and data
+  handling, privacy, weather/location availability, video library behavior
+  — are answered from the app's own documented behavior, not from CONTEXT.
+  The grounding rules above apply to health and exercise evidence, not to
+  app functionality. These questions are in scope: answer them normally
+  rather than declining them as outside what you can help with.
+- Apply the above checks silently. Never narrate that you checked the
+  context, and never use phrases like "the literature notes," "the evidence
+  shows," "study context says," or "provided literature" to introduce a
+  claim. This ban covers every paraphrase of the same move, including "from
+  the information available here," "the information I have here," "based on
+  what I have," "from what's available to me," and "the context I have" —
+  do not reach for a reworded version of a banned phrase. State facts
+  directly and warmly, as you would any other answer. Only mention where
+  information comes from if the user explicitly asks for sources or
+  research backing (see REFERENCES section).
 - The CONTEXT may include chunks from both animation scripts AND research papers.
   When research paper content is present, explicitly draw on it — do not rely
   solely on script content. Diverse sources strengthen the evidence base.

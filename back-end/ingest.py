@@ -78,6 +78,42 @@ _TRANSCRIPT_NOISE = re.compile(
 # places on their own line due to column-layout extraction.
 _RESEARCH_NOISE = re.compile(r"\f")
 
+# ---------------------------------------------------------------------------
+# Bibliography detection.
+#
+# Reference lists embed well against citation-adjacent queries ("what does the
+# research say", "who created the guidelines") and were measured occupying
+# 15.3% of retrieved context slots while carrying no usable content — several
+# claims scored as "supported" only because a search term appeared inside a
+# citation title.
+#
+# Density of citation STRUCTURE is the discriminator, never the mere presence
+# of a number: prose that cites a source must survive untouched.
+# ---------------------------------------------------------------------------
+_REF_NUM_ENTRY = re.compile(
+    r"(?:^|\s)\d{1,3}\.\s+[A-Z][A-Za-z’'\-]+\s+(?:[A-Z]{1,3}\b|[A-Z][a-z]+\s+[A-Z]{1,3}\b)"
+)
+_REF_AUTHORS = re.compile(r"\b[A-Z][a-z]{2,}\s+[A-Z]{1,3}\b[,\.]")
+_REF_JOURNAL_YEAR = re.compile(r"\b(?:19|20)\d{2}\s*[;:]\s*\d+")
+_REF_DOI = re.compile(r"\bdoi:\s*10\.|https?://doi\.org")
+
+
+def _is_bibliography(chunk: str) -> bool:
+    """True if the chunk is a reference list rather than readable content."""
+    t = " ".join(chunk.split())
+    n = len(_REF_NUM_ENTRY.findall(t))
+    a = len(_REF_AUTHORS.findall(t))
+    j = len(_REF_JOURNAL_YEAR.findall(t))
+    d = len(_REF_DOI.findall(t))
+    # An author byline or a journal title page is not a bibliography: require
+    # at least one structural citation signal before author density counts at
+    # all. Without this guard, ACS author lists and title pages get stripped.
+    if n + j + d == 0:
+        return False
+    if n >= 3 or j >= 3 or d >= 3:
+        return True
+    return ((n >= 2) + (j >= 2) + (d >= 2) + (a >= 4)) >= 2
+
 
 def _clean_transcript(text: str) -> str:
     """Clean animation transcript text before chunking."""
@@ -288,8 +324,10 @@ for filename in sorted(files):
                 print(f"  → WARNING: No usable text in {filename}, skipping.")
                 continue
             chunks = splitter.split_text(text)
-            print(f"  → {len(chunks)} chunks created")
-            for i, chunk in enumerate(chunks):
+            kept = [c for c in chunks if not _is_bibliography(c)]
+            dropped = len(chunks) - len(kept)
+            print(f"  → {len(kept)} chunks created ({dropped} reference-list chunks dropped)")
+            for i, chunk in enumerate(kept):
                 all_chunks.append(chunk)
                 all_ids.append(f"chunk_{chunk_index}")
                 all_metadatas.append(
@@ -320,8 +358,10 @@ for filename in sorted(files):
             continue
 
         chunks = splitter.split_text(text)
-        print(f"  → {len(chunks)} chunks created")
-        for i, chunk in enumerate(chunks):
+        kept = [c for c in chunks if not _is_bibliography(c)]
+        dropped = len(chunks) - len(kept)
+        print(f"  → {len(kept)} chunks created ({dropped} reference-list chunks dropped)")
+        for i, chunk in enumerate(kept):
             all_chunks.append(chunk)
             all_ids.append(f"chunk_{chunk_index}")
             all_metadatas.append(

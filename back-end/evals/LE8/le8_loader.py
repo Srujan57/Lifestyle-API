@@ -25,6 +25,7 @@ edits a threshold in app.py, these tests see the edit on the next run.
 
 import ast
 import logging
+import re
 from pathlib import Path
 
 # evals/LE8/le8_loader.py -> evals/LE8 -> evals -> back-end/app.py
@@ -33,32 +34,54 @@ APP_PY = Path(__file__).resolve().parent.parent.parent / "app.py"
 
 def load_functions(*names):
     """
-    Extract the named top-level functions from app.py and return them in a
-    dict. Raises LookupError if any requested name is missing, so a renamed
-    or deleted function fails loudly here instead of silently skipping tests.
+    Extract the named top-level functions AND module-level assignments from
+    app.py and return them in a dict. Raises LookupError if any requested name
+    is missing, so a renamed or deleted function fails loudly here instead of
+    silently skipping tests.
+
+    Assignments are supported because some functions depend on module-level
+    constants compiled at import time — _detect_diabetes_status reads
+    _DIABETES_NEGATIVE_RE / _DIABETES_INTERROGATIVE_RE / _DIABETES_POSITIVE_RE,
+    none of which are FunctionDefs. Requesting them by name here pulls the real
+    compiled pattern rather than a copy re-typed into the test file, which is
+    the whole point of loading from source.
+
+    Definitions are emitted in the order they appear in app.py, not the order
+    requested, so a constant always precedes the function that closes over it.
     """
     source = APP_PY.read_text(encoding="utf-8")
     tree = ast.parse(source)
 
     wanted = set(names)
-    segments = {}
+    segments = {}   # name -> (lineno, source_segment)
     for node in tree.body:
         if isinstance(node, ast.FunctionDef) and node.name in wanted:
-            segments[node.name] = ast.get_source_segment(source, node)
+            segments[node.name] = (node.lineno, ast.get_source_segment(source, node))
+        elif isinstance(node, (ast.Assign, ast.AnnAssign)):
+            targets = node.targets if isinstance(node, ast.Assign) else [node.target]
+            for t in targets:
+                if isinstance(t, ast.Name) and t.id in wanted:
+                    segments[t.id] = (node.lineno, ast.get_source_segment(source, node))
 
     missing = wanted - set(segments)
     if missing:
         raise LookupError(
-            f"Not found as top-level functions in {APP_PY}: {sorted(missing)}. "
-            "They were probably renamed or moved — update the test suite."
+            f"Not found as top-level functions or assignments in {APP_PY}: "
+            f"{sorted(missing)}. They were probably renamed or moved — "
+            "update the test suite."
         )
 
     namespace = {
         # _pa_score logs a warning on malformed payloads. Give it a real logger
         # aimed at nowhere so the guard path runs without polluting test output.
         "logger": logging.getLogger("le8_tests"),
+        # Module-level regex constants are `re.compile(...)` calls, so the
+        # extracted source needs `re` bound to execute at all.
+        "re": re,
     }
-    ordered = "\n\n".join(segments[n] for n in names)
+    ordered = "\n\n".join(
+        seg for _, seg in sorted(segments.values(), key=lambda pair: pair[0])
+    )
     exec("from __future__ import annotations\n" + ordered, namespace)
 
     return {name: namespace[name] for name in names}
